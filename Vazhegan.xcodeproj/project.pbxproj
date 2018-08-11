@@ -132,6 +132,7 @@
 		1A7F8157211F0DF3004BA888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A7F8159211F1F29004BA888 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		1A890183211F423B00429CA7 /* Fabric.Keys */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fabric.Keys; sourceTree = "<group>"; };
+		1A890185211F570500429CA7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1AEAB52D1E5B3202002C20A6 /* Vazhegan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Vazhegan.entitlements; sourceTree = "<group>"; };
 		1AEB41F91E2D655400B379F3 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
 		27497B15C30FA7D2DFBB1921 /* Pods_VazheganActionExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VazheganActionExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +200,7 @@
 		1A70CAC71E2A4C2D008D768B = {
 			isa = PBXGroup;
 			children = (
+				1A890185211F570500429CA7 /* README.md */,
 				1A70CAD21E2A4C2E008D768B /* Vazhegan */,
 				1A7F8103211EEAB2004BA888 /* VazheganFramework */,
 				1A7F8119211EEC0E004BA888 /* VazheganActionExtension */,
