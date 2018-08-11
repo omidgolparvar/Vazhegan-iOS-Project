@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="100" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G1108" minimumToolsVersion="Automatic">
+    <entity name="Word" representedClassName=".Word" syncable="YES">
+        <attribute name="data_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="db" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titleEnglish" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titlePersian" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Word" positionX="-63" positionY="-18" width="128" height="163"/>
+    </elements>
+</model>

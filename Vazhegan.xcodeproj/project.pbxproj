@@ -1,0 +1,1044 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A2C78BC211F2FEC0033F147 /* VazheganBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A2C78BA211F2FEB0033F147 /* VazheganBackgroundView.xib */; };
+		1A2C78BD211F2FEC0033F147 /* VazheganBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C78BB211F2FEC0033F147 /* VazheganBackgroundView.swift */; };
+		1A5371901FB44AEE00F9F534 /* IRANSansMobile_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A53718C1FB44AEE00F9F534 /* IRANSansMobile_Bold.ttf */; };
+		1A5371911FB44AEE00F9F534 /* IRANSansMobile_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A53718D1FB44AEE00F9F534 /* IRANSansMobile_Light.ttf */; };
+		1A5371921FB44AEE00F9F534 /* IRANSansMobile_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A53718E1FB44AEE00F9F534 /* IRANSansMobile_Medium.ttf */; };
+		1A5371931FB44AEE00F9F534 /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A53718F1FB44AEE00F9F534 /* IRANSansMobile.ttf */; };
+		1A70CAD41E2A4C2E008D768B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A70CAD31E2A4C2E008D768B /* AppDelegate.swift */; };
+		1A70CADE1E2A4C2F008D768B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A70CADD1E2A4C2F008D768B /* Assets.xcassets */; };
+		1A70CAE11E2A4C2F008D768B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A70CADF1E2A4C2F008D768B /* LaunchScreen.storyboard */; };
+		1A7F8106211EEAB2004BA888 /* VazheganFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A7F8104211EEAB2004BA888 /* VazheganFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A7F8109211EEAB2004BA888 /* VazheganFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7F8102211EEAB2004BA888 /* VazheganFramework.framework */; };
+		1A7F810A211EEAB2004BA888 /* VazheganFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7F8102211EEAB2004BA888 /* VazheganFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1A7F8110211EEB08004BA888 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F810F211EEB08004BA888 /* Word.swift */; };
+		1A7F8112211EEB17004BA888 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F8111211EEB17004BA888 /* SearchManager.swift */; };
+		1A7F811E211EEC0E004BA888 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F811C211EEC0E004BA888 /* MainInterface.storyboard */; };
+		1A7F8122211EEC0E004BA888 /* VazheganActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1A7F8118211EEC0E004BA888 /* VazheganActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1A7F8128211EED69004BA888 /* V.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F8127211EED69004BA888 /* V.swift */; };
+		1A7F812A211EEECE004BA888 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F8129211EEECE004BA888 /* Requester.swift */; };
+		1A7F812C211EEEF6004BA888 /* Requester+APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F812B211EEEF6004BA888 /* Requester+APIRequests.swift */; };
+		1A7F8133211EEFEA004BA888 /* SearchResultTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F812F211EEFE9004BA888 /* SearchResultTVH.swift */; };
+		1A7F8134211EEFEA004BA888 /* SearchResultTVH.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F8130211EEFE9004BA888 /* SearchResultTVH.xib */; };
+		1A7F8139211EF48D004BA888 /* SearchResultTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F8137211EF48D004BA888 /* SearchResultTVC.swift */; };
+		1A7F813A211EF48D004BA888 /* SearchResultTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F8138211EF48D004BA888 /* SearchResultTVC.xib */; };
+		1A7F813E211EF567004BA888 /* SearchResultWithWordTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F813C211EF567004BA888 /* SearchResultWithWordTVC.swift */; };
+		1A7F813F211EF567004BA888 /* SearchResultWithWordTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F813D211EF567004BA888 /* SearchResultWithWordTVC.xib */; };
+		1A7F8142211EFB83004BA888 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F8141211EFB83004BA888 /* Main.storyboard */; };
+		1A7F8144211EFBC9004BA888 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F8143211EFBC9004BA888 /* SearchController.swift */; };
+		1A7F8147211EFC75004BA888 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F8146211EFC75004BA888 /* AboutController.swift */; };
+		1A7F814E211EFCED004BA888 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F814D211EFCED004BA888 /* Extensions.swift */; };
+		1A7F8151211EFD9B004BA888 /* Messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F8150211EFD9A004BA888 /* Messages.plist */; };
+		1A7F8158211F0DF3004BA888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F8157211F0DF3004BA888 /* Assets.xcassets */; };
+		1A7F815A211F1F29004BA888 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F8159211F1F29004BA888 /* MainNavigationController.swift */; };
+		1A7F815B211F21C2004BA888 /* VazheganFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7F8102211EEAB2004BA888 /* VazheganFramework.framework */; };
+		1A7F815C211F230A004BA888 /* IRANSansMobile_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A53718C1FB44AEE00F9F534 /* IRANSansMobile_Bold.ttf */; };
+		1A7F815D211F230A004BA888 /* IRANSansMobile_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A53718D1FB44AEE00F9F534 /* IRANSansMobile_Light.ttf */; };
+		1A7F815E211F230A004BA888 /* IRANSansMobile_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A53718E1FB44AEE00F9F534 /* IRANSansMobile_Medium.ttf */; };
+		1A7F815F211F230A004BA888 /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A53718F1FB44AEE00F9F534 /* IRANSansMobile.ttf */; };
+		1A7F8160211F230A004BA888 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AEB41F91E2D655400B379F3 /* ionicons.ttf */; };
+		1A890184211F423B00429CA7 /* Fabric.Keys in Resources */ = {isa = PBXBuildFile; fileRef = 1A890183211F423B00429CA7 /* Fabric.Keys */; };
+		1AEB41FA1E2D655400B379F3 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AEB41F91E2D655400B379F3 /* ionicons.ttf */; };
+		1B95F26E02AF907B204A6649 /* Pods_Vazhegan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FC7F245AAFDE035A8CD0CC /* Pods_Vazhegan.framework */; };
+		8010AA5F6BAA8770BB3696F6 /* Pods_VazheganFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B277D22C0CD3097944A627E2 /* Pods_VazheganFramework.framework */; };
+		AFD406E874F1A0ABCA217FA1 /* Pods_VazheganActionExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27497B15C30FA7D2DFBB1921 /* Pods_VazheganActionExtension.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A7F8107211EEAB2004BA888 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A70CAC81E2A4C2D008D768B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A7F8101211EEAB2004BA888;
+			remoteInfo = VazheganFramework;
+		};
+		1A7F8120211EEC0E004BA888 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A70CAC81E2A4C2D008D768B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A7F8117211EEC0E004BA888;
+			remoteInfo = VazheganActionExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1A7F810E211EEAB2004BA888 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1A7F810A211EEAB2004BA888 /* VazheganFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A7F8126211EEC0E004BA888 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1A7F8122211EEC0E004BA888 /* VazheganActionExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08153BD981757E6B814D2F43 /* Pods-VazheganActionExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VazheganActionExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VazheganActionExtension/Pods-VazheganActionExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		1A2C78BA211F2FEB0033F147 /* VazheganBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VazheganBackgroundView.xib; sourceTree = "<group>"; };
+		1A2C78BB211F2FEC0033F147 /* VazheganBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VazheganBackgroundView.swift; sourceTree = "<group>"; };
+		1A53718C1FB44AEE00F9F534 /* IRANSansMobile_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Bold.ttf; sourceTree = "<group>"; };
+		1A53718D1FB44AEE00F9F534 /* IRANSansMobile_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Light.ttf; sourceTree = "<group>"; };
+		1A53718E1FB44AEE00F9F534 /* IRANSansMobile_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Medium.ttf; sourceTree = "<group>"; };
+		1A53718F1FB44AEE00F9F534 /* IRANSansMobile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile.ttf; sourceTree = "<group>"; };
+		1A70CAD01E2A4C2E008D768B /* Vazhegan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vazhegan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A70CAD31E2A4C2E008D768B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1A70CADD1E2A4C2F008D768B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A70CAE01E2A4C2F008D768B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1A70CAE21E2A4C2F008D768B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A7F8102211EEAB2004BA888 /* VazheganFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VazheganFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A7F8104211EEAB2004BA888 /* VazheganFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VazheganFramework.h; sourceTree = "<group>"; };
+		1A7F8105211EEAB2004BA888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A7F810F211EEB08004BA888 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		1A7F8111211EEB17004BA888 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
+		1A7F8118211EEC0E004BA888 /* VazheganActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VazheganActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A7F811D211EEC0E004BA888 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		1A7F811F211EEC0E004BA888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A7F8127211EED69004BA888 /* V.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V.swift; sourceTree = "<group>"; };
+		1A7F8129211EEECE004BA888 /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
+		1A7F812B211EEEF6004BA888 /* Requester+APIRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requester+APIRequests.swift"; sourceTree = "<group>"; };
+		1A7F812F211EEFE9004BA888 /* SearchResultTVH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTVH.swift; sourceTree = "<group>"; };
+		1A7F8130211EEFE9004BA888 /* SearchResultTVH.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultTVH.xib; sourceTree = "<group>"; };
+		1A7F8137211EF48D004BA888 /* SearchResultTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTVC.swift; sourceTree = "<group>"; };
+		1A7F8138211EF48D004BA888 /* SearchResultTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTVC.xib; sourceTree = "<group>"; };
+		1A7F813C211EF567004BA888 /* SearchResultWithWordTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultWithWordTVC.swift; sourceTree = "<group>"; };
+		1A7F813D211EF567004BA888 /* SearchResultWithWordTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultWithWordTVC.xib; sourceTree = "<group>"; };
+		1A7F8141211EFB83004BA888 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1A7F8143211EFBC9004BA888 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		1A7F8146211EFC75004BA888 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
+		1A7F814D211EFCED004BA888 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1A7F8150211EFD9A004BA888 /* Messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Messages.plist; sourceTree = "<group>"; };
+		1A7F8157211F0DF3004BA888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A7F8159211F1F29004BA888 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		1A890183211F423B00429CA7 /* Fabric.Keys */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fabric.Keys; sourceTree = "<group>"; };
+		1AEAB52D1E5B3202002C20A6 /* Vazhegan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Vazhegan.entitlements; sourceTree = "<group>"; };
+		1AEB41F91E2D655400B379F3 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
+		27497B15C30FA7D2DFBB1921 /* Pods_VazheganActionExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VazheganActionExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		319A6C03876D563870A1E7DA /* Pods-Vazhegan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vazhegan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vazhegan/Pods-Vazhegan.debug.xcconfig"; sourceTree = "<group>"; };
+		474E8BEE43DD7C1C6790D8DE /* Pods-VazheganActionExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VazheganActionExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-VazheganActionExtension/Pods-VazheganActionExtension.release.xcconfig"; sourceTree = "<group>"; };
+		5C6732CF75A387FA22CCCC6F /* Pods-Vazhegan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vazhegan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vazhegan/Pods-Vazhegan.release.xcconfig"; sourceTree = "<group>"; };
+		77670FC1A2D770270677C11E /* Pods-VazheganFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VazheganFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-VazheganFramework/Pods-VazheganFramework.release.xcconfig"; sourceTree = "<group>"; };
+		B277D22C0CD3097944A627E2 /* Pods_VazheganFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VazheganFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0FC7F245AAFDE035A8CD0CC /* Pods_Vazhegan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vazhegan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB8D5A80E42FB16276894C6E /* Pods-VazheganFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VazheganFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VazheganFramework/Pods-VazheganFramework.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A70CACD1E2A4C2E008D768B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7F8109211EEAB2004BA888 /* VazheganFramework.framework in Frameworks */,
+				1B95F26E02AF907B204A6649 /* Pods_Vazhegan.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A7F80FE211EEAB2004BA888 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8010AA5F6BAA8770BB3696F6 /* Pods_VazheganFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A7F8115211EEC0E004BA888 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7F815B211F21C2004BA888 /* VazheganFramework.framework in Frameworks */,
+				AFD406E874F1A0ABCA217FA1 /* Pods_VazheganActionExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10A8758038CED57378021BF0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				319A6C03876D563870A1E7DA /* Pods-Vazhegan.debug.xcconfig */,
+				5C6732CF75A387FA22CCCC6F /* Pods-Vazhegan.release.xcconfig */,
+				08153BD981757E6B814D2F43 /* Pods-VazheganActionExtension.debug.xcconfig */,
+				474E8BEE43DD7C1C6790D8DE /* Pods-VazheganActionExtension.release.xcconfig */,
+				FB8D5A80E42FB16276894C6E /* Pods-VazheganFramework.debug.xcconfig */,
+				77670FC1A2D770270677C11E /* Pods-VazheganFramework.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1A2C78BE211F32800033F147 /* VazheganBackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				1A2C78BB211F2FEC0033F147 /* VazheganBackgroundView.swift */,
+				1A2C78BA211F2FEB0033F147 /* VazheganBackgroundView.xib */,
+			);
+			path = VazheganBackgroundView;
+			sourceTree = "<group>";
+		};
+		1A70CAC71E2A4C2D008D768B = {
+			isa = PBXGroup;
+			children = (
+				1A70CAD21E2A4C2E008D768B /* Vazhegan */,
+				1A7F8103211EEAB2004BA888 /* VazheganFramework */,
+				1A7F8119211EEC0E004BA888 /* VazheganActionExtension */,
+				1A70CAD11E2A4C2E008D768B /* Products */,
+				10A8758038CED57378021BF0 /* Pods */,
+				AA792CC720555B4C5BD4EC23 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1A70CAD11E2A4C2E008D768B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A70CAD01E2A4C2E008D768B /* Vazhegan.app */,
+				1A7F8102211EEAB2004BA888 /* VazheganFramework.framework */,
+				1A7F8118211EEC0E004BA888 /* VazheganActionExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A70CAD21E2A4C2E008D768B /* Vazhegan */ = {
+			isa = PBXGroup;
+			children = (
+				1AEAB52D1E5B3202002C20A6 /* Vazhegan.entitlements */,
+				1AEB41F81E2D652E00B379F3 /* Resources */,
+				1A70CAD31E2A4C2E008D768B /* AppDelegate.swift */,
+				1A70CADD1E2A4C2F008D768B /* Assets.xcassets */,
+				1A70CADF1E2A4C2F008D768B /* LaunchScreen.storyboard */,
+				1A70CAE21E2A4C2F008D768B /* Info.plist */,
+				1A890183211F423B00429CA7 /* Fabric.Keys */,
+			);
+			path = Vazhegan;
+			sourceTree = "<group>";
+		};
+		1A7F8103211EEAB2004BA888 /* VazheganFramework */ = {
+			isa = PBXGroup;
+			children = (
+				1A7F8113211EEB1D004BA888 /* Models */,
+				1A7F812D211EEFB2004BA888 /* Views */,
+				1A7F8145211EFC62004BA888 /* Controllers */,
+				1A7F814F211EFD6E004BA888 /* Other */,
+				1A7F8104211EEAB2004BA888 /* VazheganFramework.h */,
+				1A7F8105211EEAB2004BA888 /* Info.plist */,
+			);
+			path = VazheganFramework;
+			sourceTree = "<group>";
+		};
+		1A7F8113211EEB1D004BA888 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A7F810F211EEB08004BA888 /* Word.swift */,
+				1A7F8111211EEB17004BA888 /* SearchManager.swift */,
+				1A7F8127211EED69004BA888 /* V.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1A7F8119211EEC0E004BA888 /* VazheganActionExtension */ = {
+			isa = PBXGroup;
+			children = (
+				1A7F8159211F1F29004BA888 /* MainNavigationController.swift */,
+				1A7F811C211EEC0E004BA888 /* MainInterface.storyboard */,
+				1A7F811F211EEC0E004BA888 /* Info.plist */,
+				1A7F8157211F0DF3004BA888 /* Assets.xcassets */,
+			);
+			path = VazheganActionExtension;
+			sourceTree = "<group>";
+		};
+		1A7F812D211EEFB2004BA888 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A2C78BE211F32800033F147 /* VazheganBackgroundView */,
+				1A7F8136211EF436004BA888 /* SearchResult_TableViewHeader */,
+				1A7F813B211EF528004BA888 /* SearchResult_TableViewCell */,
+				1A7F8140211EF634004BA888 /* SearchResultWithWord_TableViewCell */,
+				1A7F8141211EFB83004BA888 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1A7F8136211EF436004BA888 /* SearchResult_TableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				1A7F812F211EEFE9004BA888 /* SearchResultTVH.swift */,
+				1A7F8130211EEFE9004BA888 /* SearchResultTVH.xib */,
+			);
+			path = SearchResult_TableViewHeader;
+			sourceTree = "<group>";
+		};
+		1A7F813B211EF528004BA888 /* SearchResult_TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1A7F8137211EF48D004BA888 /* SearchResultTVC.swift */,
+				1A7F8138211EF48D004BA888 /* SearchResultTVC.xib */,
+			);
+			path = SearchResult_TableViewCell;
+			sourceTree = "<group>";
+		};
+		1A7F8140211EF634004BA888 /* SearchResultWithWord_TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1A7F813C211EF567004BA888 /* SearchResultWithWordTVC.swift */,
+				1A7F813D211EF567004BA888 /* SearchResultWithWordTVC.xib */,
+			);
+			path = SearchResultWithWord_TableViewCell;
+			sourceTree = "<group>";
+		};
+		1A7F8145211EFC62004BA888 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A7F8143211EFBC9004BA888 /* SearchController.swift */,
+				1A7F8146211EFC75004BA888 /* AboutController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1A7F814F211EFD6E004BA888 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				1A7F8150211EFD9A004BA888 /* Messages.plist */,
+				1A7F8129211EEECE004BA888 /* Requester.swift */,
+				1A7F812B211EEEF6004BA888 /* Requester+APIRequests.swift */,
+				1A7F814D211EFCED004BA888 /* Extensions.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		1AEB41F81E2D652E00B379F3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A53718C1FB44AEE00F9F534 /* IRANSansMobile_Bold.ttf */,
+				1A53718D1FB44AEE00F9F534 /* IRANSansMobile_Light.ttf */,
+				1A53718E1FB44AEE00F9F534 /* IRANSansMobile_Medium.ttf */,
+				1A53718F1FB44AEE00F9F534 /* IRANSansMobile.ttf */,
+				1AEB41F91E2D655400B379F3 /* ionicons.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AA792CC720555B4C5BD4EC23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0FC7F245AAFDE035A8CD0CC /* Pods_Vazhegan.framework */,
+				27497B15C30FA7D2DFBB1921 /* Pods_VazheganActionExtension.framework */,
+				B277D22C0CD3097944A627E2 /* Pods_VazheganFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1A7F80FF211EEAB2004BA888 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7F8106211EEAB2004BA888 /* VazheganFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1A70CACF1E2A4C2E008D768B /* Vazhegan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A70CAE51E2A4C2F008D768B /* Build configuration list for PBXNativeTarget "Vazhegan" */;
+			buildPhases = (
+				653865E411C327EED661862D /* [CP] Check Pods Manifest.lock */,
+				1A70CACC1E2A4C2E008D768B /* Sources */,
+				1A70CACD1E2A4C2E008D768B /* Frameworks */,
+				1A70CACE1E2A4C2E008D768B /* Resources */,
+				9E3E2450EE1A590DAA414659 /* [CP] Embed Pods Frameworks */,
+				D7D69C625E70504E4FBEE3D4 /* [CP] Copy Pods Resources */,
+				1A1017841ED4074D0036FAD3 /* Fabric */,
+				1A1017851ED4137C0036FAD3 /* Increment Build */,
+				1A7F810E211EEAB2004BA888 /* Embed Frameworks */,
+				1A7F8126211EEC0E004BA888 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A7F8108211EEAB2004BA888 /* PBXTargetDependency */,
+				1A7F8121211EEC0E004BA888 /* PBXTargetDependency */,
+			);
+			name = Vazhegan;
+			productName = Vazhegan;
+			productReference = 1A70CAD01E2A4C2E008D768B /* Vazhegan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1A7F8101211EEAB2004BA888 /* VazheganFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A7F810D211EEAB2004BA888 /* Build configuration list for PBXNativeTarget "VazheganFramework" */;
+			buildPhases = (
+				6985562F9E32ADE4873CF4CB /* [CP] Check Pods Manifest.lock */,
+				1A7F80FD211EEAB2004BA888 /* Sources */,
+				1A7F80FE211EEAB2004BA888 /* Frameworks */,
+				1A7F80FF211EEAB2004BA888 /* Headers */,
+				1A7F8100211EEAB2004BA888 /* Resources */,
+				5ED71ADF3F1ADA48A88EB26F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VazheganFramework;
+			productName = VazheganFramework;
+			productReference = 1A7F8102211EEAB2004BA888 /* VazheganFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1A7F8117211EEC0E004BA888 /* VazheganActionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A7F8123211EEC0E004BA888 /* Build configuration list for PBXNativeTarget "VazheganActionExtension" */;
+			buildPhases = (
+				736BD42891A410026FDAA58D /* [CP] Check Pods Manifest.lock */,
+				1A7F8114211EEC0E004BA888 /* Sources */,
+				1A7F8115211EEC0E004BA888 /* Frameworks */,
+				1A7F8116211EEC0E004BA888 /* Resources */,
+				8534D5F29C9F12FB4152F36E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VazheganActionExtension;
+			productName = VazheganActionExtension;
+			productReference = 1A7F8118211EEC0E004BA888 /* VazheganActionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A70CAC81E2A4C2D008D768B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Omid Golparvar";
+				TargetAttributes = {
+					1A70CACF1E2A4C2E008D768B = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = A5T376J6M4;
+						LastSwiftMigration = 0920;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+					1A7F8101211EEAB2004BA888 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+					1A7F8117211EEC0E004BA888 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = A5T376J6M4;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1A70CACB1E2A4C2D008D768B /* Build configuration list for PBXProject "Vazhegan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A70CAC71E2A4C2D008D768B;
+			productRefGroup = 1A70CAD11E2A4C2E008D768B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A70CACF1E2A4C2E008D768B /* Vazhegan */,
+				1A7F8101211EEAB2004BA888 /* VazheganFramework */,
+				1A7F8117211EEC0E004BA888 /* VazheganActionExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A70CACE1E2A4C2E008D768B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A5371931FB44AEE00F9F534 /* IRANSansMobile.ttf in Resources */,
+				1A5371901FB44AEE00F9F534 /* IRANSansMobile_Bold.ttf in Resources */,
+				1A70CAE11E2A4C2F008D768B /* LaunchScreen.storyboard in Resources */,
+				1A5371921FB44AEE00F9F534 /* IRANSansMobile_Medium.ttf in Resources */,
+				1A890184211F423B00429CA7 /* Fabric.Keys in Resources */,
+				1A5371911FB44AEE00F9F534 /* IRANSansMobile_Light.ttf in Resources */,
+				1A70CADE1E2A4C2F008D768B /* Assets.xcassets in Resources */,
+				1AEB41FA1E2D655400B379F3 /* ionicons.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A7F8100211EEAB2004BA888 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7F813F211EF567004BA888 /* SearchResultWithWordTVC.xib in Resources */,
+				1A7F813A211EF48D004BA888 /* SearchResultTVC.xib in Resources */,
+				1A7F8151211EFD9B004BA888 /* Messages.plist in Resources */,
+				1A7F8134211EEFEA004BA888 /* SearchResultTVH.xib in Resources */,
+				1A2C78BC211F2FEC0033F147 /* VazheganBackgroundView.xib in Resources */,
+				1A7F8142211EFB83004BA888 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A7F8116211EEC0E004BA888 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7F8158211F0DF3004BA888 /* Assets.xcassets in Resources */,
+				1A7F815C211F230A004BA888 /* IRANSansMobile_Bold.ttf in Resources */,
+				1A7F815D211F230A004BA888 /* IRANSansMobile_Light.ttf in Resources */,
+				1A7F815E211F230A004BA888 /* IRANSansMobile_Medium.ttf in Resources */,
+				1A7F8160211F230A004BA888 /* ionicons.ttf in Resources */,
+				1A7F811E211EEC0E004BA888 /* MainInterface.storyboard in Resources */,
+				1A7F815F211F230A004BA888 /* IRANSansMobile.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A1017841ED4074D0036FAD3 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 95e542f3124cc844332f7695d52420802a4bfca8 dd893d7ba485a1b545ed5cdebc910c0a704ff392356e587506d206b10e0549a6";
+		};
+		1A1017851ED4137C0036FAD3 /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+		5ED71ADF3F1ADA48A88EB26F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VazheganFramework/Pods-VazheganFramework-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		653865E411C327EED661862D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Vazhegan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6985562F9E32ADE4873CF4CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VazheganFramework-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		736BD42891A410026FDAA58D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VazheganActionExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8534D5F29C9F12FB4152F36E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VazheganActionExtension/Pods-VazheganActionExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E3E2450EE1A590DAA414659 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Vazhegan/Pods-Vazhegan-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PersianSwift/PersianSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PersianSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vazhegan/Pods-Vazhegan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7D69C625E70504E4FBEE3D4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vazhegan/Pods-Vazhegan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A70CACC1E2A4C2E008D768B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A70CAD41E2A4C2E008D768B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A7F80FD211EEAB2004BA888 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7F8128211EED69004BA888 /* V.swift in Sources */,
+				1A7F8147211EFC75004BA888 /* AboutController.swift in Sources */,
+				1A7F8110211EEB08004BA888 /* Word.swift in Sources */,
+				1A7F813E211EF567004BA888 /* SearchResultWithWordTVC.swift in Sources */,
+				1A7F8139211EF48D004BA888 /* SearchResultTVC.swift in Sources */,
+				1A7F812A211EEECE004BA888 /* Requester.swift in Sources */,
+				1A2C78BD211F2FEC0033F147 /* VazheganBackgroundView.swift in Sources */,
+				1A7F8133211EEFEA004BA888 /* SearchResultTVH.swift in Sources */,
+				1A7F8112211EEB17004BA888 /* SearchManager.swift in Sources */,
+				1A7F8144211EFBC9004BA888 /* SearchController.swift in Sources */,
+				1A7F814E211EFCED004BA888 /* Extensions.swift in Sources */,
+				1A7F812C211EEEF6004BA888 /* Requester+APIRequests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A7F8114211EEC0E004BA888 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7F815A211F1F29004BA888 /* MainNavigationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A7F8108211EEAB2004BA888 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A7F8101211EEAB2004BA888 /* VazheganFramework */;
+			targetProxy = 1A7F8107211EEAB2004BA888 /* PBXContainerItemProxy */;
+		};
+		1A7F8121211EEC0E004BA888 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A7F8117211EEC0E004BA888 /* VazheganActionExtension */;
+			targetProxy = 1A7F8120211EEC0E004BA888 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1A70CADF1E2A4C2F008D768B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A70CAE01E2A4C2F008D768B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1A7F811C211EEC0E004BA888 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A7F811D211EEC0E004BA888 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A70CAE31E2A4C2F008D768B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1A70CAE41E2A4C2F008D768B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A70CAE61E2A4C2F008D768B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 319A6C03876D563870A1E7DA /* Pods-Vazhegan.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Vazhegan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.idco.ios.Vazhegan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A70CAE71E2A4C2F008D768B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C6732CF75A387FA22CCCC6F /* Pods-Vazhegan.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Vazhegan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.idco.ios.Vazhegan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1A7F810B211EEAB2004BA888 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB8D5A80E42FB16276894C6E /* Pods-VazheganFramework.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VazheganFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.idco.ios.VazheganFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1A7F810C211EEAB2004BA888 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77670FC1A2D770270677C11E /* Pods-VazheganFramework.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VazheganFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.idco.ios.VazheganFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1A7F8124211EEC0E004BA888 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08153BD981757E6B814D2F43 /* Pods-VazheganActionExtension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5T376J6M4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VazheganActionExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.idco.ios.Vazhegan.VazheganActionExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A7F8125211EEC0E004BA888 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 474E8BEE43DD7C1C6790D8DE /* Pods-VazheganActionExtension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5T376J6M4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VazheganActionExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.idco.ios.Vazhegan.VazheganActionExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A70CACB1E2A4C2D008D768B /* Build configuration list for PBXProject "Vazhegan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A70CAE31E2A4C2F008D768B /* Debug */,
+				1A70CAE41E2A4C2F008D768B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A70CAE51E2A4C2F008D768B /* Build configuration list for PBXNativeTarget "Vazhegan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A70CAE61E2A4C2F008D768B /* Debug */,
+				1A70CAE71E2A4C2F008D768B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A7F810D211EEAB2004BA888 /* Build configuration list for PBXNativeTarget "VazheganFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A7F810B211EEAB2004BA888 /* Debug */,
+				1A7F810C211EEAB2004BA888 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A7F8123211EEC0E004BA888 /* Build configuration list for PBXNativeTarget "VazheganActionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A7F8124211EEC0E004BA888 /* Debug */,
+				1A7F8125211EEC0E004BA888 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A70CAC81E2A4C2D008D768B /* Project object */;
+}
