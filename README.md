@@ -52,7 +52,9 @@
 <a href=''><b>سیب‌اپ</b></a>
 نصبش کنین.
 <br>
-<a href=''><img src='https://sibapp.com/files/Sibapp-Download-Icons/dl-eng.png' alt='' width='200px'></a>
+<a href="https://sibapp.com/applications/vazhegan">
+  <img src="https://sibapp.com/files/Sibapp-Download-Icons/dl-eng.png" alt='' width='200px'>
+</a>
 </p>
 
 <h2 dir='rtl'>خب حالا که چی؟!</h2>
