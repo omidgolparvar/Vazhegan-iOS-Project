@@ -49,7 +49,7 @@
 <h2 dir='rtl'>چه باحاله!! از کجا نصب کنیم؟!</h2>
 <p dir='rtl'>
 برنامه رو برای اپ‌استور ثبت کردم، ولی به احتمال بسیار زیاد رد خواهد شد. بهرحال تا اون موقع می‌تونین از طریق 
-<a href=''><b>سیب‌اپ</b></a>
+<a href='https://sibapp.com/applications/vazhegan'><b>سیب‌اپ</b></a>
 نصبش کنین.
 <br>
 <a href="https://sibapp.com/applications/vazhegan">
