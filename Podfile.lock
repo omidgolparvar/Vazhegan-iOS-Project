@@ -1,25 +1,71 @@
 PODS:
-  - Alamofire (4.6.0)
+  - Alamofire (4.8.2)
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
   - Fabric (1.7.2)
-  - PersianSwift (1.6)
-  - SwiftyJSON (4.0.0)
+  - IDExt (2.9.1):
+    - Alamofire
+    - Kingfisher
+    - PersianSwift
+    - PKHUD (~> 5.0)
+    - SPStorkController
+    - SwiftEntryKit (= 0.8.4)
+    - SwiftyJSON
+    - UIDeviceComplete
+  - Kingfisher (5.3.0)
+  - PersianSwift (1.7)
+  - PKHUD (5.2.1)
+  - QuickLayout (2.1.1)
+  - Realm (3.14.0):
+    - Realm/Headers (= 3.14.0)
+  - Realm/Headers (3.14.0)
+  - RealmSwift (3.14.0):
+    - Realm (= 3.14.0)
+  - SPStorkController (1.6)
+  - SwiftEntryKit (0.8.4):
+    - QuickLayout (= 2.1.1)
+  - SwiftyJSON (4.2.0)
+  - UIDeviceComplete (2.2.0)
 
 DEPENDENCIES:
-  - Alamofire
   - Crashlytics
   - Fabric
-  - PersianSwift
-  - SwiftyJSON
+  - IDExt
+  - RealmSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Crashlytics
+    - Fabric
+    - IDExt
+    - Kingfisher
+    - PersianSwift
+    - PKHUD
+    - QuickLayout
+    - Realm
+    - RealmSwift
+    - SPStorkController
+    - SwiftEntryKit
+    - SwiftyJSON
+    - UIDeviceComplete
 
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
-  PersianSwift: 1f0243b75fbda9490dc8fc22d90595ba164d968c
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  IDExt: 9d8b2ac3fd0b7800860075f6e686689b4ae4c3fa
+  Kingfisher: 4692c783ffb99e9e2e40a6eb3e518c3b96c6fa8c
+  PersianSwift: 62df26448d66d29e0ebe57f988fff4ae1fed204c
+  PKHUD: 4e6162c4c39ac367c6934e9855c6b4762ee16256
+  QuickLayout: 9af2b7fd89a6552828f51a5aba28d1bcdb8b340c
+  Realm: 221b25919bb5a010a3c597d707f8df3492dcd93a
+  RealmSwift: 28f22dfa6a27b9a778cfb09471558b6afcf1022c
+  SPStorkController: 54293a8a1ca3c691a09eb6274b6e487b602e975a
+  SwiftEntryKit: f0dd54bb0fb9f234738cd15a32365265cb975be8
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  UIDeviceComplete: 382405baab699981dbb95fed1cee43583977967a
 
-PODFILE CHECKSUM: 11f09d4778ae9f34ea916450b055b449693b0fc5
+PODFILE CHECKSUM: 9dc483b274cf84d5377177513e9b6ec0e8f7dcd2
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

@@ -21,7 +21,7 @@ public class SearchResultWithWordTVC: UITableViewCell {
 	
 	public func setup(forWord word: Word) {
 		labelWord.text = word.titlePersian
-		labelMeaning.text = word.text?.ps.withPersianDigits
+		labelMeaning.text = word.text.ps.withPersianDigits
 		labelDatabase.text = word.source
 	}
 	

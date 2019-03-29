@@ -7,38 +7,26 @@
 //
 
 import Foundation
+import IDExt
 
 extension UIColor {
 	
-	public convenience init(hexCode: String) {
-		var colorCode: String = hexCode
-		
-		if (colorCode.hasPrefix("#")) {
-			let startIndex = colorCode.index(colorCode.startIndex, offsetBy: 1)
-			colorCode = String(colorCode[startIndex...])
-		}
-		
-		var rgbValue: UInt32 = 0
-		Scanner(string: colorCode).scanHexInt32(&rgbValue)
-		
-		self.init(
-			red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-			green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-			blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-			alpha: CGFloat(1.0)
-		)
+	public static var V: UIColor {
+		return UIColor.ID_Initialize(hexCode: "#4527A0")
 	}
 	
 }
 
 extension String {
 	
-	public var trimmed: String {
+	public var cleanedFromInvalidPersianCharacters: String {
 		return self
-			.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+			.replacingOccurrences(of: "ي", with: "ی")
+			.replacingOccurrences(of: "ك", with: "ک")
+			.replacingOccurrences(of: "ى", with: "ی")
 	}
 	
-	public var cleaned: String {
+	public var cleanedFromSpacesAndTabs: String {
 		return self
 			.replacingOccurrences(of: "\n", with: "")
 			.replacingOccurrences(of: "\t", with: "")

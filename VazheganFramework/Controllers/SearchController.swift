@@ -12,7 +12,6 @@ import MobileCoreServices
 class SearchController: UITableViewController {
 	
 	private var searchBar		: UISearchBar?
-	private var searchManager	: SearchManager!
 	
 	var queryText				: String? = nil
 	
@@ -22,16 +21,19 @@ class SearchController: UITableViewController {
 	}
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
-		guard let searchManager = searchManager else { return 0 }
-		return searchManager.numberOfSections()
+		return 0
+		//guard let searchManager = searchManager else { return 0 }
+		//return searchManager.numberOfSections()
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return searchManager.numberOfRows(in: section)
+		return 0
+		//return searchManager.numberOfRows(in: section)
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return searchManager.cellForRow(at: indexPath, with: tableView)
+		return UITableViewCell()
+		//return searchManager.cellForRow(at: indexPath, with: tableView)
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -39,11 +41,11 @@ class SearchController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return UITableViewAutomaticDimension
+		return UITableView.automaticDimension
 	}
 	
 	override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-		return UITableViewAutomaticDimension
+		return UITableView.automaticDimension
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -52,7 +54,7 @@ class SearchController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchResultTVH") as! SearchResultTVH
-		header.setup(forSearchResult: searchManager.searchResult[section])
+		//header.setup(forSearchResult: searchManager.searchResult[section])
 		return header
 	}
 	
@@ -62,43 +64,26 @@ extension SearchController: UISearchBarDelegate {
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		searchBar.resignFirstResponder()
-		guard let text = searchBar.text?.trimmed, !text.isEmpty else {
+		guard let text = searchBar.text?.id_Trimmed, !text.isEmpty else {
 			searchBar.text = ""
-			searchManager.cancelSearchAndRemoveResults()
+			//searchManager.cancelSearchAndRemoveResults()
 			return
 		}
-		searchManager.search(for: text)
+		//searchManager.search(for: text)
 	}
 	
 	func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-		let text = searchBar.text?.trimmed ?? ""
+		let text = searchBar.text?.id_Trimmed ?? ""
 		if text.isEmpty {
 			searchBar.text = text
-			searchManager.cancelSearchAndRemoveResults()
+			//searchManager.cancelSearchAndRemoveResults()
 		}
 		return true
 	}
 	
 }
 
-extension SearchController: SearchManagerDelegate {
-	
-	func searchManagerDidStartSearching(for text: String) {
-		tableView.reloadData()
-		searchBar?.resignFirstResponder()
-		setupViews_TableViewBackgroundView(isNil: true)
-	}
-	
-	func searchManagerDidEndSearching(for section: Int) {
-		tableView.reloadSections([section], with: .automatic)
-	}
-	
-	func searchManagerDidCancelSearching() {
-		tableView.reloadData()
-		setupViews_TableViewBackgroundView(isNil: false)
-	}
-	
-}
+
 
 extension SearchController {
 	
@@ -107,11 +92,11 @@ extension SearchController {
 			let textItemProvider = textItem.attachments?[0] as? NSItemProvider,
 			textItemProvider.hasItemConformingToTypeIdentifier(kUTTypeText as String) {
 			textItemProvider.loadItem( forTypeIdentifier: kUTTypeText as String, options: nil) { [weak self] (result, error) in
-				
+				/*
 				if let string = (result as? String)?.trimmed, !string.isEmpty {
 					self?.queryText = string
 				}
-				
+				*/
 				DispatchQueue.main.async { [weak self] in self?.setupViews() }
 			}
 		} else {
@@ -150,20 +135,14 @@ extension SearchController {
 		if isNil {
 			tableView.backgroundView = nil
 		} else {
-			let bgView = VazheganBackgroundView(frame: tableView.frame)
-			bgView.set(viewController: self)
-			tableView.backgroundView = bgView
+			//let bgView = VazheganBackgroundView(frame: tableView.frame)
+			//bgView.set(viewController: self)
+			//tableView.backgroundView = bgView
 		}
 	}
 	
 	private func setupSearchManager() {
-		searchManager = SearchManager(delegate: self)
-		searchManager.delegate?.searchManagerDidCancelSearching()
-		tableView.reloadData()
 		
-		if let text = queryText {
-			searchManager.search(for: text)
-		}
 	}
 	
 	@objc

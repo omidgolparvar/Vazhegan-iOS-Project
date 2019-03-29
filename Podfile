@@ -1,4 +1,4 @@
-platform :ios, '9.3'
+platform :ios, '10.0'
 
 target 'Vazhegan' do
   use_frameworks!
@@ -19,7 +19,10 @@ end
 target 'VazheganFramework' do
   use_frameworks!
 
-  pod 'Alamofire'
-  pod 'SwiftyJSON'
-  pod 'PersianSwift'
+  pod 'IDExt'
+#  pod 'Alamofire'
+#  pod 'SwiftyJSON'
+#  pod 'PersianSwift'
+  pod 'RealmSwift'
+
 end

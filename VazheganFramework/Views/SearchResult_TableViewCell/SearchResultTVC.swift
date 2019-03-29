@@ -19,7 +19,7 @@ public class SearchResultTVC: UITableViewCell {
 	}
 	
 	public func setup(forWord word: Word) {
-		labelMeaning.text = word.text?.ps.withPersianDigits
+		labelMeaning.text = word.text.ps.withPersianDigits
 		labelDatabase.text = word.source
 	}
     

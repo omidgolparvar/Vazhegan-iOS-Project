@@ -16,9 +16,9 @@ public class SearchResultTVH: UITableViewHeaderFooterView {
 	@IBOutlet weak var labelTitle	: UILabel!
 	@IBOutlet weak var labelDetail	: UILabel!
 	
-	public func setup(forSearchResult searchResult: SearchManager.SearchResultArrayItem) {
+	public func setup() {
+		/*
 		labelTitle.text = searchResult.type.Persian
-		
 		if searchResult.isWaiting {
 			labelDetail.text = V.StringFromPlist(file: "Messages", named: "Header_Waiting")
 		} else if searchResult.hasError {
@@ -28,6 +28,7 @@ public class SearchResultTVH: UITableViewHeaderFooterView {
 		} else {
 			labelDetail.text = String(format: V.StringFromPlist(file: "Messages", named: "Header_Result"), searchResult.result.count.ps.stringWithPersianDigits)
 		}
+		*/
 	}
 
 }

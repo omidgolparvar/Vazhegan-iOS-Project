@@ -7,29 +7,41 @@
 //
 
 import Foundation
-import SwiftyJSON
-import UIKit
+import RealmSwift
+import IDExt
 
-public final class Word {
+public final class Word: Object {
 	
-	public var data_id		: String?	= ""
-	public var id			: String?	= ""
-	public var titlePersian	: String?	= ""
-	public var titleEnglish	: String?	= ""
-	public var db			: String?	= ""
-	public var text			: String?	= ""
-	public var source		: String?	= ""
-	public var number		: NSNumber?	= 0
+	@objc dynamic public var data_id		: String	= ""
+	@objc dynamic public var id				: String	= ""
+	@objc dynamic public var titlePersian	: String	= ""
+	@objc dynamic public var titleEnglish	: String	= ""
+	@objc dynamic public var db				: String	= ""
+	@objc dynamic public var text			: String	= ""
+	@objc dynamic public var source			: String	= ""
+	@objc dynamic public var number			: Int		= 0
 	
-	convenience init(fromJSON data: JSON) {
+	public convenience init?(from json: IDMoya.JSON) {
+		let dynamicJSON = IDDynamicJSON(from: json)
+		
+		guard
+			let _id = dynamicJSON.id?.json?.string,
+			let _titlePersian = dynamicJSON.title?.json?.string,
+			let _titleEnglish = dynamicJSON.title_en?.json?.string,
+			let _text = dynamicJSON.text?.json?.string,
+			let _source = dynamicJSON.source?.json?.string,
+			let _db = dynamicJSON.db?.json?.string,
+			let _number = dynamicJSON.num?.json?.int
+			else { return nil }
+		
 		self.init()
-		id = data[V.Keys.Id].string
-		titlePersian = data[V.Keys.TitlePersian].string
-		titleEnglish = data[V.Keys.TitleEnglish].string
-		text = data[V.Keys.Text].string
-		source = data[V.Keys.Source].string
-		db = data[V.Keys.DB].string
-		number = data[V.Keys.Number].number
+		self.id				= _id
+		self.titlePersian	= _titlePersian
+		self.titleEnglish	= _titleEnglish
+		self.text			= _text
+		self.source			= _source
+		self.db				= _db
+		self.number			= _number
 	}
 	
 }

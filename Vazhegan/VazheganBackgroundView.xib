@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IRANSansMobile.ttf">
+            <string>IRANSansMobile</string>
+        </array>
+        <array key="IRANSansMobile_Bold.ttf">
+            <string>IRANSansMobile-Bold</string>
+        </array>
+        <array key="ionicons.ttf">
+            <string>Ionicons</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VazheganBackgroundView" customModule="Vazhegan" customModuleProvider="target">
+            <connections>
+                <outlet property="button_About" destination="dxZ-iN-QbV" id="9ce-1o-KhN"/>
+                <outlet property="button_MyWords" destination="CMa-Ft-VKo" id="P5z-hY-3Ci"/>
+                <outlet property="button_Settings" destination="oiV-Q2-eVg" id="9Ox-Zf-6Ey"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Wxa-ia-fcS">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Gmj-mK-sJe">
+                    <rect key="frame" x="135" y="539" width="192" height="56"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxZ-iN-QbV">
+                            <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+                            <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="dxZ-iN-QbV" secondAttribute="height" id="Ogo-8O-VWJ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Ionicons" family="Ionicons" pointSize="28"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title=""/>
+                            <connections>
+                                <action selector="action_PresentAboutController:" destination="-1" eventType="touchUpInside" id="EQ0-jn-vnR"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMa-Ft-VKo">
+                            <rect key="frame" x="68" y="0.0" width="56" height="56"/>
+                            <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="CMa-Ft-VKo" secondAttribute="height" id="N5U-0U-CPg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Ionicons" family="Ionicons" pointSize="28"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title=""/>
+                            <connections>
+                                <action selector="action_PresentMyWords:" destination="-1" eventType="touchUpInside" id="1Kk-Zt-1HP"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiV-Q2-eVg">
+                            <rect key="frame" x="136" y="0.0" width="56" height="56"/>
+                            <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="oiV-Q2-eVg" secondAttribute="height" id="AXO-wb-Hpp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Ionicons" family="Ionicons" pointSize="28"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title=""/>
+                            <connections>
+                                <action selector="action_PresentSettingsController:" destination="-1" eventType="touchUpInside" id="Wp4-k5-SVf"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="5KX-gu-c4x"/>
+                    </constraints>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="دختر فیلمی به کارگردانی و تهیه‌کنندگی رضا میرکریمی و نویسندگی مهران کاشانی محصول سال ۱۳۹۴ است." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9e1-EL-hgS">
+                    <rect key="frame" x="48" y="442" width="279" height="61"/>
+                    <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="16"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="واژگــان" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJr-oC-01K">
+                    <rect key="frame" x="48" y="375.5" width="279" height="50.5"/>
+                    <fontDescription key="fontDescription" name="IRANSansMobile-Bold" family="IRANSansMobile" pointSize="40"/>
+                    <color key="textColor" red="0.25449702143669128" green="0.15729665756225586" blue="0.60395795106887817" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="9e1-EL-hgS" firstAttribute="top" secondItem="QJr-oC-01K" secondAttribute="bottom" constant="16" id="6nP-9S-6uu"/>
+                <constraint firstItem="Gmj-mK-sJe" firstAttribute="top" secondItem="9e1-EL-hgS" secondAttribute="bottom" constant="36" id="8hS-c9-BTE"/>
+                <constraint firstItem="9e1-EL-hgS" firstAttribute="leading" secondItem="orj-4z-FhK" secondAttribute="leading" constant="48" id="CgH-j9-het"/>
+                <constraint firstItem="orj-4z-FhK" firstAttribute="trailing" secondItem="QJr-oC-01K" secondAttribute="trailing" constant="48" id="LRY-JS-HlR"/>
+                <constraint firstItem="orj-4z-FhK" firstAttribute="bottom" secondItem="Gmj-mK-sJe" secondAttribute="bottom" constant="72" id="U30-hK-FaM"/>
+                <constraint firstItem="orj-4z-FhK" firstAttribute="trailing" secondItem="9e1-EL-hgS" secondAttribute="trailing" constant="48" id="VJ8-Lq-Kxq"/>
+                <constraint firstItem="QJr-oC-01K" firstAttribute="leading" secondItem="orj-4z-FhK" secondAttribute="leading" constant="48" id="vjQ-hl-aKy"/>
+                <constraint firstItem="orj-4z-FhK" firstAttribute="trailing" secondItem="Gmj-mK-sJe" secondAttribute="trailing" constant="48" id="xKy-Xs-9nw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="orj-4z-FhK"/>
+            <point key="canvasLocation" x="61" y="165"/>
+        </view>
+    </objects>
+</document>
