@@ -2,8 +2,8 @@
 //  VazheganFramework.h
 //  VazheganFramework
 //
-//  Created by Omid Golparvar on 8/11/18.
-//  Copyright © 2018 Omid Golparvar. All rights reserved.
+//  Created by Omid Golparvar on 4/16/19.
+//  Copyright © 2019 Omid Golparvar. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

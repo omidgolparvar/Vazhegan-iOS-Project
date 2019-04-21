@@ -7,124 +7,197 @@
 //
 
 import Foundation
-import IDExt
+
+public protocol SearcherHeaderDelegate: NSObjectProtocol {
+	func performSearch(text: String, type: Searcher.ResultType)
+}
 
 public final class Searcher: NSObject {
 	
-	private typealias SearchStatuses		= (exact: SearchStatus, ava: SearchStatus, like: SearchStatus, text: SearchStatus)
+	private typealias SearchStatuses = (exact: SearchStatus, ava: SearchStatus, like: SearchStatus, text: SearchStatus)
 	
 	private weak var controller	: UIViewController!
 	private weak var tableView	: UITableView!
 	
-	private var currentQuery	: String?
-	private var currentStatuses	: SearchStatuses
-	
-	#warning("این بدرد می‌خوره تا داده‌های دریافتی رو پردازش کنم.")
-	//let array = JSON(d)["data"]["result"].array
+	private var currentQuery		: String?
+	private var currentStatuses		: SearchStatuses?
+	private var onTapRowClosure		: ((Word) -> Void)?
 	
 	public init(controller: UIViewController, tableView: UITableView) {
 		self.controller			= controller
 		self.tableView			= tableView
 		
 		self.currentQuery		= nil
-		self.currentStatuses	= (.inactive, .inactive, .inactive, .inactive)
+		self.currentStatuses	= nil
 		
 		super.init()
 		
 		setupTableView()
 	}
 	
-	public func cancelSearch() {
-		
-	}
-	
 	private func setupTableView() {
-		tableView.id_RemoveExtraSeparatorLines()
-		tableView.id_SetDelegateAndDataSource(to: self)
+		tableView.removeExtraSeparatorLines()
+		tableView.setDelegateAndDataSource(to: self)
 		
-		/*
 		let frameworkBundle = V.FrameworkBundle
-		tableView.register(UINib(nibName: "SearchResultTVH", bundle: frameworkBundle), forHeaderFooterViewReuseIdentifier: "SearchResultTVH")
-		tableView.register(UINib(nibName: "SearchResultTVC", bundle: frameworkBundle), forCellReuseIdentifier: "SearchResultTVC")
-		tableView.register(UINib(nibName: "SearchResultWithWordTVC", bundle: frameworkBundle), forCellReuseIdentifier: "SearchResultWithWordTVC")
-		*/
+		
+		tableView.registerVCell(cellType: SearchResultCell.self, bundle: frameworkBundle)
+		tableView.registerVCell(cellType: SearchResultWithWordCell.self, bundle: frameworkBundle)
+		tableView.registerVCell(cellType: ErrorCell.self, bundle: frameworkBundle)
+		tableView.registerVCell(cellType: SearchingCell.self, bundle: frameworkBundle)
+		
+		let headerNib = UINib(nibName: "SearchResultHeader", bundle: frameworkBundle)
+		tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "SearchResultHeader")
 	}
 	
+	public func shouldPerformNewSearch(for text: String) -> Bool {
+		let query = text.trimmed
+		guard let currentQuery = self.currentQuery else { return true }
+		return query != currentQuery
+	}
 	
-	public func searchWord(for text: String, type: ResultType) {
-		#warning("براساس پایگاه داده‌های انتخابی کاربر، اون فیلد filter باید مقداردهی بشه.")
+	public func startSearch(for text: String) {
+		guard shouldPerformNewSearch(for: text) else { return }
+		cancelSearch()
+		let query = text.trimmed
+		currentStatuses = (
+			.inactive(text: text, type: .exact),
+			.inactive(text: text, type: .ava),
+			.inactive(text: text, type: .like),
+			.inactive(text: text, type: .text)
+		)
+		tableView.reloadData()
+		searchWord(for: query, type: .exact)
+	}
+	
+	public func cancelSearch() {
+		guard let currentStatuses = currentStatuses else { return }
+		let array = [currentStatuses.exact, currentStatuses.ava, currentStatuses.like, currentStatuses.text]
+		for case let .searching(dataRequest) in array {
+			dataRequest?.cancel()
+		}
+		self.currentQuery = nil
+		self.currentStatuses = nil
+		tableView.reloadData()
+	}
+	
+	public func onTapRow(_ closure: @escaping (Word) -> Void) {
+		onTapRowClosure = closure
+	}
+	
+	private func searchWord(for text: String, type: ResultType) {
+		guard let _ = currentStatuses else { return }
+		
+		let enabledDatabases = Database.All
+			.filter { $0.isEnabled }
+			.map { $0.identifier }
+			.joined(separator: ",")
 		
 		let query = text.cleanedFromInvalidPersianCharacters
-		let endpoint = IDMoyaEndpointObject(
+		let endpoint = MiniAlamoEndpointObject(
 			identifier		: nil,
 			baseURLString	: V.ApiURL,
 			path			: "search",
 			method			: .get,
-			encoding		: IDMoya.URLEncoding.queryString,
+			encoding		: MiniAlamo.URLEncoding.queryString,
 			parameters		: [
 				"token"	: V.Token,
 				"q"		: query,
 				"type"	: type.rawValue,
 				"start"	: 0,
 				"rows"	: 30,
-				"filter": ""
+				"filter": enabledDatabases
 			],
-			headers			: nil,
-			useOAuth		: false
+			headers			: nil
 		)
 		
-		let request = IDMoya.Perform(endpoint) { (result, data) in
+		let request = MiniAlamo.Perform(endpoint) { [weak self] (result, data) in
+			guard let _self = self else { return }
 			
+			switch result {
+			case .success:
+				if	let data = data,
+					let array = MiniAlamo.JSON(data)["data"]["results"].array {
+					let words = array.compactMap({ Word(from: $0) })
+					_self.setupCurrentStatuses(searchStatus: .success(results: words), forResultType: type)
+					_self.saveQueryToHistory(for: text)
+				} else {
+					let error = VError.requestWithInvalidResponse
+					_self.setupCurrentStatuses(searchStatus: .failed(error: error, word: text, type: type), forResultType: type)
+				}
+			case .requestCanceled:
+				break
+			default:
+				let error = VError.withData(data)
+				_self.setupCurrentStatuses(searchStatus: .failed(error: error, word: text, type: type), forResultType: type)
+			}
 		}
 		
-		switch type {
-		case .ava	: currentStatuses.ava	= .searching(dataRequest: request)
-		case .exact	: currentStatuses.exact	= .searching(dataRequest: request)
-		case .like	: currentStatuses.like	= .searching(dataRequest: request)
-		case .text	: currentStatuses.text	= .searching(dataRequest: request)
-		}
-		
+		self.currentQuery = text
+		self.tableView.removeBackgroundView()
+		setupCurrentStatuses(searchStatus: .searching(dataRequest: request), forResultType: type)
 	}
 	
-	public func getMeaning(of word: Word) {
-		let endpoint = IDMoyaEndpointObject(
-			identifier		: nil,
-			baseURLString	: V.ApiURL,
-			path			: "word",
-			method			: .get,
-			encoding		: IDMoya.URLEncoding.queryString,
-			parameters		: [
-				"token"	: V.Token,
-				"title"	: word.titlePersian,
-				"db"	: word.db,
-				"num"	: word.number
-			],
-			headers			: nil,
-			useOAuth		: false
-		)
-		
-		IDMoya.Perform(endpoint) { (result, data) in
-			
-		}
-	}
-	
-	public func getSuggest(for query: String) {
-		let endpoint = IDMoyaEndpointObject(
+	private func getSuggest(for query: String) {
+		let endpoint = MiniAlamoEndpointObject(
 			identifier		: nil,
 			baseURLString	: V.ApiURL,
 			path			: "suggest",
 			method			: .get,
-			encoding		: IDMoya.URLEncoding.queryString,
+			encoding		: MiniAlamo.URLEncoding.queryString,
 			parameters		: [
 				"token"	: V.Token,
 				"q"		: query
 			],
-			headers			: nil,
-			useOAuth		: false
+			headers			: nil
 		)
 		
-		IDMoya.Perform(endpoint) { (result, data) in
+		MiniAlamo.Perform(endpoint) { (result, data) in
 			
+		}
+	}
+	
+	private func setupCurrentStatuses(searchStatus: SearchStatus, forResultType resultType: ResultType) {
+		guard self.currentStatuses != nil else { return }
+		
+		switch resultType {
+		case .ava	: currentStatuses!.ava		= searchStatus
+		case .exact	: currentStatuses!.exact	= searchStatus
+		case .like	: currentStatuses!.like		= searchStatus
+		case .text	: currentStatuses!.text		= searchStatus
+		}
+		
+		tableView.reloadSections([resultType.sectionNumber], with: .automatic)
+	}
+	
+	private func getSearchStatus(forSection section: Int) -> SearchStatus? {
+		guard let currentStatuses = currentStatuses else { return nil }
+		switch section {
+		case 0	: return currentStatuses.exact
+		case 1	: return currentStatuses.ava
+		case 2	: return currentStatuses.like
+		case 3	: return currentStatuses.text
+		default	: fatalError("Searcher - \(#function):: Wrong Section: \(section)")
+		}
+	}
+	
+	private func getResultType(forSection section: Int) -> ResultType {
+		switch section {
+		case 0	: return .exact
+		case 1	: return .ava
+		case 2	: return .like
+		case 3	: return .text
+		default	: fatalError("Searcher - \(#function):: Wrong Section: \(section)")
+		}
+	}
+	
+	private func saveQueryToHistory(for text: String) {
+		let query = Query(query: text)
+		let predicate = NSPredicate.init(format: "query == %@", query.query)
+		if let existingQuery = V.RealmObject.objects(Query.self).filter(predicate).first {
+			existingQuery.setLastRequestDateToNow()
+		} else {
+			query.save()
 		}
 	}
 	
@@ -133,20 +206,136 @@ public final class Searcher: NSObject {
 extension Searcher: UITableViewDataSource, UITableViewDelegate {
 	
 	public func numberOfSections(in tableView: UITableView) -> Int {
-		return 0
+		return currentStatuses == nil ? 0 : 4
 	}
 	
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 0
+		return getSearchStatus(forSection: section)?.numberOfRows ?? 0
 	}
 	
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return UITableViewCell()
+		guard let _ = self.currentStatuses else {
+			fatalError("Searcher - \(#function):: CurrentStatuses is Nil.")
+		}
+		let type = getSearchStatus(forSection: indexPath.section)!
+		
+		switch type {
+		case .inactive:
+			fatalError("Searcher - \(#function):: Wrong IndexPath.Row: \(indexPath.row)")
+		case .failed(let error):
+			let cell = tableView.dequeueReusableVCell(ErrorCell.self, for: indexPath)
+			cell.setup(with: error.error) { [weak self] in
+				guard let _self = self else { return }
+				_self.searchWord(for: error.word, type: error.type)
+			}
+			return cell
+		case .searching:
+			let cell = tableView.dequeueReusableVCell(SearchingCell.self, for: indexPath)
+			cell.setup()
+			return cell
+		case .success(let results):
+			let type = getResultType(forSection: indexPath.section)
+			switch type {
+			case .exact:
+				let cell = tableView.dequeueReusableVCell(SearchResultCell.self, for: indexPath)
+				cell.setup(forWord: results[indexPath.row])
+				return cell
+			case .ava, .like, .text:
+				let cell = tableView.dequeueReusableVCell(SearchResultWithWordCell.self, for: indexPath)
+				cell.setup(forWord: results[indexPath.row])
+				return cell
+
+			}
+		}
+	}
+	
+	public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return UITableView.automaticDimension
+	}
+	
+	public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		return UITableView.automaticDimension
+	}
+	
+	public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 56.0
+	}
+	
+	public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		guard
+			let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchResultHeader") as? SearchResultHeader,
+			let currentStatuses = currentStatuses
+			else { return nil }
+		
+		var type: (ResultType, SearchStatus)
+		switch section {
+		case 0	: type = (.exact, currentStatuses.exact)
+		case 1	: type = (.ava, currentStatuses.ava)
+		case 2	: type = (.like, currentStatuses.like)
+		case 3	: type = (.text, currentStatuses.text)
+		default	: fatalError("Searcher - \(#function):: Wrong Section: \(section)")
+		}
+		
+		header.setup(delegate: self, for: type)
+		
+		return header
+	}
+	
+	public func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+		guard let _ = onTapRowClosure else { return }
+		guard let type = getSearchStatus(forSection: indexPath.section) else { return }
+		
+		switch type {
+		case .success:
+			let cell = tableView.cellForRow(at: indexPath)
+			UIView.animate(withDuration: 0.2) {
+				cell?.backgroundColor = .Initialize(hexCode: "EFEFEF")
+			}
+		default:
+			return
+		}
+	}
+	
+	public func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+		guard let _ = onTapRowClosure else { return }
+		guard let type = getSearchStatus(forSection: indexPath.section) else { return }
+		
+		switch type {
+		case .success:
+			let cell = tableView.cellForRow(at: indexPath)
+			UIView.animate(withDuration: 0.2) {
+				cell?.backgroundColor = .white
+			}
+		default:
+			return
+		}
+	}
+	
+	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		guard let closure = onTapRowClosure else { return }
+		guard let type = getSearchStatus(forSection: indexPath.section) else { return }
+		
+		switch type {
+		case .success(let results):
+			let word = results[indexPath.row]
+			DispatchQueue.main.async {
+				closure(word)
+			}
+		default:
+			return
+		}
+	}
+}
+
+extension Searcher: SearcherHeaderDelegate {
+	
+	public func performSearch(text: String, type: Searcher.ResultType) {
+		self.searchWord(for: text, type: type)
 	}
 	
 }
 
-extension Searcher {
+public extension Searcher {
 	
 	public enum ResultType: String {
 		case exact	= "exact"
@@ -154,7 +343,7 @@ extension Searcher {
 		case like	= "like"
 		case text	= "text"
 		
-		var sectionNumber: Int {
+		public var sectionNumber: Int {
 			switch self {
 			case .exact	: return 0
 			case .ava	: return 1
@@ -162,7 +351,8 @@ extension Searcher {
 			case .text	: return 3
 			}
 		}
-		var persian: String {
+		
+		public var persian: String {
 			switch self {
 			case .ava	: return "واژگان هم‌آوا"
 			case .exact	: return "واژگان دقیق"
@@ -173,10 +363,19 @@ extension Searcher {
 	}
 	
 	public enum SearchStatus {
-		case inactive
-		case searching(dataRequest: IDMoya.DataRequest?)
+		case inactive(text: String, type: ResultType)
+		case searching(dataRequest: MiniAlamo.DataRequest?)
 		case success(results: [Word])
-		case failed(error: Error)
+		case failed(error: VError, word: String, type: ResultType)
+		
+		public var numberOfRows: Int {
+			switch self {
+			case .inactive				: return 0
+			case .searching,
+				 .failed				: return 1
+			case .success(let results)	: return results.count
+			}
+		}
 	}
 		
 }

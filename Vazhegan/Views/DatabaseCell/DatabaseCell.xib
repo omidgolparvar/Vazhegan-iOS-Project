@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IRANSansMobile_Medium.ttf">
+            <string>IRANSansMobile-Medium</string>
+        </array>
+        <array key="ionicons.ttf">
+            <string>Ionicons</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="JXn-14-PNQ" customClass="DatabaseCell" customModule="Vazhegan" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JXn-14-PNQ" id="uP7-bc-G5Y">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="منابع جستجو" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHi-MZ-hPY">
+                        <rect key="frame" x="16" y="20.5" width="307" height="23"/>
+                        <fontDescription key="fontDescription" name="IRANSansMobile-Medium" family="IRANSansMobile" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEq-S0-Qh3">
+                        <rect key="frame" x="335" y="20" width="24" height="24"/>
+                        <color key="backgroundColor" red="0.25449702140000002" green="0.1572966576" blue="0.60395795109999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="1PQ-B6-Io7"/>
+                            <constraint firstAttribute="width" constant="24" id="9lg-Vs-ZeV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Ionicons" family="Ionicons" pointSize="24"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="LHi-MZ-hPY" firstAttribute="centerY" secondItem="uP7-bc-G5Y" secondAttribute="centerY" id="7HG-8N-bEo"/>
+                    <constraint firstItem="yEq-S0-Qh3" firstAttribute="leading" secondItem="LHi-MZ-hPY" secondAttribute="trailing" constant="12" id="9k9-KH-ySe"/>
+                    <constraint firstItem="LHi-MZ-hPY" firstAttribute="leading" secondItem="uP7-bc-G5Y" secondAttribute="leading" constant="16" id="EXF-Zv-vjV"/>
+                    <constraint firstItem="yEq-S0-Qh3" firstAttribute="centerY" secondItem="uP7-bc-G5Y" secondAttribute="centerY" id="lMN-pB-4Cc"/>
+                    <constraint firstAttribute="trailing" secondItem="yEq-S0-Qh3" secondAttribute="trailing" constant="16" id="ys8-1o-KMf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label_DatabaseTitle" destination="LHi-MZ-hPY" id="NTb-gr-6Dd"/>
+                <outlet property="label_Icon" destination="yEq-S0-Qh3" id="HFe-i0-cZk"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="122.33883058470765"/>
+        </tableViewCell>
+    </objects>
+</document>

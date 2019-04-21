@@ -9,8 +9,8 @@
 import UIKit
 import Fabric
 import Crashlytics
-import VazheganFramework
 import IDExt
+import VazheganFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,18 +22,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		setupIDExt()
 		setupUIStyles()
 		
+		V.Setup()
+		
 		//Fabric.with([Crashlytics.self])
 		
 		return true
 	}
 	
-	private func setupHomeController() {
-		self.window = UIWindow(frame: UIScreen.main.bounds)
-		let navigationController = UIStoryboard(name: "Main", bundle: V.FrameworkBundle)
-			.instantiateViewController(withIdentifier: "SearchNavigationController")
-		self.window!.rootViewController = navigationController
-		self.window!.makeKeyAndVisible()
+	func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+		V.HandleIncomingURL(url)
+		
+		return true
 	}
+	
+}
+
+extension AppDelegate {
 	
 	private func setupIDExt() {
 		IDFont.SetFonts(
@@ -45,19 +49,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			ultraLight	: UIFont(name: "IRANSansMobile-Light", size: 16.0)!
 		)
 		UIFont.ID_OverrideInitialize()
+		
+		IDMessageBackgroundView.TitleColor = UIColor.V
+		IDMessageBackgroundView.TitleFont = IDFont.Medium.withSize(20)
+		IDMessageBackgroundView.MessageColor = .black
+		IDMessageBackgroundView.MessageFont = IDFont.Regular.withSize(16)
+		
 	}
 	
 	private func setupUIStyles() {
 		UINavigationBar.ID_SetTitleTextAttributes([
-			.font				: UIFont(name: "IRANSansMobile-Medium", size: 18)!,
-			.foregroundColor	: UIColor.ID_Initialize(hexCode: "#4527A0")
+			.font				: IDFont.Bold.withSize(18),
+			.foregroundColor	: UIColor.V
 			]
 		)
 		
-		UIBarButtonItem.ID_SetTitleTextAttributes([.font: UIFont(name: "IRANSansMobile-Bold", size: 18)!], for: .normal)
-		UIBarButtonItem.ID_SetTitleTextAttributes([.font: UIFont(name: "IRANSansMobile-Bold", size: 18)!], for: .highlighted)
-		UITextField.ID_SetDefaultTextAttributes([.font: UIFont(name: "IRANSansMobile", size: 14)!], whenContainedInInstancesOf: [UISearchBar.self])
+		UIBarButtonItem.ID_SetTitleTextAttributes([.font: IDFont.Medium.withSize(18)], for: .normal)
+		UIBarButtonItem.ID_SetTitleTextAttributes([.font: IDFont.Medium.withSize(18)], for: .highlighted)
+		UITextField.ID_SetDefaultTextAttributes([.font: IDFont.Regular.withSize(14)], whenContainedInInstancesOf: [UISearchBar.self])
 		
 	}
+	
 }
 
