@@ -7,6 +7,7 @@ target 'Vazhegan' do
   pod 'Crashlytics'
   pod 'IDExt'
   pod 'Sheety'
+  pod 'IDPush'
 
 end
 

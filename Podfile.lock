@@ -12,6 +12,10 @@ PODS:
     - SwiftEntryKit (= 0.8.4)
     - SwiftyJSON
     - UIDeviceComplete
+  - IDPush (1.0.1):
+    - Alamofire
+    - SwiftyJSON
+    - UIDeviceComplete
   - Kingfisher (5.3.1)
   - PersianSwift (1.7)
   - PKHUD (5.2.1)
@@ -33,6 +37,7 @@ DEPENDENCIES:
   - Crashlytics
   - Fabric
   - IDExt
+  - IDPush
   - PersianSwift
   - RealmSwift
   - Sheety
@@ -44,6 +49,7 @@ SPEC REPOS:
     - Crashlytics
     - Fabric
     - IDExt
+    - IDPush
     - Kingfisher
     - PersianSwift
     - PKHUD
@@ -61,6 +67,7 @@ SPEC CHECKSUMS:
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   IDExt: 9d8b2ac3fd0b7800860075f6e686689b4ae4c3fa
+  IDPush: 1f0efe50f26424e08f74753164d5be0ffa9709b4
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
   PersianSwift: 62df26448d66d29e0ebe57f988fff4ae1fed204c
   PKHUD: 4e6162c4c39ac367c6934e9855c6b4762ee16256
@@ -73,6 +80,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   UIDeviceComplete: 382405baab699981dbb95fed1cee43583977967a
 
-PODFILE CHECKSUM: 7b7bebda6c26324fd59bb10b4dd121392865f688
+PODFILE CHECKSUM: 936acb6eaa1fb60d625090cc68ac4322a13b0bbc
 
 COCOAPODS: 1.5.3

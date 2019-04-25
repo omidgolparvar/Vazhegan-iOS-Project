@@ -67,7 +67,14 @@ public final class Searcher: NSObject {
 			.inactive(text: text, type: .text)
 		)
 		tableView.reloadData()
-		searchWord(for: query, type: .exact)
+		
+		if Settings.Shared.automaticRequestsInAllTypes {
+			Searcher.ResultType.All.forEach {
+				searchWord(for: query, type: $0)
+			}
+		} else {
+			searchWord(for: query, type: .exact)
+		}
 	}
 	
 	public func cancelSearch() {
@@ -338,6 +345,7 @@ extension Searcher: SearcherHeaderDelegate {
 public extension Searcher {
 	
 	public enum ResultType: String {
+		static let All: [ResultType] = [.exact, .ava, .like, .text]
 		case exact	= "exact"
 		case ava	= "ava"
 		case like	= "like"

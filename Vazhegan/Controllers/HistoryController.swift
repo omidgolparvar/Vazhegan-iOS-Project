@@ -8,20 +8,18 @@
 
 import UIKit
 import IDExt
-import Sheety
 import VazheganFramework
 
 final class HistoryController: UITableViewController {
 	
-	private var allQueries: [Query] = {
-		return Query.All
-	}()
+	private var allQueries: [Query] = []
 	
 	weak var searcherDelegate: HomeSearcherDelegate!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		setupViews()
+		setupDatasource()
     }
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,6 +44,15 @@ final class HistoryController: UITableViewController {
 		tableView.cellForRow(at: indexPath)?.id_ModifyBackgroundColor(isHighlighted: false)
 	}
 	
+	override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+		let delete = UITableViewRowAction(style: .destructive, title: "❌") { [unowned self] (action, indexPath) in
+			self.deleteQuery(at: indexPath)
+		}
+		delete.backgroundColor = #colorLiteral(red: 0.9601849914, green: 0.9601849914, blue: 0.9601849914, alpha: 1)
+		
+		return [delete]
+	}
+	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		0.0.id_AfterSecondsPerform { [unowned self] in
 			let delegate = self.searcherDelegate
@@ -58,16 +65,6 @@ final class HistoryController: UITableViewController {
 	
 	@IBAction func action_Dismiss(_ sender: UIBarButtonItem) {
 		dismiss(animated: true, completion: nil)
-	}
-	
-	@IBAction func action_ShowDeleteOptions(_ sender: UIBarButtonItem) {
-		let action_DeleteAll = SheetyAction.init(title: .init(text: "حذف همه", font: IDFont.Medium.withSize(18), textColor: .red)) { [unowned self] in
-			Query.DeleteAll()
-			self.allQueries = []
-			self.tableView.reloadSections([0], with: .automatic)
-			self.navigationItem.rightBarButtonItem = nil
-		}
-		self.presentSheetyActionController(with: [action_DeleteAll])
 	}
 	
 }
@@ -84,6 +81,35 @@ extension HistoryController {
 		tableView.id_SetHeights(rowHeight: QueryCell.CellHeight, estimatedRowHeight: QueryCell.CellHeight)
 		if allQueries.isEmpty {
 			navigationItem.rightBarButtonItem = nil
+		}
+	}
+	
+	private func setupViews_ForEmptyList() {
+		let tableViewFrame = tableView.frame
+		let messageView = IDMessageBackgroundView(frame: .init(x: 0, y: 0, width: tableViewFrame.width, height: tableViewFrame.height))
+			.setEmoji("👀")
+			.setTexts(title: "خالی می‌باشه", message: "هیچ کلمه‌ای رو جستجو نکردین!")
+		tableView.backgroundView = messageView
+	}
+	
+	private func setupDatasource() {
+		let queries = Query.All
+		if queries.isEmpty {
+			setupViews_ForEmptyList()
+		} else {
+			allQueries = queries
+			tableView.reloadData()
+		}
+	}
+	
+	private func deleteQuery(at indexPath: IndexPath) {
+		let query = allQueries[indexPath.row]
+		query.delete()
+		allQueries.remove(at: indexPath.row)
+		tableView.deleteRows(at: [indexPath], with: .automatic)
+		
+		if allQueries.isEmpty {
+			setupViews_ForEmptyList()
 		}
 	}
 	

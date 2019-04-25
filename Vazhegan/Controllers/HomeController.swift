@@ -90,6 +90,7 @@ extension HomeController {
 		view_TextFieldHolder.id_RoundCorners()
 		textField_SearchBox.delegate = self
 		setupViews_VazheganBackgroundView()
+		setupViews_EntranceView()
 	}
 	
 	private func setupViews_VazheganBackgroundView() {
@@ -97,6 +98,36 @@ extension HomeController {
 		let bgView = VazheganBackgroundView(frame: CGRect(x: 0, y: 0, width: tableViewFrame.width, height: tableViewFrame.height))
 		bgView.setup(viewController: self)
 		tableView_Results.backgroundView = bgView
+	}
+	
+	private func setupViews_EntranceView() {
+		let coverView = UIView(frame: .zero)
+		view.addSubview(coverView)
+		
+		coverView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+		coverView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+		coverView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		coverView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+		coverView.translatesAutoresizingMaskIntoConstraints = false
+		coverView.backgroundColor = .V
+		
+		let vImageView = UIImageView(image: #imageLiteral(resourceName: "Launchy"))
+		coverView.addSubview(vImageView)
+		
+		vImageView.translatesAutoresizingMaskIntoConstraints = false
+		vImageView.centerXAnchor.constraint(equalTo: coverView.centerXAnchor).isActive = true
+		vImageView.centerYAnchor.constraint(equalTo: coverView.centerYAnchor).isActive = true
+		vImageView.widthAnchor.constraint(equalToConstant: 128).isActive = true
+		vImageView.heightAnchor.constraint(equalToConstant: 128).isActive = true
+		
+		view.bringSubviewToFront(coverView)
+		
+		UIView.animate(withDuration: 0.8, delay: 0.0, options: [.curveEaseInOut], animations: {
+			coverView.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+			coverView.alpha = 0.0
+		}) { (_) in
+			coverView.removeFromSuperview()
+		}
 	}
 	
 	private func setupModels() {

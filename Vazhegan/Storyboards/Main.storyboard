@@ -142,6 +142,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="40" maxY="0.0"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Gqf-bf-ANd">
+                            <rect key="frame" x="0.0" y="683" width="375" height="180"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="و" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8OH-8o-FZV">
+                                    <rect key="frame" x="172.5" y="8" width="30" height="81"/>
+                                    <fontDescription key="fontDescription" name="IRANSansMobile-Bold" family="IRANSansMobile" pointSize="64"/>
+                                    <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5o-dH-jqm">
+                                    <rect key="frame" x="16" y="97" width="343" height="21"/>
+                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                    <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="D5o-dH-jqm" firstAttribute="top" secondItem="8OH-8o-FZV" secondAttribute="bottom" constant="8" id="89D-6h-wgO"/>
+                                <constraint firstItem="8OH-8o-FZV" firstAttribute="top" secondItem="Gqf-bf-ANd" secondAttribute="top" constant="8" id="HOj-M2-FMV"/>
+                                <constraint firstItem="D5o-dH-jqm" firstAttribute="leading" secondItem="Gqf-bf-ANd" secondAttribute="leading" constant="16" id="YRH-rU-kh0"/>
+                                <constraint firstAttribute="trailing" secondItem="D5o-dH-jqm" secondAttribute="trailing" constant="16" id="odD-v5-BHu"/>
+                                <constraint firstItem="8OH-8o-FZV" firstAttribute="centerX" secondItem="Gqf-bf-ANd" secondAttribute="centerX" id="xWZ-1M-EaI"/>
+                            </constraints>
+                        </view>
                         <sections>
                             <tableViewSection id="vnZ-UE-dMA">
                                 <cells>
@@ -153,19 +179,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="منابع جستجو" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoN-js-gDQ">
-                                                    <rect key="frame" x="16" y="24" width="319" height="23.5"/>
+                                                    <rect key="frame" x="16" y="24" width="319" height="25.5"/>
                                                     <fontDescription key="fontDescription" name="IRANSansMobile-Bold" family="IRANSansMobile" pointSize="20"/>
                                                     <color key="textColor" red="0.25449702140000002" green="0.1572966576" blue="0.60395795109999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="می‌تونین مشخص کنین جستجوی مورد نظرتون توی چه پایگاه داده‌هایی انجام بشه" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVE-fF-IfX">
-                                                    <rect key="frame" x="16" y="59.5" width="319" height="43"/>
+                                                    <rect key="frame" x="16" y="61.5" width="319" height="41"/>
                                                     <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzY-fd-KI8">
-                                                    <rect key="frame" x="343" y="26" width="16" height="20"/>
+                                                    <rect key="frame" x="343" y="28" width="16" height="17.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="16" id="eUt-rx-Ngd"/>
                                                     </constraints>
@@ -198,25 +224,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="درخواست همزمان" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddd-GS-uPe">
-                                                    <rect key="frame" x="16" y="24" width="319" height="23.5"/>
+                                                    <rect key="frame" x="16" y="24" width="319" height="25.5"/>
                                                     <fontDescription key="fontDescription" name="IRANSansMobile-Bold" family="IRANSansMobile" pointSize="20"/>
                                                     <color key="textColor" red="0.25449702140000002" green="0.1572966576" blue="0.60395795109999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="در صورت روشن بودن این گزینه، بطور خودکار در تمامی دسته‌بندی‌ها (دقیق، هم‌آوا، مشابه، در معانی) جستجو انجام میشه" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgj-nf-SZj">
-                                                    <rect key="frame" x="16" y="59.5" width="319" height="85"/>
+                                                    <rect key="frame" x="16" y="61.5" width="319" height="83"/>
                                                     <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZo-Lu-oS8">
-                                                    <rect key="frame" x="16" y="20.5" width="51" height="31"/>
+                                                    <rect key="frame" x="16" y="21.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="action_ChangeAutomaticRequestsInAllTypes:" destination="HPX-10-3vR" eventType="valueChanged" id="paj-sN-wyP"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6Z-yG-8dH">
-                                                    <rect key="frame" x="343" y="26" width="16" height="20"/>
+                                                    <rect key="frame" x="343" y="28" width="16" height="17.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="16" id="lM7-z8-vTG"/>
                                                     </constraints>
@@ -239,6 +265,110 @@
                                                 <constraint firstItem="ddd-GS-uPe" firstAttribute="centerY" secondItem="b6Z-yG-8dH" secondAttribute="centerY" id="xRD-SF-Ild"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="1000" maxY="0.0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="56" id="NHi-CW-FhX">
+                                        <rect key="frame" x="0.0" y="296" width="375" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NHi-CW-FhX" id="hab-BN-JNk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="1000" maxY="0.0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="127" id="kfq-sZ-Yf7">
+                                        <rect key="frame" x="0.0" y="352" width="375" height="127"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kfq-sZ-Yf7" id="16h-A3-Vd9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="126.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ارتباط با ما" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guv-Qn-YKZ">
+                                                    <rect key="frame" x="16" y="24" width="319" height="26"/>
+                                                    <fontDescription key="fontDescription" name="IRANSansMobile-Bold" family="IRANSansMobile" pointSize="20"/>
+                                                    <color key="textColor" red="0.25449702140000002" green="0.1572966576" blue="0.60395795109999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="اگه نظر، انتقاد، پیشنهاد، و یا کمک مالی داشتین(!) خوشحال می‌شیم ازشون استفاده کنیم" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6f-V4-Ih4">
+                                                    <rect key="frame" x="16" y="62" width="319" height="40.5"/>
+                                                    <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vL-yW-yq9">
+                                                    <rect key="frame" x="343" y="28.5" width="16" height="17.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="16" id="ui0-6M-Lis"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Ionicons" family="Ionicons" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="c6f-V4-Ih4" secondAttribute="bottom" constant="24" id="2FE-qt-zIh"/>
+                                                <constraint firstItem="1vL-yW-yq9" firstAttribute="leading" secondItem="guv-Qn-YKZ" secondAttribute="trailing" constant="8" id="4JT-pk-Lyv"/>
+                                                <constraint firstItem="c6f-V4-Ih4" firstAttribute="trailing" secondItem="guv-Qn-YKZ" secondAttribute="trailing" id="86G-AJ-ut3"/>
+                                                <constraint firstItem="guv-Qn-YKZ" firstAttribute="top" secondItem="16h-A3-Vd9" secondAttribute="top" constant="24" id="9Uk-7L-ZDy"/>
+                                                <constraint firstAttribute="trailing" secondItem="1vL-yW-yq9" secondAttribute="trailing" constant="16" id="C33-4l-JV5"/>
+                                                <constraint firstItem="c6f-V4-Ih4" firstAttribute="leading" secondItem="guv-Qn-YKZ" secondAttribute="leading" id="D5P-3V-yVa"/>
+                                                <constraint firstItem="guv-Qn-YKZ" firstAttribute="centerY" secondItem="1vL-yW-yq9" secondAttribute="centerY" id="NUY-Qg-5EP"/>
+                                                <constraint firstItem="guv-Qn-YKZ" firstAttribute="leading" secondItem="16h-A3-Vd9" secondAttribute="leading" constant="16" id="Tjw-q4-ODb"/>
+                                                <constraint firstItem="c6f-V4-Ih4" firstAttribute="top" secondItem="guv-Qn-YKZ" secondAttribute="bottom" constant="12" id="mJ2-0H-xmA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="160" id="zML-Yi-BAS">
+                                        <rect key="frame" x="0.0" y="479" width="375" height="160"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zML-Yi-BAS" id="gqk-P9-335">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="معرفی به دوستان" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ug-Bp-H2o">
+                                                    <rect key="frame" x="16" y="24" width="319" height="26"/>
+                                                    <fontDescription key="fontDescription" name="IRANSansMobile-Bold" family="IRANSansMobile" pointSize="20"/>
+                                                    <color key="textColor" red="0.25449702140000002" green="0.1572966576" blue="0.60395795109999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDg-ss-cZK">
+                                                    <rect key="frame" x="16" y="62" width="319" height="73.5"/>
+                                                    <string key="text">اگه از این نرم‌افزار خوش‌تون اومد و خواستین به بقیه هم معرفی‌اش کنین، با استفاده از گزینه زیر می‌تونین صفحه راهنمای دانلودش رو به اشتراک بذارین</string>
+                                                    <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYH-k4-xkQ">
+                                                    <rect key="frame" x="343" y="28.5" width="16" height="17.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="16" id="Hk7-9x-4Ug"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Ionicons" family="Ionicons" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SDg-ss-cZK" firstAttribute="top" secondItem="7Ug-Bp-H2o" secondAttribute="bottom" constant="12" id="02i-Sx-Yys"/>
+                                                <constraint firstItem="7Ug-Bp-H2o" firstAttribute="centerY" secondItem="YYH-k4-xkQ" secondAttribute="centerY" id="1L7-Bc-2TY"/>
+                                                <constraint firstItem="SDg-ss-cZK" firstAttribute="trailing" secondItem="7Ug-Bp-H2o" secondAttribute="trailing" id="4Bl-T0-zn0"/>
+                                                <constraint firstItem="SDg-ss-cZK" firstAttribute="leading" secondItem="7Ug-Bp-H2o" secondAttribute="leading" id="62y-KE-LDj"/>
+                                                <constraint firstAttribute="bottom" secondItem="SDg-ss-cZK" secondAttribute="bottom" constant="24" id="EKV-zT-EAm"/>
+                                                <constraint firstItem="7Ug-Bp-H2o" firstAttribute="leading" secondItem="gqk-P9-335" secondAttribute="leading" constant="16" id="Llg-dy-r4t"/>
+                                                <constraint firstItem="YYH-k4-xkQ" firstAttribute="leading" secondItem="7Ug-Bp-H2o" secondAttribute="trailing" constant="8" id="WcL-g7-A5g"/>
+                                                <constraint firstAttribute="trailing" secondItem="YYH-k4-xkQ" secondAttribute="trailing" constant="16" id="afP-2v-jCN"/>
+                                                <constraint firstItem="7Ug-Bp-H2o" firstAttribute="top" secondItem="gqk-P9-335" secondAttribute="top" constant="24" id="ty7-zq-uoR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="KBy-Ih-dSr">
+                                        <rect key="frame" x="0.0" y="639" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KBy-Ih-dSr" id="nSG-YP-2K7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="1000" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -256,6 +386,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="label_AppVersion" destination="D5o-dH-jqm" id="vdf-iM-c6n"/>
                         <outlet property="switch_AutomaticRequestsInAllTypes" destination="aZo-Lu-oS8" id="hjK-1m-c9N"/>
                     </connections>
                 </tableViewController>
@@ -572,7 +703,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="وبسایت طراحی بدون مرز" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNw-FF-3AG">
-                                                    <rect key="frame" x="16" y="26.5" width="319" height="19"/>
+                                                    <rect key="frame" x="16" y="26" width="319" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="IRANSansMobile-Medium" family="IRANSansMobile" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -630,7 +761,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آدرس گیت‌هاب پروژه" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMx-tK-0yi">
-                                                    <rect key="frame" x="16" y="26.5" width="319" height="19"/>
+                                                    <rect key="frame" x="16" y="26" width="319" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="IRANSansMobile-Medium" family="IRANSansMobile" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -643,6 +774,64 @@
                                                 <constraint firstItem="zYl-VV-XlA" firstAttribute="leading" secondItem="yMx-tK-0yi" secondAttribute="trailing" constant="8" id="coB-iB-4iq"/>
                                                 <constraint firstItem="zYl-VV-XlA" firstAttribute="top" secondItem="C6u-hY-8t4" secondAttribute="top" constant="16" id="d2U-u3-ncy"/>
                                                 <constraint firstItem="yMx-tK-0yi" firstAttribute="centerY" secondItem="C6u-hY-8t4" secondAttribute="centerY" id="qX9-pg-zhZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="89" id="1Mu-GS-gDi">
+                                        <rect key="frame" x="0.0" y="511" width="375" height="89"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Mu-GS-gDi" id="off-nP-Jtv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="این یک متن نمونه است" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jda-kA-Z9h">
+                                                    <rect key="frame" x="16" y="24" width="343" height="41"/>
+                                                    <fontDescription key="fontDescription" name="IRANSansMobile-Medium" family="IRANSansMobile" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="jda-kA-Z9h" secondAttribute="trailing" constant="16" id="6h2-8R-3dh"/>
+                                                <constraint firstAttribute="bottom" secondItem="jda-kA-Z9h" secondAttribute="bottom" constant="24" id="EaV-mG-0Wh"/>
+                                                <constraint firstItem="jda-kA-Z9h" firstAttribute="top" secondItem="off-nP-Jtv" secondAttribute="top" constant="24" id="RV7-Pk-YLn"/>
+                                                <constraint firstItem="jda-kA-Z9h" firstAttribute="leading" secondItem="off-nP-Jtv" secondAttribute="leading" constant="16" id="wl6-qI-c6y"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="72" id="EY2-An-uCo">
+                                        <rect key="frame" x="0.0" y="600" width="375" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EY2-An-uCo" id="tBP-r8-Zh0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RV9-8e-nfJ">
+                                                    <rect key="frame" x="343" y="16" width="16" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="NwH-Uz-d9e"/>
+                                                        <constraint firstAttribute="width" constant="16" id="ghf-Kk-LsQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Ionicons" family="Ionicons" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اشتراک‌گذاری راهنمای دانلود" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dt-XB-2eX">
+                                                    <rect key="frame" x="16" y="26" width="319" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="IRANSansMobile-Medium" family="IRANSansMobile" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3Dt-XB-2eX" firstAttribute="leading" secondItem="tBP-r8-Zh0" secondAttribute="leading" constant="16" id="2bA-6d-h1P"/>
+                                                <constraint firstAttribute="bottom" secondItem="RV9-8e-nfJ" secondAttribute="bottom" constant="16" id="BJ4-vF-Fjc"/>
+                                                <constraint firstItem="3Dt-XB-2eX" firstAttribute="centerY" secondItem="tBP-r8-Zh0" secondAttribute="centerY" id="PrU-Fj-piN"/>
+                                                <constraint firstItem="RV9-8e-nfJ" firstAttribute="top" secondItem="tBP-r8-Zh0" secondAttribute="top" constant="16" id="PuQ-MP-Co0"/>
+                                                <constraint firstAttribute="trailing" secondItem="RV9-8e-nfJ" secondAttribute="trailing" constant="16" id="cVG-QP-eIa"/>
+                                                <constraint firstItem="RV9-8e-nfJ" firstAttribute="leading" secondItem="3Dt-XB-2eX" secondAttribute="trailing" constant="8" id="zzB-eq-KFa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -660,6 +849,7 @@
                         <outlet property="label_AboutApp" destination="Vnd-ON-CYI" id="bDp-wx-P99"/>
                         <outlet property="label_AboutUs" destination="hhR-0V-VbF" id="jU3-hf-WkG"/>
                         <outlet property="label_OpenSource" destination="XeP-CD-bVf" id="UvZ-qc-jsc"/>
+                        <outlet property="label_ShareApp" destination="jda-kA-Z9h" id="Crc-ZZ-w5Z"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zqw-zT-DGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -684,11 +874,6 @@
                         <barButtonItem key="leftBarButtonItem" title="بازگشت" id="qcx-WE-pqm">
                             <connections>
                                 <action selector="action_Dismiss:" destination="wfx-Nd-NNh" id="Ora-NW-Lwo"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="حذف" id="Yqc-Va-Zab">
-                            <connections>
-                                <action selector="action_ShowDeleteOptions:" destination="wfx-Nd-NNh" id="ISS-ta-Exr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

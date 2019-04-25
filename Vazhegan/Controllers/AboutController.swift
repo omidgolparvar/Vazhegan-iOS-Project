@@ -8,6 +8,7 @@
 
 import UIKit
 import IDExt
+import VazheganFramework
 
 final class AboutController: UITableViewController {
 	
@@ -15,8 +16,9 @@ final class AboutController: UITableViewController {
 	@IBOutlet weak var label_AboutApp	: UILabel!
 	@IBOutlet weak var label_AboutUs	: UILabel!
 	@IBOutlet weak var label_OpenSource	: UILabel!
+	@IBOutlet weak var label_ShareApp	: UILabel!
 	
-	private let buttonRows = [3, 5]
+	private let buttonRows = [3, 5, 7]
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
@@ -32,7 +34,7 @@ final class AboutController: UITableViewController {
     }
 	
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 8
     }
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -65,6 +67,12 @@ final class AboutController: UITableViewController {
 				UIApplication.ID_Open(url: URL(string: "http://www.idco.io/")!)
 			case 5:
 				UIApplication.ID_Open(url: URL(string: "https://github.com/omidgolparvar/Vazhegan-iOS-Project")!)
+			case 7:
+				0.0.id_AfterSecondsPerform { [unowned self] in
+					let text = "📱 واژگان" + "\n" + V.AppDownloadLink
+					let sender = tableView.cellForRow(at: indexPath)!
+					self.id_PresentActivityController(forItems: [text], customActivities: nil, sourceView: sender)
+				}
 			default:
 				return
 			}
@@ -90,7 +98,8 @@ extension AboutController {
 		let sections: [(label: UILabel, title: String, text: String)] = [
 			(label: label_AboutApp		, title: "برنامه"			, text: .ID_Text(keyName: "AboutAppText")!),
 			(label: label_AboutUs		, title: "ما کی هستیم؟!"		, text: .ID_Text(keyName: "AboutUsText")!),
-			(label: label_OpenSource	, title: "آ لاو اوپن‌سورس!"	, text: .ID_Text(keyName: "ILoveOpenSourceText")!)
+			(label: label_OpenSource	, title: "آ لاو اوپن‌سورس!"	, text: .ID_Text(keyName: "ILoveOpenSourceText")!),
+			(label: label_ShareApp		, title: "معرفی به دوستان"	, text: .ID_Text(keyName: "ShareApp")!)
 		]
 		sections.forEach { (label, title, text) in
 			let _title = NSAttributedString(string: title + "\n", attributes: [

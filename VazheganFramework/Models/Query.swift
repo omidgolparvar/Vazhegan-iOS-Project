@@ -42,7 +42,7 @@ public final class Query: Object {
 		}
 	}
 	
-	public func remove() {
+	public func delete() {
 		V.RealmObject.safeWrite {
 			V.RealmObject.delete(self)
 		}

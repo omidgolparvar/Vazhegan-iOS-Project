@@ -11,28 +11,65 @@ import Fabric
 import Crashlytics
 import IDExt
 import VazheganFramework
+import IDPush
+import UserNotifications
+import Sheety
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+	
+	private var isFabricUsageEnabled	= true
+	
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
+		setupIDPush(application)
 		setupIDExt()
 		setupUIStyles()
+		setupFabric()
 		
 		V.Setup()
-		
-		//Fabric.with([Crashlytics.self])
 		
 		return true
 	}
 	
 	func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
 		V.HandleIncomingURL(url)
-		
 		return true
+	}
+	
+	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		let tokenChars = (deviceToken as NSData).bytes.bindMemory(to: CChar.self, capacity: deviceToken.count)
+		var tokenString = ""
+		for i in 0..<deviceToken.count {
+			tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+		}
+		print("APNs Token:", tokenString)
+		
+		IDPush.Perform(action: .addDevice(token: tokenString)) { (error, data) in
+			//Requester.PrintJSON(data: data as AnyObject)
+			if let error = error {
+				print("IDPush.AddDevice: Error: \(error.description)")
+				return
+			}
+			
+			guard let playerID = IDPush.GetPlayerID() else { return }
+			print("IDPush.AddDevice: Done: \(playerID)")
+		}
+	}
+	
+}
+
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+	
+	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		completionHandler([.alert, .badge, .sound])
+	}
+	
+	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+		completionHandler()
 	}
 	
 }
@@ -55,6 +92,7 @@ extension AppDelegate {
 		IDMessageBackgroundView.MessageColor = .black
 		IDMessageBackgroundView.MessageFont = IDFont.Regular.withSize(16)
 		
+		SheetyAction.Title.DefaultFont = IDFont.Medium.withSize(18)
 	}
 	
 	private func setupUIStyles() {
@@ -67,7 +105,22 @@ extension AppDelegate {
 		UIBarButtonItem.ID_SetTitleTextAttributes([.font: IDFont.Medium.withSize(18)], for: .normal)
 		UIBarButtonItem.ID_SetTitleTextAttributes([.font: IDFont.Medium.withSize(18)], for: .highlighted)
 		UITextField.ID_SetDefaultTextAttributes([.font: IDFont.Regular.withSize(14)], whenContainedInInstancesOf: [UISearchBar.self])
-		
+	}
+	
+	private func setupIDPush(_ application: UIApplication) {
+		IDPush.Setup(projectID: "5cbeec10a71f76285b362b22")
+		UNUserNotificationCenter.current().delegate = self
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+			guard granted, error == nil else { return }
+			DispatchQueue.main.async {
+				application.registerForRemoteNotifications()
+			}
+		}
+	}
+	
+	private func setupFabric() {
+		guard isFabricUsageEnabled else { return }
+		Fabric.with([Crashlytics.self, Answers.self])
 	}
 	
 }

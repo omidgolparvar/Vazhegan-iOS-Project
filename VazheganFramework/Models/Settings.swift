@@ -15,6 +15,7 @@ public final class Settings {
 	}
 	
 	public var automaticRequestsInAllTypes	: Bool
+	public var applicationVersion			: String
 	
 	private init() {
 		let userDefaults = UserDefaults(suiteName: V.AppGroupIdentifier)!
@@ -26,6 +27,10 @@ public final class Settings {
 			userDefaults.set(false, forKey: SettingsUserDefaultsKeys.AutomaticRequestsInAllTypes.rawValue)
 			userDefaults.synchronize()
 		}
+		
+		let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+		let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as! String
+		applicationVersion = "v" + version + "(\(buildNumber))"
 	}
 	
 	public func set(automaticRequestsInAllTypes: Bool) {
