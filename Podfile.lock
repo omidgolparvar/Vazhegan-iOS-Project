@@ -3,6 +3,7 @@ PODS:
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
   - Fabric (1.7.2)
+  - IDAlert (3.1.0)
   - IDExt (2.9.1):
     - Alamofire
     - Kingfisher
@@ -25,7 +26,6 @@ PODS:
   - Realm/Headers (3.14.0)
   - RealmSwift (3.14.0):
     - Realm (= 3.14.0)
-  - Sheety (0.2)
   - SPStorkController (1.6)
   - SwiftEntryKit (0.8.4):
     - QuickLayout (= 2.1.1)
@@ -36,11 +36,11 @@ DEPENDENCIES:
   - Alamofire
   - Crashlytics
   - Fabric
+  - IDAlert
   - IDExt
   - IDPush
   - PersianSwift
   - RealmSwift
-  - Sheety
   - SwiftyJSON
 
 SPEC REPOS:
@@ -48,6 +48,7 @@ SPEC REPOS:
     - Alamofire
     - Crashlytics
     - Fabric
+    - IDAlert
     - IDExt
     - IDPush
     - Kingfisher
@@ -56,7 +57,6 @@ SPEC REPOS:
     - QuickLayout
     - Realm
     - RealmSwift
-    - Sheety
     - SPStorkController
     - SwiftEntryKit
     - SwiftyJSON
@@ -66,6 +66,7 @@ SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  IDAlert: 728cd80be83ab3579196613ded4ff9b474bead51
   IDExt: 9d8b2ac3fd0b7800860075f6e686689b4ae4c3fa
   IDPush: 1f0efe50f26424e08f74753164d5be0ffa9709b4
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
@@ -74,12 +75,11 @@ SPEC CHECKSUMS:
   QuickLayout: 9af2b7fd89a6552828f51a5aba28d1bcdb8b340c
   Realm: 221b25919bb5a010a3c597d707f8df3492dcd93a
   RealmSwift: 28f22dfa6a27b9a778cfb09471558b6afcf1022c
-  Sheety: 7a655dc2cf7a422d31d76f4a124193ab38e852c1
   SPStorkController: 54293a8a1ca3c691a09eb6274b6e487b602e975a
   SwiftEntryKit: f0dd54bb0fb9f234738cd15a32365265cb975be8
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   UIDeviceComplete: 382405baab699981dbb95fed1cee43583977967a
 
-PODFILE CHECKSUM: 936acb6eaa1fb60d625090cc68ac4322a13b0bbc
+PODFILE CHECKSUM: 6dc976ce1f59e96e42c5aa85447fb77be16640a6
 
 COCOAPODS: 1.5.3

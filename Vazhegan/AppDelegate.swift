@@ -13,7 +13,7 @@ import IDExt
 import VazheganFramework
 import IDPush
 import UserNotifications
-import Sheety
+import IDAlert
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,9 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		setupIDPush(application)
 		setupIDExt()
+		setupIDAlert()
 		setupUIStyles()
 		setupFabric()
-		
 		V.Setup()
 		
 		return true
@@ -92,7 +92,6 @@ extension AppDelegate {
 		IDMessageBackgroundView.MessageColor = .black
 		IDMessageBackgroundView.MessageFont = IDFont.Regular.withSize(16)
 		
-		SheetyAction.Title.DefaultFont = IDFont.Medium.withSize(18)
 	}
 	
 	private func setupUIStyles() {
@@ -121,6 +120,15 @@ extension AppDelegate {
 	private func setupFabric() {
 		guard isFabricUsageEnabled else { return }
 		Fabric.with([Crashlytics.self, Answers.self])
+	}
+	
+	private func setupIDAlert() {
+		IDAlertHeader.TitleFont			= IDFont.Bold.withSize(16)
+		IDAlertHeader.MessageFont		= IDFont.Regular.withSize(14)
+		
+		IDAlertAction.TitleTextFont		= IDFont.Medium.withSize(18)
+		IDAlertAction.SubtitleTextFont	= IDFont.Regular.withSize(14)
+		
 	}
 	
 }

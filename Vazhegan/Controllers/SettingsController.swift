@@ -9,6 +9,7 @@
 import UIKit
 import IDExt
 import VazheganFramework
+import IDAlert
 
 final class SettingsController: UITableViewController {
 	
@@ -75,7 +76,7 @@ final class SettingsController: UITableViewController {
 extension SettingsController: IDStoryboardInstanceProtocol {
 	
 }
-import Sheety
+
 extension SettingsController {
 	
 	private func setupViews() {
@@ -88,19 +89,27 @@ extension SettingsController {
 	}
 	
 	private func action_ContactUs() {
-		let action_Telegram = SheetyAction(title: .init(text: "تلگرام")) {
+		let action_Telegram = IDAlertAction.InitializeNormalAction(title: "تلگرام", alignment: .right, leftImage: #imageLiteral(resourceName: "App_Telegram")) {
 			UIApplication.ID_TryToOpen(url: URL(string: "tg://resolve?domain=golparvar")!, onFailed: {
 				UIApplication.ID_Open(url: URL(string: "https://telegram.me/golparvar")!)
 			})
 		}
 		
-		let action_Instagram = SheetyAction(title: .init(text: "اینستاگرام")) {
+		let action_Instagram = IDAlertAction.InitializeNormalAction(title: "اینستاگرام", alignment: .right, leftImage: #imageLiteral(resourceName: "App_Instagram")) {
 			UIApplication.ID_TryToOpen(url: URL(string: "instagram://user?username=golparvar")!, onFailed: {
 				UIApplication.ID_Open(url: URL(string: "https://www.instagram.com/golparvar/")!)
 			})
 		}
 		
-		presentSheetyActionController(with: [action_Telegram, action_Instagram])
+		let action_Cancel = IDAlertAction.InitializeNormalAction(title: "بازگشت", actionStyle: .cancel, handler: nil)
+		
+		let idAlertController = IDAlertController(
+			header			: nil,
+			actions			: [action_Telegram, action_Instagram, action_Cancel],
+			preferredStyle	: .actionSheet
+		)
+		
+		self.present(idAlertController, animated: true, completion: nil)
 	}
 	
 	private func action_ShareApp() {

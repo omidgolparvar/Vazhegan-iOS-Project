@@ -9,7 +9,7 @@
 import UIKit
 import VazheganFramework
 import IDExt
-import Sheety
+import IDAlert
 
 final class MyWordsController: UITableViewController {
 	
@@ -44,14 +44,13 @@ final class MyWordsController: UITableViewController {
     }
 	
 	override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-		let delete = UITableViewRowAction(style: .destructive, title: "❌") { (action, indexPath) in
-			let deleteAction = SheetyAction(
-				title: .init(text: "حذف", font: IDFont.Bold.withSize(18), textColor: .red),
-				handler: { [unowned self] in
-					self.deleteWord(at: indexPath)
-				}
-			)
-			self.presentSheetyActionController(with: [deleteAction])
+		let delete = UITableViewRowAction(style: .normal, title: "❌") { (action, indexPath) in
+			let action_Delete = IDAlertAction.InitializeNormalAction(title: "حذف", actionStyle: .destructive) { [unowned self] in
+				self.deleteWord(at: indexPath)
+			}
+			let action_Cancel = IDAlertAction.InitializeNormalAction(title: "بازگشت", actionStyle: .cancel, handler: nil)
+			let idAlertController = IDAlertController(header: nil, actions: [action_Delete, action_Cancel], preferredStyle: .actionSheet)
+			self.present(idAlertController, animated: true, completion: nil)
 		}
 		delete.backgroundColor = #colorLiteral(red: 0.9601849914, green: 0.9601849914, blue: 0.9601849914, alpha: 1)
 		
