@@ -49,7 +49,8 @@ final class MyWordsController: UITableViewController {
 				self.deleteWord(at: indexPath)
 			}
 			let action_Cancel = IDAlertAction.InitializeNormalAction(title: "بازگشت", actionStyle: .cancel, handler: nil)
-			let idAlertController = IDAlertController(header: nil, actions: [action_Delete, action_Cancel], preferredStyle: .actionSheet)
+			let alertHeader = IDAlertHeader(title: nil, message: "اطمینان دارین که می‌خواین این کلمه حذف بشه؟")
+			let idAlertController = IDAlertController(header: alertHeader, actions: [action_Delete, action_Cancel], preferredStyle: .alert)
 			self.present(idAlertController, animated: true, completion: nil)
 		}
 		delete.backgroundColor = #colorLiteral(red: 0.9601849914, green: 0.9601849914, blue: 0.9601849914, alpha: 1)

@@ -45,17 +45,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		for i in 0..<deviceToken.count {
 			tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
 		}
-		print("APNs Token:", tokenString)
+		>>>"APNs Token: \(tokenString)"
 		
 		IDPush.Perform(action: .addDevice(token: tokenString)) { (error, data) in
 			//Requester.PrintJSON(data: data as AnyObject)
 			if let error = error {
-				print("IDPush.AddDevice: Error: \(error.description)")
+				>>>"IDPush.AddDevice: Error: \(error.description)"
 				return
 			}
 			
 			guard let playerID = IDPush.GetPlayerID() else { return }
-			print("IDPush.AddDevice: Done: \(playerID)")
+			>>>"IDPush.AddDevice: Done: \(playerID)"
 		}
 	}
 	
@@ -126,7 +126,7 @@ extension AppDelegate {
 		IDAlertHeader.TitleFont			= IDFont.Bold.withSize(16)
 		IDAlertHeader.MessageFont		= IDFont.Regular.withSize(14)
 		
-		IDAlertAction.TitleTextFont		= IDFont.Medium.withSize(18)
+		IDAlertAction.TitleTextFont		= IDFont.Medium.withSize(19)
 		IDAlertAction.SubtitleTextFont	= IDFont.Regular.withSize(14)
 		
 	}

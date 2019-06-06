@@ -22,7 +22,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchResultHeader" customModule="Vazhegan" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchResultHeader" customModule="VazheganFramework" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="350" height="56"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -51,7 +51,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="جستجو"/>
                             <connections>
-                                <action selector="action_PerformSearch:" destination="iN0-l3-epB" eventType="touchUpInside" id="5I3-HW-ZqI"/>
+                                <action selector="action_PerformRelatedActionToSearchStatu:" destination="iN0-l3-epB" eventType="touchUpInside" id="eNq-ft-rOp"/>
                             </connections>
                         </button>
                     </subviews>

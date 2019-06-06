@@ -10,6 +10,7 @@ import Foundation
 
 public protocol SearcherHeaderDelegate: NSObjectProtocol {
 	func performSearch(text: String, type: Searcher.ResultType)
+	func changeCollapseStatus(for section: Int)
 }
 
 public final class Searcher: NSObject {
@@ -19,9 +20,9 @@ public final class Searcher: NSObject {
 	private weak var controller	: UIViewController!
 	private weak var tableView	: UITableView!
 	
-	private var currentQuery		: String?
-	private var currentStatuses		: SearchStatuses?
-	private var onTapRowClosure		: ((Word) -> Void)?
+	private var currentQuery	: String?
+	private var currentStatuses	: SearchStatuses?
+	private var onTapRowClosure	: ((Word) -> Void)?
 	
 	public init(controller: UIViewController, tableView: UITableView) {
 		self.controller			= controller
@@ -126,7 +127,7 @@ public final class Searcher: NSObject {
 				if	let data = data,
 					let array = MiniAlamo.JSON(data)["data"]["results"].array {
 					let words = array.compactMap({ Word(from: $0) })
-					_self.setupCurrentStatuses(searchStatus: .success(results: words), forResultType: type)
+					_self.setupCurrentStatuses(searchStatus: .success(results: words, isVisible: true), forResultType: type)
 					_self.saveQueryToHistory(for: text)
 				} else {
 					let error = VError.requestWithInvalidResponse
@@ -188,6 +189,18 @@ public final class Searcher: NSObject {
 		}
 	}
 	
+	private func setSearchStatus(_ status: SearchStatus, forSection section: Int) {
+		guard let currentStatuses = currentStatuses else { return }
+		guard 0...3 ~= section else { return }
+		self.currentStatuses = (
+			section == 0 ? status : currentStatuses.exact,
+			section == 1 ? status : currentStatuses.ava,
+			section == 2 ? status : currentStatuses.like,
+			section == 3 ? status : currentStatuses.text
+		)
+		tableView.reloadSections([section], with: .automatic)
+	}
+	
 	private func getResultType(forSection section: Int) -> ResultType {
 		switch section {
 		case 0	: return .exact
@@ -240,7 +253,7 @@ extension Searcher: UITableViewDataSource, UITableViewDelegate {
 			let cell = tableView.dequeueReusableVCell(SearchingCell.self, for: indexPath)
 			cell.setup()
 			return cell
-		case .success(let results):
+		case .success(let results, _):
 			let type = getResultType(forSection: indexPath.section)
 			switch type {
 			case .exact:
@@ -283,7 +296,7 @@ extension Searcher: UITableViewDataSource, UITableViewDelegate {
 		default	: fatalError("Searcher - \(#function):: Wrong Section: \(section)")
 		}
 		
-		header.setup(delegate: self, for: type)
+		header.setup(delegate: self, for: type, atSection: section)
 		
 		return header
 	}
@@ -323,7 +336,7 @@ extension Searcher: UITableViewDataSource, UITableViewDelegate {
 		guard let type = getSearchStatus(forSection: indexPath.section) else { return }
 		
 		switch type {
-		case .success(let results):
+		case .success(let results, _):
 			let word = results[indexPath.row]
 			DispatchQueue.main.async {
 				closure(word)
@@ -338,6 +351,12 @@ extension Searcher: SearcherHeaderDelegate {
 	
 	public func performSearch(text: String, type: Searcher.ResultType) {
 		self.searchWord(for: text, type: type)
+	}
+	
+	public func changeCollapseStatus(for section: Int) {
+		guard let status = getSearchStatus(forSection: section) else { return }
+		guard case let .success(results, isVisible) = status else { return }
+		setSearchStatus(.success(results: results, isVisible: !isVisible), forSection: section)
 	}
 	
 }
@@ -373,15 +392,18 @@ public extension Searcher {
 	public enum SearchStatus {
 		case inactive(text: String, type: ResultType)
 		case searching(dataRequest: MiniAlamo.DataRequest?)
-		case success(results: [Word])
+		case success(results: [Word], isVisible: Bool)
 		case failed(error: VError, word: String, type: ResultType)
 		
 		public var numberOfRows: Int {
 			switch self {
-			case .inactive				: return 0
+			case .inactive:
+				return 0
 			case .searching,
-				 .failed				: return 1
-			case .success(let results)	: return results.count
+				 .failed:
+				return 1
+			case .success(let results, let isVisible):
+				return isVisible ? results.count : 0
 			}
 		}
 	}

@@ -25,7 +25,6 @@ public final class Settings {
 		} else {
 			automaticRequestsInAllTypes = false
 			userDefaults.set(false, forKey: SettingsUserDefaultsKeys.AutomaticRequestsInAllTypes.rawValue)
-			userDefaults.synchronize()
 		}
 		
 		let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
@@ -36,7 +35,6 @@ public final class Settings {
 	public func set(automaticRequestsInAllTypes: Bool) {
 		let userDefaults = UserDefaults(suiteName: V.AppGroupIdentifier)!
 		userDefaults.set(automaticRequestsInAllTypes, forKey: SettingsUserDefaultsKeys.AutomaticRequestsInAllTypes.rawValue)
-		userDefaults.synchronize()
 		self.automaticRequestsInAllTypes = automaticRequestsInAllTypes
 	}
 	
