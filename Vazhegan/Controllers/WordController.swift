@@ -28,7 +28,7 @@ final class WordController: UIViewController {
 	private var getMeaningRequest				: MiniAlamo.DataRequest?
 	
 	var shouldViewAddToMyWordsButton	: Bool = true
-	weak var word		: Word!
+	weak var word	: Word!
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
@@ -46,7 +46,11 @@ final class WordController: UIViewController {
 	
 	@IBAction func action_ShareWord(_ sender: UIButton) {
 		let text: String = word.titlePersian + " " + "(\(word.database.name))" + "\n\n" + word.fullText + "\n\n\n" + "📱 واژگان" + "\n" + V.AppDownloadLink
-		self.id_PresentActivityController(forItems: [text], customActivities: nil, sourceView: sender)
+		let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+		activityViewController.popoverPresentationController?.sourceView = sender
+		activityViewController.popoverPresentationController?.sourceRect = sender.bounds
+		activityViewController.popoverPresentationController?.permittedArrowDirections = .down
+		self.present(activityViewController, animated: true, completion: nil)
 	}
 	
 	@IBAction func action_ToggleForMyWord(_ sender: UIButton) {

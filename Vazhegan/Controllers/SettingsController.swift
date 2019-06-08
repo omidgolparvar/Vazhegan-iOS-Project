@@ -126,7 +126,11 @@ extension SettingsController {
 	
 	private func action_ShareApp() {
 		let text = "📱 واژگان" + "\n" + V.AppDownloadLink
-		id_PresentActivityController(forItems: [text], customActivities: nil, sourceView: tableView)
+		let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+		activityViewController.popoverPresentationController?.sourceView = self.view
+		activityViewController.popoverPresentationController?.sourceRect = self.view.bounds
+		activityViewController.popoverPresentationController?.permittedArrowDirections = []
+		self.present(activityViewController, animated: true, completion: nil)
 	}
 	
 }
