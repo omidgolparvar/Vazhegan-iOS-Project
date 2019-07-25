@@ -26,7 +26,6 @@ public final class Word: Object {
 	@objc dynamic public var text			: String	= ""
 	@objc dynamic public var source			: String	= ""
 	@objc dynamic public var number			: Int		= 0
-	
 	@objc dynamic public var pronounce		: String	= ""
 	@objc dynamic public var fullText		: String	= ""
 	
@@ -86,8 +85,8 @@ public final class Word: Object {
 			let _fullText = dynamicJSON.word?.text?.json?.string
 			else { return false }
 		
-		pronounce		= _pronounce
-		fullText		= _fullText
+		pronounce	= _pronounce
+		fullText	= _fullText
 		
 		return true
 	}
@@ -161,7 +160,9 @@ extension Word {
 	
 	public static var MyWords: [Word] {
 		var result: [Word] = []
-		V.RealmObject.objects(Word.self).forEach { result.append($0) }
+		V.RealmObject.objects(Word.self)
+			.reversed()
+			.forEach { result.append($0) }
 		return result
 	}
 	

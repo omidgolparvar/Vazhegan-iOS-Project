@@ -59,6 +59,18 @@ extension Query {
 		return array
 	}
 	
+	public static func DeleteOldItems() {
+		let allQueries = V.RealmObject.objects(Query.self)
+		guard allQueries.count > 50 else { return }
+		var oldItems: [Query] = []
+		allQueries[50...].forEach {
+			oldItems.append($0)
+		}
+		V.RealmObject.safeWrite {
+			V.RealmObject.delete(oldItems)
+		}
+	}
+	
 	public static func DeleteAll() {
 		let allQueries = V.RealmObject.objects(Query.self)
 		V.RealmObject.safeWrite {

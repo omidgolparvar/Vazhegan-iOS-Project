@@ -36,10 +36,12 @@ public class V {
 	
 	public static func Setup() {
 		Database.Setup()
+		Query.DeleteOldItems()
 	}
 	
 	public static func HandleIncomingURL(_ url: URL) {
 		//Pattern > vazhegan://getMeaning/{text}
+		
 		guard
 			let host = url.host?.lowercased(),
 			host == "getMeaning".lowercased(),

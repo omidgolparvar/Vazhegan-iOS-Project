@@ -472,13 +472,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کلمه نمونه" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2T-C0-8UO">
-                                <rect key="frame" x="16" y="44" width="343" height="37.5"/>
+                                <rect key="frame" x="16" y="44" width="343" height="40.5"/>
                                 <fontDescription key="fontDescription" name="IRANSansMobile-Bold" family="IRANSansMobile" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.70980392160000005" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0PQ-EH-Jd1">
-                                <rect key="frame" x="16" y="41" width="44" height="44"/>
+                                <rect key="frame" x="16" y="42.5" width="44" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="EAp-fA-bt0"/>
@@ -491,23 +491,23 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="این یک معنی نمونه است که می‌تواند دارای بیشتر از یک خط نیز باشد و باید بدرستی نمایش داده شود." textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="vio-1H-e4l">
-                                <rect key="frame" x="16" y="150.5" width="343" height="427.5"/>
+                                <rect key="frame" x="16" y="153.5" width="343" height="424.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hml-Bx-Pmd">
-                                <rect key="frame" x="16" y="149.5" width="343" height="1"/>
+                                <rect key="frame" x="16" y="152.5" width="343" height="1"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="M8z-hd-ad5"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNT-me-GpH">
-                                <rect key="frame" x="259.5" y="97.5" width="99.5" height="36"/>
+                                <rect key="frame" x="241.5" y="100.5" width="117.5" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان لغت‌نامه" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6j-7z-ANk">
-                                        <rect key="frame" x="12" y="0.0" width="75.5" height="36"/>
+                                        <rect key="frame" x="12" y="0.0" width="93.5" height="36"/>
                                         <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -567,7 +567,7 @@
         <scene sceneID="9Ni-Vo-Ahx">
             <objects>
                 <tableViewController storyboardIdentifier="MyWordsController" id="6AP-HH-FKt" customClass="MyWordsController" customModule="Vazhegan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3ja-5x-P0g">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="3ja-5x-P0g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
