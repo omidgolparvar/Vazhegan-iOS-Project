@@ -97,18 +97,6 @@ extension SettingsController {
 			})
 		}
 		
-		let action_Instagram = IDAlertAction.InitializeNormalAction(title: "اینستاگرام خودم", alignment: .right, leftImage: #imageLiteral(resourceName: "App_Instagram")) {
-			UIApplication.ID_TryToOpen(url: URL(string: "instagram://user?username=golparvar")!, onFailed: {
-				UIApplication.ID_Open(url: URL(string: "https://www.instagram.com/golparvar/")!)
-			})
-		}
-		
-		let action_Twitter = IDAlertAction.InitializeNormalAction(title: "توییتر خودم", alignment: .right, leftImage: #imageLiteral(resourceName: "App_Twitter")) {
-			UIApplication.ID_TryToOpen(url: URL(string: "twitter://user?screen_name=omidgolparvar")!, onFailed: {
-				UIApplication.ID_Open(url: URL(string: "https://twitter.com/omidgolparvar")!)
-			})
-		}
-		
 		let action_Website = IDAlertAction.InitializeNormalAction(title: "وبسایت تیم‌مون", alignment: .right, leftImage: #imageLiteral(resourceName: "App_Safari")) {
 			UIApplication.ID_Open(url: URL(string: "https://www.idco.io/")!)
 		}
@@ -117,7 +105,7 @@ extension SettingsController {
 		
 		let idAlertController = IDAlertController(
 			header			: idAlertHeader,
-			actions			: [action_Telegram, action_Instagram, action_Twitter, action_Website, action_Cancel],
+			actions			: [action_Telegram, action_Website, action_Cancel],
 			preferredStyle	: .actionSheet
 		)
 		

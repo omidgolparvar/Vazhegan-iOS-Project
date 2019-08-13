@@ -64,6 +64,7 @@
 		1A7F815E211F230A004BA888 /* IRANSansMobile_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A53718E1FB44AEE00F9F534 /* IRANSansMobile_Medium.ttf */; };
 		1A7F815F211F230A004BA888 /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A53718F1FB44AEE00F9F534 /* IRANSansMobile.ttf */; };
 		1A7F8160211F230A004BA888 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AEB41F91E2D655400B379F3 /* ionicons.ttf */; };
+		1A802CD52302B65A006DE213 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A802CD42302B65A006DE213 /* Haptic.swift */; };
 		1A890184211F423B00429CA7 /* Fabric.Keys in Resources */ = {isa = PBXBuildFile; fileRef = 1A890183211F423B00429CA7 /* Fabric.Keys */; };
 		1A8C329122533C7E0069B1CA /* QueryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C328F22533C7E0069B1CA /* QueryCell.swift */; };
 		1A8C329222533C7E0069B1CA /* QueryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A8C329022533C7E0069B1CA /* QueryCell.xib */; };
@@ -180,6 +181,7 @@
 		1A7F811D211EEC0E004BA888 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		1A7F811F211EEC0E004BA888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A7F8157211F0DF3004BA888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A802CD42302B65A006DE213 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		1A890183211F423B00429CA7 /* Fabric.Keys */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fabric.Keys; sourceTree = "<group>"; };
 		1A890185211F570500429CA7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1A8C328F22533C7E0069B1CA /* QueryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCell.swift; sourceTree = "<group>"; };
@@ -420,13 +422,14 @@
 				1AEAB52D1E5B3202002C20A6 /* Vazhegan.entitlements */,
 				1A890183211F423B00429CA7 /* Fabric.Keys */,
 				1A70CAE21E2A4C2F008D768B /* Info.plist */,
+				1A692A0422689A71001171B6 /* Texts.plist */,
 				1A70CAD31E2A4C2E008D768B /* AppDelegate.swift */,
 				1A70CADD1E2A4C2F008D768B /* Assets.xcassets */,
 				1AB7BEC4224E286700A67C13 /* Controllers */,
+				1A802CD62302C925006DE213 /* Other */,
 				1AEB41F81E2D652E00B379F3 /* Resources */,
 				1A582063225299DC00F98D52 /* Storyboards */,
 				1A58205B2252985200F98D52 /* Views */,
-				1A692A0422689A71001171B6 /* Texts.plist */,
 			);
 			path = Vazhegan;
 			sourceTree = "<group>";
@@ -441,6 +444,14 @@
 				1A7F8157211F0DF3004BA888 /* Assets.xcassets */,
 			);
 			path = VazheganActionExtension;
+			sourceTree = "<group>";
+		};
+		1A802CD62302C925006DE213 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				1A802CD42302B65A006DE213 /* Haptic.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		1AB7BEC4224E286700A67C13 /* Controllers */ = {
@@ -833,6 +844,7 @@
 				1A5820362250E6AC00F98D52 /* SettingsController.swift in Sources */,
 				1A3E95D1226B12B40096D3B4 /* MyWordsController.swift in Sources */,
 				1AB7BEC3224E283100A67C13 /* HomeController.swift in Sources */,
+				1A802CD52302B65A006DE213 /* Haptic.swift in Sources */,
 				1A58203922516A9800F98D52 /* DatabaseCell.swift in Sources */,
 				1A58206522529A4100F98D52 /* VNavigationController.swift in Sources */,
 				1A8C329122533C7E0069B1CA /* QueryCell.swift in Sources */,

@@ -128,7 +128,6 @@ extension AppDelegate {
 		
 		IDAlertAction.TitleTextFont		= IDFont.Medium.withSize(19)
 		IDAlertAction.SubtitleTextFont	= IDFont.Regular.withSize(14)
-		
 	}
 	
 }

@@ -13,14 +13,11 @@ class VazheganBackgroundView: UIView {
 	
 	var view: UIView!
 	
-	@IBOutlet weak var button_Settings	: UIButton!
-	@IBOutlet weak var button_About		: UIButton!
-	@IBOutlet weak var button_MyWords	: UIButton!
-	@IBOutlet weak var button_History	: UIButton!
+	@IBOutlet weak var view_ButtonsHolder	: UIView!
 	
 	weak var viewController		: UIViewController!
 	
-	func xibSetup() {
+	private func xibSetup() {
 		view = loadViewFromNib()
 		view.frame = bounds
 		view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -28,7 +25,7 @@ class VazheganBackgroundView: UIView {
 		setupUI()
 	}
 	
-	func loadViewFromNib() -> UIView {
+	private func loadViewFromNib() -> UIView {
 		let bundle = Bundle(for: type(of: self))
 		let nib = UINib(nibName: "VazheganBackgroundView", bundle: bundle)
 		let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
@@ -46,54 +43,44 @@ class VazheganBackgroundView: UIView {
 	}
 	
 	private func setupUI() {
-		button_Settings.id_SetCornerRadius(16)
-		button_About.id_SetCornerRadius(16)
-		button_MyWords.id_SetCornerRadius(16)
-		button_History.id_SetCornerRadius(16)
+		view_ButtonsHolder.id_SetCornerRadius(16)
 	}
 	
 	func setup(viewController: UIViewController) {
 		self.viewController = viewController
 	}
 	
-	@IBAction func action_PresentSettingsController(_ sender: UIButton) {
-		let settingsController = SettingsController.IDViewControllerInstance
-		let navigationController = VNavigationController(rootViewController: settingsController)
+	private func presentViewController(_ destination: UIViewController) {
+		Haptic.impact(.medium).generate()
 		IDRouter.Present(
 			source		: viewController,
-			destination	: navigationController,
+			destination	: destination,
 			type		: .storky(delegate: viewController as! IDStorkyPresenterDelegate)
 		)
 	}
 	
+	@IBAction func action_PresentSettingsController(_ sender: UIButton) {
+		let settingsController = SettingsController.IDViewControllerInstance
+		let navigationController = VNavigationController(rootViewController: settingsController)
+		presentViewController(navigationController)
+	}
+	
 	@IBAction func action_PresentAboutController(_ sender: UIButton) {
 		let aboutController = AboutController.IDViewControllerInstance
-		IDRouter.Present(
-			source		: viewController,
-			destination	: aboutController,
-			type		: .storky(delegate: viewController as! IDStorkyPresenterDelegate)
-		)
+		presentViewController(aboutController)
 	}
 	
 	@IBAction func action_PresentMyWords(_ sender: UIButton) {
 		let myWordsController = MyWordsController.IDViewControllerInstance
 		let navigationController = VNavigationController(rootViewController: myWordsController)
-		IDRouter.Present(
-			source		: viewController,
-			destination	: navigationController,
-			type		: .storky(delegate: viewController as! IDStorkyPresenterDelegate)
-		)
+		presentViewController(navigationController)
 	}
 	
 	@IBAction func action_PresentHistory(_ sender: UIButton) {
 		let historyController = HistoryController.IDViewControllerInstance
 		historyController.searcherDelegate = (viewController as! HomeSearcherDelegate)
 		let navigationController = VNavigationController(rootViewController: historyController)
-		IDRouter.Present(
-			source		: viewController,
-			destination	: navigationController,
-			type		: .storky(delegate: viewController as! IDStorkyPresenterDelegate)
-		)
+		presentViewController(navigationController)
 	}
 
 }

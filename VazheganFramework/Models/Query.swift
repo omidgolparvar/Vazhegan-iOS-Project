@@ -21,7 +21,7 @@ public final class Query: Object {
 	
 	@objc dynamic public var uuid			: String	= ""
 	@objc dynamic public var query			: String	= ""
-	@objc dynamic public var requestDate	: Date	= Date()
+	@objc dynamic public var requestDate	: Date		= Date()
 	
 	public convenience init(query: String) {
 		self.init()
@@ -60,7 +60,9 @@ extension Query {
 	}
 	
 	public static func DeleteOldItems() {
-		let allQueries = V.RealmObject.objects(Query.self)
+		let allQueries = V.RealmObject
+			.objects(Query.self)
+			.sorted(by: \.requestDate, ascending: false)
 		guard allQueries.count > 50 else { return }
 		var oldItems: [Query] = []
 		allQueries[50...].forEach {
