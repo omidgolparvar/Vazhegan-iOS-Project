@@ -9,10 +9,10 @@
 import UIKit
 import Fabric
 import Crashlytics
-import IDExt
 import VazheganFramework
-import IDPush
 import UserNotifications
+import IDExt
+import IDPush
 import IDAlert
 
 @UIApplicationMain
