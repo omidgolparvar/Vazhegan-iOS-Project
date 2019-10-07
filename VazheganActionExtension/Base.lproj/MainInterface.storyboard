@@ -56,6 +56,7 @@
                                                     <constraint firstAttribute="width" constant="48" id="GHo-pn-rzV"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Ionicons" family="Ionicons" pointSize="24"/>
+                                                <color key="tintColor" red="0.31372549020000001" green="0.21176470589999999" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title=""/>
                                                 <connections>
                                                     <action selector="action_ButtonClearSearchBox_Tapped:" destination="XXB-HC-KFa" eventType="touchUpInside" id="b9J-gV-n34"/>
@@ -84,6 +85,7 @@
                                             <constraint firstAttribute="width" constant="48" id="VFw-di-rU7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Ionicons" family="Ionicons" pointSize="24"/>
+                                        <color key="tintColor" red="0.31372549020000001" green="0.21176470589999999" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title=""/>
                                         <connections>
                                             <action selector="action_ButtonDismiss_Tapped:" destination="XXB-HC-KFa" eventType="touchUpInside" id="ITW-Wq-ASJ"/>
@@ -144,5 +146,5 @@
             <point key="canvasLocation" x="3077.5999999999999" y="-1798.6506746626687"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.25449702140000002" green="0.1572966576" blue="0.60395795109999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+    <color key="tintColor" red="0.31372549020000001" green="0.21176470589999999" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

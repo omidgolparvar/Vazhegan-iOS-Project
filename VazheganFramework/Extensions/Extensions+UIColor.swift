@@ -30,7 +30,7 @@ extension UIColor {
 	}
 	
 	public static var V: UIColor {
-		return UIColor.Initialize(hexCode: "#4527A0")
+		return UIColor.Initialize(hexCode: "#5036DE")
 	}
 	
 }

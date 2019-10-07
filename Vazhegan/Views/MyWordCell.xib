@@ -30,7 +30,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="کلمه نمونه" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1AF-Oo-wok">
                         <rect key="frame" x="118" y="22" width="186" height="25.5"/>
                         <fontDescription key="fontDescription" name="IRANSansMobile-Bold" family="IRANSansMobile" pointSize="20"/>
-                        <color key="textColor" red="0.25449702140000002" green="0.1572966576" blue="0.60395795109999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="textColor" red="0.31372549020000001" green="0.21176470589999999" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-sb-WN1">

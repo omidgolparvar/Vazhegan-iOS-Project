@@ -17,7 +17,7 @@ class MyWordCell: UITableViewCell {
 	@IBOutlet weak var view_DatabaseNameHolder	: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-		view_DatabaseNameHolder.setCornerRadius(12)
+		view_DatabaseNameHolder.setCornerRadius(view_DatabaseNameHolder.frame.height / 2.0)
     }
 	
 	func setup(with word: Word) {

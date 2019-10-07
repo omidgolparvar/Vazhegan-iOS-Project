@@ -17,7 +17,11 @@ final class SettingsController: UITableViewController {
 	@IBOutlet weak var label_AppVersion						: UILabel!
 	
 	private let sharedSettings			= Settings.Shared
-	private let highlightableCellRows	= [0, 3, 4]
+	private let highlightableCellRows	= [0, 3, 4, 5]
+	
+	private let row_AboutApp	= 3
+	private let row_ContactUs	= 4
+	private let row_ShareApp	= 5
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +33,7 @@ final class SettingsController: UITableViewController {
     }
 	
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -57,8 +61,9 @@ final class SettingsController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		switch indexPath.row {
-		case 3	: DispatchQueue.main.async { [unowned self] in self.action_ContactUs() }
-		case 4	: DispatchQueue.main.async { [unowned self] in self.action_ShareApp() }
+		case row_AboutApp	: DispatchQueue.main.async { [unowned self] in self.action_AboutApp() }
+		case row_ContactUs	: DispatchQueue.main.async { [unowned self] in self.action_ContactUs() }
+		case row_ShareApp	: DispatchQueue.main.async { [unowned self] in self.action_ShareApp() }
 		default	: break
 		}
 	}
@@ -74,6 +79,18 @@ final class SettingsController: UITableViewController {
 }
 
 extension SettingsController: IDStoryboardInstanceProtocol {
+	
+}
+
+extension SettingsController: IDStorkyPresenterDelegate {
+	
+	func idStorkyPresenter_ShowIndicator(for controller: UIViewController) -> Bool {
+		return false
+	}
+	
+	func idStorkyPresenter_IsSwipeToDismissEnabled(for controller: UIViewController) -> Bool {
+		return false
+	}
 	
 }
 
@@ -121,4 +138,12 @@ extension SettingsController {
 		self.present(activityViewController, animated: true, completion: nil)
 	}
 	
+	private func action_AboutApp() {
+		let aboutController = AboutController.IDViewControllerInstance
+		IDRouter.Present(
+			source		: self,
+			destination	: aboutController,
+			type		: .storky(delegate: self)
+		)
+	}
 }

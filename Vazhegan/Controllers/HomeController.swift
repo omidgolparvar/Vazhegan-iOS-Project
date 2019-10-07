@@ -22,6 +22,7 @@ final class HomeController: UIViewController {
 	@IBOutlet weak var view_Line				: UIView!
 	@IBOutlet weak var tableView_Results		: UITableView!
 	@IBOutlet weak var button_ClearTextField	: UIButton!
+	@IBOutlet weak var view_ButtonsHolder		: UIView!
 	
 	private var searcher	: Searcher!
 	
@@ -43,6 +44,26 @@ final class HomeController: UIViewController {
 		textField_SearchBox.text = ""
 		searcher.cancelSearch()
 		setupViews_VazheganBackgroundView()
+		setupViews_ToolbarVisibility(isVisible: true)
+	}
+	
+	@IBAction func action_ButtonSettings_Tapped(_ sender: UIButton) {
+		let settingsController = SettingsController.IDViewControllerInstance
+		let navigationController = VNavigationController(rootViewController: settingsController)
+		presentViewController(navigationController)
+	}
+	
+	@IBAction func action_ButtonMyWords_Tapped(_ sender: UIButton) {
+		let myWordsController = MyWordsController.IDViewControllerInstance
+		let navigationController = VNavigationController(rootViewController: myWordsController)
+		presentViewController(navigationController)
+	}
+	
+	@IBAction func action_ButtonHistory_Tapped(_ sender: UIButton) {
+		let historyController = HistoryController.IDViewControllerInstance
+		historyController.searcherDelegate = (self as HomeSearcherDelegate)
+		let navigationController = VNavigationController(rootViewController: historyController)
+		presentViewController(navigationController)
 	}
 	
 	
@@ -58,6 +79,7 @@ extension HomeController: UITextFieldDelegate {
 		textField.resignFirstResponder()
 		guard let text = textField.text?.id_Trimmed, !text.isEmpty else { return true }
 		searcher!.startSearch(for: text)
+		setupViews_ToolbarVisibility(isVisible: false)
 		return true
 	}
 }
@@ -79,6 +101,7 @@ extension HomeController: HomeSearcherDelegate {
 		textField_SearchBox.text = query.query
 		button_ClearTextField.isHidden = false
 		searcher.startSearch(for: query.query)
+		setupViews_ToolbarVisibility(isVisible: false)
 	}
 	
 }
@@ -91,12 +114,12 @@ extension HomeController {
 		textField_SearchBox.delegate = self
 		setupViews_VazheganBackgroundView()
 		setupViews_EntranceView()
+		setupViews_Toolbar()
 	}
 	
 	private func setupViews_VazheganBackgroundView() {
 		let tableViewFrame = tableView_Results.frame
 		let bgView = VazheganBackgroundView(frame: CGRect(x: 0, y: 0, width: tableViewFrame.width, height: tableViewFrame.height))
-		bgView.setup(viewController: self)
 		tableView_Results.backgroundView = bgView
 	}
 	
@@ -130,6 +153,48 @@ extension HomeController {
 		}
 	}
 	
+	private func setupViews_Toolbar() {
+		view_ButtonsHolder.layer.cornerRadius = view_ButtonsHolder.frame.height / 2.0
+		view_ButtonsHolder.layer.shadowColor = UIColor.black.cgColor
+		view_ButtonsHolder.layer.shadowOffset = CGSize(width: 0, height: -4)
+		view_ButtonsHolder.layer.shadowRadius = 16.0
+		view_ButtonsHolder.layer.shadowOpacity = 0.3
+	}
+	
+	private func setupViews_ToolbarVisibility(isVisible: Bool) {
+		if isVisible {
+			view_ButtonsHolder.alpha = 0.0
+			view_ButtonsHolder.isHidden = false
+			UIView.animate(
+				withDuration: 0.6,
+				delay: 0.0,
+				usingSpringWithDamping: 1.0,
+				initialSpringVelocity: 1.0,
+				options: [],
+				animations: {
+					self.view_ButtonsHolder.transform = .identity
+					self.view_ButtonsHolder.alpha = 1.0
+				},
+				completion: nil
+			)
+		} else {
+			UIView.animate(
+				withDuration: 0.6,
+				delay: 0.0,
+				usingSpringWithDamping: 1.0,
+				initialSpringVelocity: 1.0,
+				options: [],
+				animations: {
+					self.view_ButtonsHolder.transform = CGAffineTransform.init(translationX: 0, y: 32)
+					self.view_ButtonsHolder.alpha = 0.0
+				},
+				completion: { _ in
+					self.view_ButtonsHolder.isHidden = true
+				}
+			)
+		}
+	}
+	
 	private func setupModels() {
 		self.searcher = Searcher(controller: self, tableView: tableView_Results)
 		self.searcher!.onTapRow { [weak self] (word) in
@@ -144,6 +209,16 @@ extension HomeController {
 				type		: .storky(delegate: _self)
 			)
 		}
+		
+	}
+	
+	private func presentViewController(_ destination: UIViewController) {
+		Haptic.impact(.medium).generate()
+		IDRouter.Present(
+			source		: self,
+			destination	: destination,
+			type		: .storky(delegate: self as IDStorkyPresenterDelegate)
+		)
 	}
 	
 }

@@ -16,7 +16,7 @@ public class SearchResultCell: UITableViewCell {
 	
 	override public func awakeFromNib() {
 		super.awakeFromNib()
-		viewDatabaseHolder.setCornerRadius(8)
+		viewDatabaseHolder.setCornerRadius(viewDatabaseHolder.frame.height / 2.0)
 	}
 	
 	public func setup(forWord word: Word) {
