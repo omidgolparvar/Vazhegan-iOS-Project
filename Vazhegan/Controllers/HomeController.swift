@@ -115,6 +115,7 @@ extension HomeController {
 		setupViews_VazheganBackgroundView()
 		setupViews_EntranceView()
 		setupViews_Toolbar()
+		//setupViews_ForiOS13()
 	}
 	
 	private func setupViews_VazheganBackgroundView() {
@@ -193,6 +194,26 @@ extension HomeController {
 				}
 			)
 		}
+	}
+	
+	private func setupViews_ForiOS13() {
+		guard #available(iOS 13.0, *) else { return }
+		guard let keyWindow = UIApplication.shared.keyWindow else { return }
+		
+		keyWindow.isOpaque = false
+		keyWindow.backgroundColor = .clear
+		
+		view.isOpaque = false
+		view.backgroundColor = .clear
+		
+		let backgroundBlurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+		backgroundBlurView.frame = view.bounds
+		backgroundBlurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+		
+		tableView_Results.backgroundView?.backgroundColor = .clear
+		
+		view.addSubview(backgroundBlurView)
+		view.sendSubviewToBack(backgroundBlurView)
 	}
 	
 	private func setupModels() {
