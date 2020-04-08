@@ -631,6 +631,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -709,7 +710,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 95e542f3124cc844332f7695d52420802a4bfca8 dd893d7ba485a1b545ed5cdebc910c0a704ff392356e587506d206b10e0549a6";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 95e542f3124cc844332f7695d52420802a4bfca8 dd893d7ba485a1b545ed5cdebc910c0a704ff392356e587506d206b10e0549a6\n";
 		};
 		1A1017851ED4137C0036FAD3 /* Increment Build */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -723,7 +724,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n\nbuildNumber=$(($buildNumber + 1))\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $bundleVersion\" \"${PROJECT_DIR}/VazheganActionExtension/Info.plist\"\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/VazheganActionExtension/Info.plist\"\n";
+			shellScript = "bundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n\nbuildNumber=$(($buildNumber + 1))\n\n# /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $bundleVersion\" \"${PROJECT_DIR}/VazheganActionExtension/Info.plist\"\n\n# /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n# /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/VazheganActionExtension/Info.plist\"\n";
 		};
 		3F7EA787355A929951E595B5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

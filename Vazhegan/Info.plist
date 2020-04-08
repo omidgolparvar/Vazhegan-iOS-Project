@@ -32,7 +32,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>453</string>
+	<string>493</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -76,8 +76,6 @@
 		<string>IRANSansMobile.ttf</string>
 		<string>ionicons.ttf</string>
 	</array>
-	<key>UIApplicationIsOpaque</key>
-	<false/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

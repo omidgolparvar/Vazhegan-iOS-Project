@@ -41,7 +41,7 @@ class SearchResultHeader: UITableViewHeaderFooterView {
 			labelDetail.text = "بروز خطا"
 			buttonSearch.isHidden = true
 		case .searching:
-			labelDetail.text = "در حال جستجو..."
+			labelDetail.text = ""
 			buttonSearch.isHidden = true
 		}
 	}

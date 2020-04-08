@@ -13,11 +13,9 @@ public class SearchResultWithWordCell: UITableViewCell {
 	@IBOutlet weak var labelWord: UILabel!
 	@IBOutlet weak var labelMeaning: UILabel!
 	@IBOutlet weak var labelDatabase: UILabel!
-	@IBOutlet weak var viewDatabaseHolder: UIView!
 	
 	public override func awakeFromNib() {
 		super.awakeFromNib()
-		viewDatabaseHolder.setCornerRadius(viewDatabaseHolder.frame.height / 2.0)
 	}
 	
 	public func setup(forWord word: Word) {

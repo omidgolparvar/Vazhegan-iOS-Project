@@ -19,7 +19,6 @@ final class HomeController: UIViewController {
 	@IBOutlet weak var view_Header				: UIView!
 	@IBOutlet weak var view_TextFieldHolder		: UIView!
 	@IBOutlet weak var textField_SearchBox		: UITextField!
-	@IBOutlet weak var view_Line				: UIView!
 	@IBOutlet weak var tableView_Results		: UITableView!
 	@IBOutlet weak var button_ClearTextField	: UIButton!
 	@IBOutlet weak var view_ButtonsHolder		: UIView!
@@ -34,7 +33,6 @@ final class HomeController: UIViewController {
 	
 	@IBAction func action_TextFieldSearchBox_EditingChanged(_ sender: UITextField) {
 		let text = textField_SearchBox.text?.id_Trimmed ?? ""
-		textField_SearchBox.text = text
 		button_ClearTextField.isHidden = text.isEmpty
 	}
 	
@@ -82,6 +80,11 @@ extension HomeController: UITextFieldDelegate {
 		setupViews_ToolbarVisibility(isVisible: false)
 		return true
 	}
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		textField.text = textField.text?.id_Trimmed
+	}
+	
 }
 
 extension HomeController: IDStorkyPresenterDelegate {
@@ -110,12 +113,25 @@ extension HomeController {
 	
 	private func setupViews() {
 		button_ClearTextField.isHidden = true
-		view_TextFieldHolder.id_RoundCorners()
+		
+		view_TextFieldHolder.layer.cornerRadius = view_TextFieldHolder.frame.height / 2.0
+		view_TextFieldHolder.layer.shadowColor = UIColor.black.cgColor
+		view_TextFieldHolder.layer.shadowOffset = .zero
+		view_TextFieldHolder.layer.shadowRadius = 16.0
+		view_TextFieldHolder.layer.shadowOpacity = 0.3
+		view_TextFieldHolder.layer.borderColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+		view_TextFieldHolder.layer.borderWidth = 1
+		
+		view_Header.backgroundColor = UIColor.white.withAlphaComponent(0.9)
+		
 		textField_SearchBox.delegate = self
+		
+		tableView_Results.contentInset.top += 80
+		tableView_Results.contentInset.bottom += 80
+		
 		setupViews_VazheganBackgroundView()
 		setupViews_EntranceView()
 		setupViews_Toolbar()
-		//setupViews_ForiOS13()
 	}
 	
 	private func setupViews_VazheganBackgroundView() {
@@ -157,7 +173,7 @@ extension HomeController {
 	private func setupViews_Toolbar() {
 		view_ButtonsHolder.layer.cornerRadius = view_ButtonsHolder.frame.height / 2.0
 		view_ButtonsHolder.layer.shadowColor = UIColor.black.cgColor
-		view_ButtonsHolder.layer.shadowOffset = CGSize(width: 0, height: -4)
+		view_ButtonsHolder.layer.shadowOffset = .zero
 		view_ButtonsHolder.layer.shadowRadius = 16.0
 		view_ButtonsHolder.layer.shadowOpacity = 0.3
 	}
@@ -194,26 +210,6 @@ extension HomeController {
 				}
 			)
 		}
-	}
-	
-	private func setupViews_ForiOS13() {
-		guard #available(iOS 13.0, *) else { return }
-		guard let keyWindow = UIApplication.shared.keyWindow else { return }
-		
-		keyWindow.isOpaque = false
-		keyWindow.backgroundColor = .clear
-		
-		view.isOpaque = false
-		view.backgroundColor = .clear
-		
-		let backgroundBlurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-		backgroundBlurView.frame = view.bounds
-		backgroundBlurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-		
-		tableView_Results.backgroundView?.backgroundColor = .clear
-		
-		view.addSubview(backgroundBlurView)
-		view.sendSubviewToBack(backgroundBlurView)
 	}
 	
 	private func setupModels() {

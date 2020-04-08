@@ -12,11 +12,9 @@ public class SearchResultCell: UITableViewCell {
 
 	@IBOutlet weak var labelMeaning: UILabel!
 	@IBOutlet weak var labelDatabase: UILabel!
-	@IBOutlet weak var viewDatabaseHolder: UIView!
 	
 	override public func awakeFromNib() {
 		super.awakeFromNib()
-		viewDatabaseHolder.setCornerRadius(viewDatabaseHolder.frame.height / 2.0)
 	}
 	
 	public func setup(forWord word: Word) {

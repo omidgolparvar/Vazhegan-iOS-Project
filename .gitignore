@@ -1,3 +1,5 @@
 Pods/
 *.keys
 Other/Apple/
+.DS_Store
+

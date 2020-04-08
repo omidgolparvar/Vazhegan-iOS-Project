@@ -18,8 +18,6 @@ import IDAlert
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
-	private var isFabricUsageEnabled	= true
-	
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -118,7 +116,6 @@ extension AppDelegate {
 	}
 	
 	private func setupFabric() {
-		guard isFabricUsageEnabled else { return }
 		Fabric.with([Crashlytics.self, Answers.self])
 	}
 	
