@@ -42,11 +42,13 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>IRANSansMobile_Medium.ttf</string>
-		<string>IRANSansMobile_Light.ttf</string>
-		<string>IRANSansMobile_Bold.ttf</string>
-		<string>IRANSansMobile.ttf</string>
-		<string>ionicons.ttf</string>
+		<string>Pinar-Black.ttf</string>
+		<string>Pinar-Bold.ttf</string>
+		<string>Pinar-ExtraBold.ttf</string>
+		<string>Pinar-Light.ttf</string>
+		<string>Pinar-Medium.ttf</string>
+		<string>Pinar-Regular.ttf</string>
+		<string>Pinar-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

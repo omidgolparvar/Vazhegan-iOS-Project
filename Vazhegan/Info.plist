@@ -33,26 +33,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>95e542f3124cc844332f7695d52420802a4bfca8</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Crashlytics</string>
-			</dict>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Answers</string>
-			</dict>
-		</array>
-	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>instagram</string>
@@ -70,20 +50,18 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>IRANSansMobile_Medium.ttf</string>
-		<string>IRANSansMobile_Light.ttf</string>
-		<string>IRANSansMobile_Bold.ttf</string>
-		<string>IRANSansMobile.ttf</string>
-		<string>ionicons.ttf</string>
+		<string>Pinar-Black.ttf</string>
+		<string>Pinar-Bold.ttf</string>
+		<string>Pinar-ExtraBold.ttf</string>
+		<string>Pinar-Light.ttf</string>
+		<string>Pinar-Medium.ttf</string>
+		<string>Pinar-Regular.ttf</string>
+		<string>Pinar-SemiBold.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
-	<array>
-		<string>remote-notification</string>
-	</array>
+	<array/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

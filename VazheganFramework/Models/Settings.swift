@@ -1,47 +1,26 @@
-//
-//  Settings.swift
-//  Vazhegan
-//
-//  Created by Omid Golparvar on 4/4/19.
-//  Copyright © 2019 Omid Golparvar. All rights reserved.
-//
-
 import Foundation
 
-public final class Settings {
-	
-	public static var Shared: Settings {
-		return Settings()
+fileprivate enum InfoPlistKeys: String {
+	case version		= "CFBundleShortVersionString"
+	case buildNumber	= "CFBundleVersion"
+}
+
+fileprivate extension Bundle {
+	func object(forInfoDictionaryKey key: InfoPlistKeys) -> Any? {
+		return object(forInfoDictionaryKey: key.rawValue)
 	}
+}
+
+public enum Settings {
 	
-	public var automaticRequestsInAllTypes	: Bool
-	public var applicationVersion			: String
-	
-	private init() {
-		let userDefaults = UserDefaults(suiteName: V.AppGroupIdentifier)!
-		
-		if let value = userDefaults.object(forKey: SettingsUserDefaultsKeys.AutomaticRequestsInAllTypes.rawValue) as? Bool {
-			automaticRequestsInAllTypes = value
-		} else {
-			automaticRequestsInAllTypes = false
-			userDefaults.set(false, forKey: SettingsUserDefaultsKeys.AutomaticRequestsInAllTypes.rawValue)
-		}
-		
-		let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
-		let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as! String
-		applicationVersion = "v" + version + "(\(buildNumber))"
-	}
-	
-	public func set(automaticRequestsInAllTypes: Bool) {
-		let userDefaults = UserDefaults(suiteName: V.AppGroupIdentifier)!
-		userDefaults.set(automaticRequestsInAllTypes, forKey: SettingsUserDefaultsKeys.AutomaticRequestsInAllTypes.rawValue)
-		self.automaticRequestsInAllTypes = automaticRequestsInAllTypes
-	}
-	
-	private enum SettingsUserDefaultsKeys: String {
-		case AutomaticRequestsInAllTypes	= "V_AutomaticRequestsInAllTypes"
+	public static var applicationVersion: String {
+		let mainBundle = Bundle.main
+		let version = mainBundle.object(forInfoDictionaryKey: .version) as! String
+		let buildNumber = mainBundle.object(forInfoDictionaryKey: .buildNumber) as! String
+		return "v\(version)(\(buildNumber))"
 	}
 	
 }
+
 
 

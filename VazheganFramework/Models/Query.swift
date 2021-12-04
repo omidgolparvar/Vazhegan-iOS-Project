@@ -1,83 +1,20 @@
-//
-//  Query.swift
-//  Vazhegan
-//
-//  Created by Omid Golparvar on 4/2/19.
-//  Copyright © 2019 Omid Golparvar. All rights reserved.
-//
-
 import Foundation
 import RealmSwift
 
 public final class Query: Object {
 	
-	public override static func primaryKey() -> String? {
-		return "uuid"
-	}
+	@Persisted(primaryKey: true)
+	public private(set) var uuid: UUID = UUID()
 	
-	public override static func ignoredProperties() -> [String] {
-		return []
-	}
+	@Persisted
+	public private(set) var query: String = ""
 	
-	@objc dynamic public var uuid			: String	= ""
-	@objc dynamic public var query			: String	= ""
-	@objc dynamic public var requestDate	: Date		= Date()
+	@Persisted
+	public internal(set) var lastRequestDate: Date = Date()
 	
 	public convenience init(query: String) {
 		self.init()
-		self.uuid			= UUID().uuidString
-		self.query			= query
-		self.requestDate	= Date()
-	}
-	
-	public func setLastRequestDateToNow() {
-		V.RealmObject.safeWrite {
-			self.requestDate = Date()
-		}
-	}
-	
-	public func save() {
-		V.RealmObject.safeWrite {
-			V.RealmObject.add(self)
-		}
-	}
-	
-	public func delete() {
-		V.RealmObject.safeWrite {
-			V.RealmObject.delete(self)
-		}
-	}
-}
-
-extension Query {
-	
-	public static var All: [Query] {
-		var array: [Query] = []
-		V.RealmObject.objects(Query.self)
-			.sorted(by: \.requestDate, ascending: false)
-			.forEach { array.append($0) }
-		return array
-	}
-	
-	public static func DeleteOldItems() {
-		let allQueries = V.RealmObject
-			.objects(Query.self)
-			.sorted(by: \.requestDate, ascending: false)
-		guard allQueries.count > 50 else { return }
-		var oldItems: [Query] = []
-		allQueries[50...].forEach {
-			oldItems.append($0)
-		}
-		V.RealmObject.safeWrite {
-			V.RealmObject.delete(oldItems)
-		}
-	}
-	
-	public static func DeleteAll() {
-		let allQueries = V.RealmObject.objects(Query.self)
-		V.RealmObject.safeWrite {
-			V.RealmObject.delete(allQueries)
-		}
+		self.query = query.trimmed
 	}
 	
 }
