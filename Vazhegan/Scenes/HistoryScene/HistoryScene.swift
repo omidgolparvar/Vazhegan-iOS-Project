@@ -5,8 +5,6 @@ import UIKit
 import VazheganFramework
 
 enum HistoryScene: SceneProtocol {
-	typealias ViewModelType = ViewModel
-	typealias RouterType = Router
 	typealias ViewControllerType = Controller
 	typealias PreparationModel = HistoryScenePreparationModel
 	

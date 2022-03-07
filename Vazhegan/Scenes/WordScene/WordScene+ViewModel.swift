@@ -16,6 +16,16 @@ extension WordScene {
 		@Published private(set) var getMeaningStatus = GetMeaningStatus.notRequested
 		@Published private(set) var isWordFavorited: Bool
 		
+		var shareText: String? {
+			guard case .success(let word) = getMeaningStatus else { return nil }
+			let text = "📱 واژگان"
+				+ "\n\n" + "\(word.nonEmptyTitle) (\(word.database.name))"
+				+ "\n\n" + "\(word.fullText)"
+				+ "\n\n" + V.Constants.appDownloadLink
+			
+			return text
+		}
+		
 		init(
 			word: Word,
 			networkManager: NetworkManager,

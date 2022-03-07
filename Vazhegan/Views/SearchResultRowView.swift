@@ -5,6 +5,13 @@ import UIKit
 class SearchResultRowView: UIView, UIContentView {
 	
 	let stackView = UIStackView(axis: .vertical, alignment: .fill, distribution: .fill, spacing: 8)
+	let wordLabel = UILabel() .. {
+		$0.translatesAutoresizingMaskIntoConstraints = false
+		$0.numberOfLines = 4
+		$0.textColor = .label
+		$0.textAlignment = .right
+		$0.font = .pinar(size: 18, weight: .semibold)
+	}
 	let meaningLabel = UILabel() .. {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.numberOfLines = 3
@@ -36,7 +43,7 @@ class SearchResultRowView: UIView, UIContentView {
 	}
 	
 	func setupViews() {
-		stackView.addArrangedSubviews(meaningLabel, databaseLabel)
+		stackView.addArrangedSubviews(wordLabel, meaningLabel, databaseLabel)
 		
 		addSubview(stackView) { (maker) in
 			maker.edges.equalToSuperview().inset(16)
@@ -45,6 +52,8 @@ class SearchResultRowView: UIView, UIContentView {
 	
 	func configure(configuration: UIContentConfiguration) {
 		guard let configuration = configuration as? SearchResultRowViewConfiguration else { return }
+		wordLabel.text = configuration.word
+		wordLabel.isHidden = configuration.word == nil
 		meaningLabel.text = configuration.meaning
 		databaseLabel.text = configuration.database
 	}
@@ -52,6 +61,7 @@ class SearchResultRowView: UIView, UIContentView {
 }
 
 struct SearchResultRowViewConfiguration: UIContentConfiguration {
+	let word: String?
 	let meaning: String
 	let database: String
 	

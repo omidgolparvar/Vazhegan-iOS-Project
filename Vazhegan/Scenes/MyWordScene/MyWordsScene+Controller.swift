@@ -62,7 +62,7 @@ extension MyWordsScene {
 			
 			dataSource = TableViewDataSource(tableView: tableView) { tableView, indexPath, word in
 				let cell = tableView.dequeueReusableCell(UITableViewCell.self, for: indexPath)
-				cell.contentConfiguration = SearchResultWithWordRowViewConfiguration(
+				cell.contentConfiguration = SearchResultRowViewConfiguration(
 					word: word.nonEmptyTitle,
 					meaning: word.text,
 					database: word.database.name

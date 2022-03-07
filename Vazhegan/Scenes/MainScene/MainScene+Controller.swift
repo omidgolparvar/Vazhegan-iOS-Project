@@ -119,6 +119,7 @@ extension MainScene {
 				switch type {
 				case .exact:
 					configuration = SearchResultRowViewConfiguration(
+						word: nil,
 						meaning: meaning,
 						database: database
 					)
@@ -126,7 +127,7 @@ extension MainScene {
 				case .ava,
 					 .like,
 					 .text:
-					configuration = SearchResultWithWordRowViewConfiguration(
+					configuration = SearchResultRowViewConfiguration(
 						word: title,
 						meaning: meaning,
 						database: database

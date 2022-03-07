@@ -1,5 +1,4 @@
 import UIKit
-import VazheganFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

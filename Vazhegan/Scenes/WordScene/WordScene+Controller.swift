@@ -147,12 +147,8 @@ extension WordScene {
 			shareButton
 				.tapPublisher
 				.sink { [unowned self] (_) in
-					guard case .success(let word) = self.viewModel.getMeaningStatus else { return }
-					let text = "📱 واژگان"
-						+ "\n\n" + "\(word.nonEmptyTitle) (\(word.database.name))"
-						+ "\n\n" + "\(word.fullText)"
-						+ "\n\n" + V.Constants.appDownloadLink
-					self.router.presentShareController(with: [text])
+					guard let shareText = self.viewModel.shareText else { return }
+					self.router.presentShareController(with: [shareText])
 				}
 				.store(in: &cancellables)
 			
@@ -210,12 +206,12 @@ extension WordScene {
 			viewModel
 				.$isWordFavorited
 				.map { isFavorite in
-					VerticalAlignedButton.Configuration(
+					VerticalAlignedButton.ButtonConfiguration(
 						symbolName: isFavorite ? "star.fill" : "star",
 						title: isFavorite ? "حذف" : "ذخیره"
 					)
 				}
-				.assign(to: \.configuration, on: favoriteButton)
+				.assign(to: \.buttonConfiguration, on: favoriteButton)
 				.store(in: &cancellables)
 		}
 		

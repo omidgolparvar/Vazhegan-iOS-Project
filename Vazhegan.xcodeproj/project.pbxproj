@@ -16,7 +16,6 @@
 		1A5AF8572742B49A00AE578C /* MainScene+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF8562742B49A00AE578C /* MainScene+ViewModel.swift */; };
 		1A5AF8602742E73900AE578C /* SearchResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF85F2742E73900AE578C /* SearchResultRowView.swift */; };
 		1A5AF8662742E76000AE578C /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF8652742E76000AE578C /* Reusable.swift */; };
-		1A5AF86C2742E9ED00AE578C /* SearchResultWithWordRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF86B2742E9ED00AE578C /* SearchResultWithWordRowView.swift */; };
 		1A5AF8712742EB1A00AE578C /* Extensions+UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF8702742EB1A00AE578C /* Extensions+UITableViewCell.swift */; };
 		1A5AF8842742F5E000AE578C /* SearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF8832742F5E000AE578C /* SearchResultHeaderView.swift */; };
 		1A5AF8882742F7B000AE578C /* Extensions+UITableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF8872742F7B000AE578C /* Extensions+UITableViewHeaderFooterView.swift */; };
@@ -66,7 +65,6 @@
 		1A6929E322685D98001171B6 /* Extensions+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6929E222685D98001171B6 /* Extensions+Sequence.swift */; };
 		1A6929E722685E4E001171B6 /* Extensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6929E622685E4E001171B6 /* Extensions+String.swift */; };
 		1A6929EA22685E6E001171B6 /* Extensions+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6929E922685E6E001171B6 /* Extensions+Realm.swift */; };
-		1A6929FB226865C7001171B6 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6929FA226865C7001171B6 /* Extensions+UIView.swift */; };
 		1A70CAD41E2A4C2E008D768B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A70CAD31E2A4C2E008D768B /* AppDelegate.swift */; };
 		1A70CADE1E2A4C2F008D768B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A70CADD1E2A4C2F008D768B /* Assets.xcassets */; };
 		1A70CAE11E2A4C2F008D768B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A70CADF1E2A4C2F008D768B /* LaunchScreen.storyboard */; };
@@ -87,7 +85,6 @@
 		1AA27D0027465E6A005A6016 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA27CFF27465E6A005A6016 /* ViewModel.swift */; };
 		1AA27D0327465EE5005A6016 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5EC7EC27426A9200FE4151 /* Operator.swift */; };
 		1AA27D06274661A6005A6016 /* SearchResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF85F2742E73900AE578C /* SearchResultRowView.swift */; };
-		1AA27D09274661A9005A6016 /* SearchResultWithWordRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF86B2742E9ED00AE578C /* SearchResultWithWordRowView.swift */; };
 		1AA27D0C274661CF005A6016 /* Extensions+UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA27CE427464464005A6016 /* Extensions+UIStackView.swift */; };
 		1AA27D0F274661E3005A6016 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF84E27428F2A00AE578C /* Extensions+UIView.swift */; };
 		1AA27D28274664F6005A6016 /* SearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF8832742F5E000AE578C /* SearchResultHeaderView.swift */; };
@@ -178,7 +175,6 @@
 		1A5AF8562742B49A00AE578C /* MainScene+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScene+ViewModel.swift"; sourceTree = "<group>"; };
 		1A5AF85F2742E73900AE578C /* SearchResultRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRowView.swift; sourceTree = "<group>"; };
 		1A5AF8652742E76000AE578C /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		1A5AF86B2742E9ED00AE578C /* SearchResultWithWordRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultWithWordRowView.swift; sourceTree = "<group>"; };
 		1A5AF8702742EB1A00AE578C /* Extensions+UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UITableViewCell.swift"; sourceTree = "<group>"; };
 		1A5AF8832742F5E000AE578C /* SearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultHeaderView.swift; sourceTree = "<group>"; };
 		1A5AF8872742F7B000AE578C /* Extensions+UITableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UITableViewHeaderFooterView.swift"; sourceTree = "<group>"; };
@@ -214,7 +210,6 @@
 		1A6929E222685D98001171B6 /* Extensions+Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Sequence.swift"; sourceTree = "<group>"; };
 		1A6929E622685E4E001171B6 /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
 		1A6929E922685E6E001171B6 /* Extensions+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Realm.swift"; sourceTree = "<group>"; };
-		1A6929FA226865C7001171B6 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		1A692A012268787D001171B6 /* VazheganActionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VazheganActionExtension.entitlements; sourceTree = "<group>"; };
 		1A70CAD01E2A4C2E008D768B /* Vazhegan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vazhegan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A70CAD31E2A4C2E008D768B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -407,7 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				1A5AF85F2742E73900AE578C /* SearchResultRowView.swift */,
-				1A5AF86B2742E9ED00AE578C /* SearchResultWithWordRowView.swift */,
 				1A5AF8832742F5E000AE578C /* SearchResultHeaderView.swift */,
 				1A5AF8BB27437E2B00AE578C /* SceneTitleBar.swift */,
 				1AB1E3A9252887B400BD9B45 /* BackgroundMessageView.swift */,
@@ -421,7 +415,6 @@
 				1A6929E222685D98001171B6 /* Extensions+Sequence.swift */,
 				1A6929E622685E4E001171B6 /* Extensions+String.swift */,
 				1A6929E922685E6E001171B6 /* Extensions+Realm.swift */,
-				1A6929FA226865C7001171B6 /* Extensions+UIView.swift */,
 				1A5EC7632740F97200FE4151 /* Extensions+Combine.swift */,
 			);
 			path = Extensions;
@@ -892,7 +885,6 @@
 				1AD2716127456DE100B16BEE /* AboutScene+Controller.swift in Sources */,
 				1AD2715F27456DE100B16BEE /* AboutScene+Views.swift in Sources */,
 				1AD271122744096500B16BEE /* WordScene+Controller.swift in Sources */,
-				1A5AF86C2742E9ED00AE578C /* SearchResultWithWordRowView.swift in Sources */,
 				1AD2712B2744599400B16BEE /* MyWordsScene+Controller.swift in Sources */,
 				1AD2715827456DD600B16BEE /* AboutScene.swift in Sources */,
 				1AD271242744597200B16BEE /* MyWordsScene.swift in Sources */,
@@ -934,7 +926,6 @@
 				1AA27CFC27465D93005A6016 /* Reusable.swift in Sources */,
 				1AA27CF727465D7D005A6016 /* Extensions+UITableViewCell.swift in Sources */,
 				1AA27D0F274661E3005A6016 /* Extensions+UIView.swift in Sources */,
-				1AA27D09274661A9005A6016 /* SearchResultWithWordRowView.swift in Sources */,
 				1A6929DF2268530B001171B6 /* MainController.swift in Sources */,
 				1AA27CF827465D7F005A6016 /* Extensions+UITableViewHeaderFooterView.swift in Sources */,
 				1AA27D0C274661CF005A6016 /* Extensions+UIStackView.swift in Sources */,
@@ -962,7 +953,6 @@
 				1A34B2D32266FE4A008242E7 /* Settings.swift in Sources */,
 				1A99B0A62524956E003F7B01 /* VajeyabService.swift in Sources */,
 				1A5EC7552740ED8000FE4151 /* APIResponses.swift in Sources */,
-				1A6929FB226865C7001171B6 /* Extensions+UIView.swift in Sources */,
 				1A5AF8532742A10C00AE578C /* SearchManager.swift in Sources */,
 				1A99B0CA2524A2AE003F7B01 /* Vazhegan.swift in Sources */,
 				1A99B0A02524954C003F7B01 /* NetworkManager.swift in Sources */,

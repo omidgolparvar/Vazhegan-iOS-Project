@@ -6,8 +6,6 @@ import UIKit
 // MARK: - Scene Protocol
 
 protocol SceneProtocol {
-	associatedtype ViewModelType: SceneViewModel
-	associatedtype RouterType: SceneRouter
 	associatedtype ViewControllerType: SceneController
 	associatedtype PreparationModel
 	

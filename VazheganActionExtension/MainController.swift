@@ -57,6 +57,7 @@ final class MainController: UIViewController {
 			switch type {
 			case .exact:
 				configuration = SearchResultRowViewConfiguration(
+					word: nil,
 					meaning: meaning,
 					database: database
 				)
@@ -64,7 +65,7 @@ final class MainController: UIViewController {
 			case .ava,
 				 .like,
 				 .text:
-				configuration = SearchResultWithWordRowViewConfiguration(
+				configuration = SearchResultRowViewConfiguration(
 					word: title,
 					meaning: meaning,
 					database: database

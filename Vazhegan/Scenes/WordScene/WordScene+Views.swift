@@ -20,22 +20,22 @@ extension WordScene {
 			$0.font = .pinar(size: 13, weight: .medium)
 		}
 		
-		var configuration: Configuration {
+		var buttonConfiguration: ButtonConfiguration {
 			didSet { setupViewsBasedOnConfiguration() }
 		}
 		
 		var title: String {
-			get { configuration.title }
-			set { configuration.title = newValue }
+			get { buttonConfiguration.title }
+			set { buttonConfiguration.title = newValue }
 		}
 		
 		var symbolName: String {
-			get { configuration.symbolName }
-			set { configuration.symbolName = newValue }
+			get { buttonConfiguration.symbolName }
+			set { buttonConfiguration.symbolName = newValue }
 		}
 		
-		init(configuration: Configuration) {
-			self.configuration = configuration
+		init(configuration: ButtonConfiguration) {
+			self.buttonConfiguration = configuration
 			super.init(frame: .zero)
 			setupViews()
 			setupViewsBasedOnConfiguration()
@@ -93,9 +93,9 @@ extension WordScene {
 		
 		private func setupViewsBasedOnConfiguration() {
 			let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 22, weight: .regular)
-			let image = UIImage(systemName: configuration.symbolName, withConfiguration: symbolConfiguration)
+			let image = UIImage(systemName: buttonConfiguration.symbolName, withConfiguration: symbolConfiguration)
 			symbolImageView.image = image
-			mainLabel.text = configuration.title
+			mainLabel.text = buttonConfiguration.title
 		}
 		
 		override func tintColorDidChange() {
@@ -104,7 +104,7 @@ extension WordScene {
 			mainLabel.textColor = tintColor
 		}
 		
-		struct Configuration {
+		struct ButtonConfiguration {
 			var symbolName: String
 			var title: String
 		}
