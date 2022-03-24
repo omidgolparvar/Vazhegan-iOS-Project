@@ -68,7 +68,6 @@
 		1A70CAD41E2A4C2E008D768B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A70CAD31E2A4C2E008D768B /* AppDelegate.swift */; };
 		1A70CADE1E2A4C2F008D768B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A70CADD1E2A4C2F008D768B /* Assets.xcassets */; };
 		1A70CAE11E2A4C2F008D768B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A70CADF1E2A4C2F008D768B /* LaunchScreen.storyboard */; };
-		1A7F811E211EEC0E004BA888 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F811C211EEC0E004BA888 /* MainInterface.storyboard */; };
 		1A7F8122211EEC0E004BA888 /* VazheganActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1A7F8118211EEC0E004BA888 /* VazheganActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1A7F8158211F0DF3004BA888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F8157211F0DF3004BA888 /* Assets.xcassets */; };
 		1A802CD52302B65A006DE213 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A802CD42302B65A006DE213 /* Haptic.swift */; };
@@ -169,7 +168,6 @@
 		1A34B2CD2266FE4A008242E7 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		1A34B2CE2266FE4A008242E7 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		1A5AF844274283DD00AE578C /* fa-IR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "fa-IR"; path = "fa-IR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
-		1A5AF8492742843F00AE578C /* fa-IR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "fa-IR"; path = "fa-IR.lproj/MainInterface.storyboard"; sourceTree = "<group>"; };
 		1A5AF84E27428F2A00AE578C /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		1A5AF8522742A10C00AE578C /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		1A5AF8562742B49A00AE578C /* MainScene+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScene+ViewModel.swift"; sourceTree = "<group>"; };
@@ -464,7 +462,6 @@
 			children = (
 				1A692A012268787D001171B6 /* VazheganActionExtension.entitlements */,
 				1A6929DE2268530B001171B6 /* MainController.swift */,
-				1A7F811C211EEC0E004BA888 /* MainInterface.storyboard */,
 				1A7F811F211EEC0E004BA888 /* Info.plist */,
 				1A7F8157211F0DF3004BA888 /* Assets.xcassets */,
 				1AA27CFF27465E6A005A6016 /* ViewModel.swift */,
@@ -752,7 +749,6 @@
 				1A5EC7B72742511500FE4151 /* Pinar-ExtraBold.ttf in Resources */,
 				1A7F8158211F0DF3004BA888 /* Assets.xcassets in Resources */,
 				1A5EC7B42742511500FE4151 /* Pinar-Bold.ttf in Resources */,
-				1A7F811E211EEC0E004BA888 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -988,14 +984,6 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		1A7F811C211EEC0E004BA888 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A5AF8492742843F00AE578C /* fa-IR */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1116,7 +1104,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vazhegan/Vazhegan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1000;
+				CURRENT_PROJECT_VERSION = 2000;
 				INFOPLIST_FILE = Vazhegan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1139,7 +1127,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vazhegan/Vazhegan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1000;
+				CURRENT_PROJECT_VERSION = 2000;
 				INFOPLIST_FILE = Vazhegan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1166,7 +1154,7 @@
 				CODE_SIGN_ENTITLEMENTS = VazheganActionExtension/VazheganActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1000;
+				CURRENT_PROJECT_VERSION = 2000;
 				DEVELOPMENT_TEAM = A5T376J6M4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VazheganActionExtension/Info.plist;
@@ -1198,7 +1186,7 @@
 				CODE_SIGN_ENTITLEMENTS = VazheganActionExtension/VazheganActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1000;
+				CURRENT_PROJECT_VERSION = 2000;
 				DEVELOPMENT_TEAM = A5T376J6M4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VazheganActionExtension/Info.plist;

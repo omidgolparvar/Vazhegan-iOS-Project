@@ -4,17 +4,31 @@ import Combine
 import CombineCocoa
 import MobileCoreServices
 
+@objc(MainController)
 final class MainController: UIViewController {
 	
 	private typealias TableViewDataSource = UITableViewDiffableDataSource<Section, Word>
 	
 	deinit {
 		viewModel.cancelSearch()
+		extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
 	}
 	
-	@IBOutlet weak var wordLabel: UILabel!
-	@IBOutlet weak var dismissButton: UIButton!
-	@IBOutlet weak var tableView: UITableView!
+	private let dismissButton = UIButton() .. {
+		let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular)
+		let image = UIImage(systemName: "xmark", withConfiguration: symbolConfiguration)
+		$0.translatesAutoresizingMaskIntoConstraints = false
+		$0.tintColor = .systemGray
+		$0.setImage(image, for: .normal)
+		$0.snp.makeConstraints { (maker) in
+			maker.size.equalTo(32)
+		}
+	}
+	private let tableView = UITableView.default {
+		$0.register(headerFooterType: SearchResultHeaderView.self)
+		$0.allowsSelection = false
+		$0.contentInset.top += 30
+	}
 	
 	private var viewModel: ViewModel!
 	private var cancellables = Set<AnyCancellable>()
@@ -38,12 +52,16 @@ final class MainController: UIViewController {
 	}
 	
 	private func setupViews() {
-		wordLabel.font = .pinar(size: 16, weight: .bold)
-		tableView.register(UITableViewCell.self)
-		tableView.tableFooterView = UIView()
-		tableView.contentInsetAdjustmentBehavior = .never
-		tableView.showsVerticalScrollIndicator = false
-		tableView.contentInset.top -= 35
+		view.backgroundColor = .systemBackground
+		view.addSubview(tableView) { (maker) in
+			maker.edges.equalToSuperview()
+		}
+		
+		view.addSubview(dismissButton) { maker in
+			maker.top.equalTo(view.safeAreaLayoutGuide).inset(20)
+			maker.trailing.equalToSuperview().inset(20)
+		}
+		view.bringSubviewToFront(dismissButton)
 		
 		dataSource = TableViewDataSource(tableView: tableView) { tableView, indexPath, word in
 			guard let type = SearchQueryType(intValue: indexPath.section)
@@ -76,6 +94,7 @@ final class MainController: UIViewController {
 			cell.contentConfiguration = configuration
 			return cell
 		}
+		tableView.delegate = self
 	}
 	
 	private func setupBindings() {
@@ -89,7 +108,6 @@ final class MainController: UIViewController {
 		viewModel
 			.$searchStatus
 			.receive(on: DispatchQueue.main)
-			.dropFirst()
 			.sink(receiveValue: { [weak self] (status) in
 				guard let self = self else { return }
 				
@@ -180,7 +198,6 @@ extension MainController {
 			return
 		}
 		
-		wordLabel.text = string
 		viewModel.search(text: string)
 	}
 	
