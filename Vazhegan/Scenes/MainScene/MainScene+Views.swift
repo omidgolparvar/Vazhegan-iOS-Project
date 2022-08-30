@@ -8,6 +8,8 @@ extension MainScene {
 	
 	final class SearchField: UITextField {
 		
+		private let clearButton = UIButton(frame: .init(x: 0, y: 0, width: 44, height: 44))
+		
 		var queryPublisher: AnyPublisher<String, Never> {
 			returnPublisher
 				.map({ [unowned self] _ in self.text })
@@ -17,6 +19,11 @@ extension MainScene {
 				.eraseToAnyPublisher()
 		}
 		
+		private var fieldDidClearSubject = PassthroughSubject<Void, Never>()
+		var fieldDidClearPubisher: AnyPublisher<Void, Never> {
+			fieldDidClearSubject.eraseToAnyPublisher()
+		}
+		
 		override var isEnabled: Bool {
 			didSet {
 				textColor = isEnabled ? .label : .systemGray
@@ -24,9 +31,12 @@ extension MainScene {
 			}
 		}
 		
+		private var tokens = Set<AnyCancellable>()
+		
 		init() {
 			super.init(frame: .zero)
 			setupViews()
+			setupBindings()
 		}
 		
 		required init?(coder: NSCoder) {
@@ -56,6 +66,7 @@ extension MainScene {
 			autocorrectionType = .no
 			setupPlaceholder()
 			setupSearchIcon()
+			setupClearButton()
 		}
 		
 		private func setupPlaceholder() {
@@ -85,8 +96,44 @@ extension MainScene {
 			leftViewMode = .always
 		}
 		
+		private func setupClearButton() {
+			let holderView = UIView(frame: .init(x: 0, y: 0, width: 44, height: 44))
+			holderView.addSubview(clearButton)
+			
+			let configuration = UIImage.SymbolConfiguration(scale: .medium)
+			let image = UIImage(systemName: "xmark", withConfiguration: configuration)
+			
+			clearButton.tintColor = .label
+			clearButton.setImage(image, for: .normal)
+			
+			rightView = holderView
+			rightViewMode = .always
+		}
+		
+		private func setupBindings() {
+			textPublisher
+				.replaceNil(with: "")
+				.map(\.isEmpty)
+				.sink { [unowned self] isEmpty in
+					self.clearButton.isEnabled = !isEmpty
+					self.clearButton.alpha = isEmpty ? 0 : 1
+				}
+				.store(in: &tokens)
+			
+			clearButton
+				.tapPublisher
+				.print()
+				.sink { [unowned self] in
+					self.setText("")
+					self.fieldDidClearSubject.send()
+				}
+				.store(in: &tokens)
+		}
+		
 		func setText(_ text: String) {
 			self.text = text.trimmed
+			clearButton.isEnabled = !text.isEmpty
+			clearButton.alpha = text.isEmpty ? 0 : 1
 		}
 		
 	}

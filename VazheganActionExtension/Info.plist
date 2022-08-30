@@ -35,10 +35,10 @@
 				<true/>
 			</dict>
 		</dict>
-		<key>NSExtensionPrincipalClass</key>
-		<string>MainController</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.ui-services</string>
+		<key>NSExtensionPrincipalClass</key>
+		<string>MainController</string>
 	</dict>
 	<key>UIAppFonts</key>
 	<array>

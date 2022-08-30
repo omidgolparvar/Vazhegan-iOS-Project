@@ -20,7 +20,6 @@ extension MainScene {
 		}
 		private let tableView = UITableView.default {
 			$0.register(headerFooterType: SearchResultHeaderView.self)
-			$0.contentInset.top -= 30
 		}
 		
 		private var dataSource: TableViewDataSource!
@@ -86,6 +85,7 @@ extension MainScene {
 		}
 		
 		private func setupSearchField() {
+			searchField.inputAccessoryView = InputAccessorView(responder: searchField)
 			view.addSubview(searchField) {
 				$0.top.equalTo(topStackView.snp.bottom)
 				$0.leading.trailing.equalToSuperview().inset(16)
@@ -159,6 +159,13 @@ extension MainScene {
 				.sink { [unowned self] (text) in
 					self.searchField.resignFirstResponder()
 					self.viewModel.search(text: text)
+				}
+				.store(in: &cancellables)
+			
+			searchField
+				.fieldDidClearPubisher
+				.sink { [unowned self] in
+					self.viewModel.cancelSearch()
 				}
 				.store(in: &cancellables)
 		}
