@@ -69,9 +69,8 @@
 		1A70CAD41E2A4C2E008D768B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A70CAD31E2A4C2E008D768B /* AppDelegate.swift */; };
 		1A70CADE1E2A4C2F008D768B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A70CADD1E2A4C2F008D768B /* Assets.xcassets */; };
 		1A70CAE11E2A4C2F008D768B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A70CADF1E2A4C2F008D768B /* LaunchScreen.storyboard */; };
-		1A7F8122211EEC0E004BA888 /* VazheganActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1A7F8118211EEC0E004BA888 /* VazheganActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1A7F8122211EEC0E004BA888 /* VazheganActionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1A7F8118211EEC0E004BA888 /* VazheganActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1A7F8158211F0DF3004BA888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F8157211F0DF3004BA888 /* Assets.xcassets */; };
-		1A802CD52302B65A006DE213 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A802CD42302B65A006DE213 /* Haptic.swift */; };
 		1A99B0A02524954C003F7B01 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99B09F2524954C003F7B01 /* NetworkManager.swift */; };
 		1A99B0A62524956E003F7B01 /* VajeyabService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99B0A52524956E003F7B01 /* VajeyabService.swift */; };
 		1A99B0CA2524A2AE003F7B01 /* Vazhegan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99B0C92524A2AE003F7B01 /* Vazhegan.swift */; };
@@ -149,15 +148,15 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1A7F8126211EEC0E004BA888 /* Embed App Extensions */ = {
+		1A7F8126211EEC0E004BA888 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				1A7F8122211EEC0E004BA888 /* VazheganActionExtension.appex in Embed App Extensions */,
+				1A7F8122211EEC0E004BA888 /* VazheganActionExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -218,7 +217,6 @@
 		1A7F8118211EEC0E004BA888 /* VazheganActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VazheganActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A7F811F211EEC0E004BA888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A7F8157211F0DF3004BA888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1A802CD42302B65A006DE213 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		1A890185211F570500429CA7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1A99B09F2524954C003F7B01 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1A99B0A52524956E003F7B01 /* VajeyabService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VajeyabService.swift; sourceTree = "<group>"; };
@@ -476,7 +474,6 @@
 			isa = PBXGroup;
 			children = (
 				1A70CADF1E2A4C2F008D768B /* LaunchScreen.storyboard */,
-				1A802CD42302B65A006DE213 /* Haptic.swift */,
 				1A5EC7EC27426A9200FE4151 /* Operator.swift */,
 			);
 			path = Other;
@@ -605,9 +602,8 @@
 				1A70CACC1E2A4C2E008D768B /* Sources */,
 				1A70CACD1E2A4C2E008D768B /* Frameworks */,
 				1A70CACE1E2A4C2E008D768B /* Resources */,
-				1A1017851ED4137C0036FAD3 /* Increment Build */,
 				1A7F810E211EEAB2004BA888 /* Embed Frameworks */,
-				1A7F8126211EEC0E004BA888 /* Embed App Extensions */,
+				1A7F8126211EEC0E004BA888 /* Embed Foundation Extensions */,
 				7B888321CBE86095C1139FF6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -665,13 +661,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = "Omid Golparvar";
 				TargetAttributes = {
 					1A70CACF1E2A4C2E008D768B = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = A5T376J6M4;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = "";
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -690,6 +686,7 @@
 					1A7F8117211EEC0E004BA888 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = A5T376J6M4;
+						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -772,20 +769,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A1017851ED4137C0036FAD3 /* Increment Build */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Increment Build";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# bundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n# buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n\n# buildNumber=$(($buildNumber + 1))\n\n# /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $bundleVersion\" \"${PROJECT_DIR}/VazheganActionExtension/Info.plist\"\n\n# /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n# /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/VazheganActionExtension/Info.plist\"\n";
-		};
 		3F7EA787355A929951E595B5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -895,7 +878,6 @@
 				1A5AF8602742E73900AE578C /* SearchResultRowView.swift in Sources */,
 				1AD2712F274459A600B16BEE /* MyWordsScene+ViewModel.swift in Sources */,
 				1A5AF89A2743107500AE578C /* MainScene+Router.swift in Sources */,
-				1A802CD52302B65A006DE213 /* Haptic.swift in Sources */,
 				1AA27CE527464464005A6016 /* Extensions+UIStackView.swift in Sources */,
 				1A5AF8AB27437CBE00AE578C /* HistoryScene+ViewModel.swift in Sources */,
 				1AB1E3922527E19600BD9B45 /* Extensions+UITableView.swift in Sources */,
@@ -1110,6 +1092,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 3001;
 				INFOPLIST_FILE = Vazhegan/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1118,7 +1101,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.idco.ios.Vazhegan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1133,6 +1116,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 3001;
 				INFOPLIST_FILE = Vazhegan/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1141,7 +1125,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.idco.ios.Vazhegan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1158,7 +1142,7 @@
 				CODE_SIGN_ENTITLEMENTS = VazheganActionExtension/VazheganActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3000;
+				CURRENT_PROJECT_VERSION = 3001;
 				DEVELOPMENT_TEAM = A5T376J6M4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VazheganActionExtension/Info.plist;
@@ -1173,7 +1157,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1190,7 +1174,7 @@
 				CODE_SIGN_ENTITLEMENTS = VazheganActionExtension/VazheganActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3000;
+				CURRENT_PROJECT_VERSION = 3001;
 				DEVELOPMENT_TEAM = A5T376J6M4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VazheganActionExtension/Info.plist;
@@ -1204,7 +1188,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

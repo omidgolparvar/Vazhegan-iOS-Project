@@ -62,6 +62,8 @@ extension DatabasesScene {
 					case .light,
 						 .unspecified:
 						return .systemGray5
+					@unknown default:
+						return .systemGray6
 					}
 				}
 		}

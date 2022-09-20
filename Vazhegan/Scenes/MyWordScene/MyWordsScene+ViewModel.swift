@@ -22,7 +22,7 @@ extension MyWordsScene {
 		}
 		
 		func removeWord(_ word: Word) {
-			guard let index = myWords.index(of: word) else { return }
+			guard let index = myWords.firstIndex(of: word) else { return }
 			removeWord(at: index)
 		}
 		

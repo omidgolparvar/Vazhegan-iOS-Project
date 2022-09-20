@@ -22,7 +22,7 @@ extension HistoryScene {
 		}
 		
 		func removeQuery(_ query: Query) {
-			guard let index = queries.index(of: query) else { return }
+			guard let index = queries.firstIndex(of: query) else { return }
 			removeQuery(at: index)
 		}
 	}

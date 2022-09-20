@@ -77,6 +77,8 @@ extension WordScene {
 					case .light,
 						 .unspecified:
 						return .systemGray6
+					@unknown default:
+						return .systemGray6
 					}
 				}
 			}

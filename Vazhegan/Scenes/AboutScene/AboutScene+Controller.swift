@@ -217,6 +217,8 @@ extension AboutScene {
 					case .light,
 						 .unspecified:
 						return .systemGray6
+					@unknown default:
+						return .systemGray6
 					}
 				}
 				$0.snp.makeConstraints { (maker) in
