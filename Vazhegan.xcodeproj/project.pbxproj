@@ -305,13 +305,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		1A34B2A42265C1F1008242E7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		1A34B2C72266FE4A008242E7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,7 +556,6 @@
 				1A34B2C72266FE4A008242E7 /* Models */,
 				1ABF4A8825279CA80061153E /* NetworkManager */,
 				1A5EC76F27423D3300FE4151 /* RealmManager */,
-				1A34B2A42265C1F1008242E7 /* Views */,
 				1A5AF8522742A10C00AE578C /* SearchManager.swift */,
 			);
 			path = VazheganFramework;
