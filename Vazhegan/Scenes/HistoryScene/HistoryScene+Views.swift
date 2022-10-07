@@ -7,20 +7,8 @@ import Combine
 extension HistoryScene {
 	
 	final class QueryRowView: UIView, UIContentView {
-		let queryLabel = UILabel() .. {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-			$0.numberOfLines = 2
-			$0.textColor = .label
-			$0.textAlignment = .right
-			$0.font = .pinar(size: 16, weight: .semibold)
-		}
-		let deleteQueryButton = UIButton() .. {
-			let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
-			let image = UIImage(systemName: "trash", withConfiguration: symbolConfiguration)
-			$0.translatesAutoresizingMaskIntoConstraints = false
-			$0.tintColor = .systemRed
-			$0.setImage(image, for: .normal)
-		}
+		let queryLabel = UILabel()
+		let deleteQueryButton = UIButton()
 		
 		private var cancellable: AnyCancellable?
 		private var deleteButtonActionHandler: () -> Void = {}
@@ -41,23 +29,36 @@ extension HistoryScene {
 		}
 		
 		private func setupViews() {
-			addSubview(deleteQueryButton) { (maker) in
-				maker.trailing.equalToSuperview().inset(20)
-				maker.size.equalTo(32)
-				maker.centerY.equalToSuperview()
-			}
+			queryLabel.translatesAutoresizingMaskIntoConstraints = false
+			queryLabel.numberOfLines = 2
+			queryLabel.textColor = .label
+			queryLabel.textAlignment = .right
+			queryLabel.font = .appFont(size: 16, weight: .semibold)
 			
-			addSubview(queryLabel) { (maker) in
-				maker.leading.equalToSuperview().inset(16)
-				maker.trailing.equalTo(deleteQueryButton.snp.leading).offset(-16)
-				maker.top.bottom.equalToSuperview().inset(12)
-			}
-			
+			let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
+			let image = UIImage(systemName: .UIImageSystemName.delete, withConfiguration: symbolConfiguration)
+			deleteQueryButton.translatesAutoresizingMaskIntoConstraints = false
+			deleteQueryButton.tintColor = .systemRed
+			deleteQueryButton.setImage(image, for: .normal)
 			cancellable = deleteQueryButton
 				.tapPublisher
 				.sink { [weak self] (_) in
 					self?.deleteButtonActionHandler()
 				}
+			
+			addSubview(deleteQueryButton)
+			deleteQueryButton.snp.makeConstraints { (maker) in
+				maker.trailing.equalToSuperview().inset(20)
+				maker.size.equalTo(32)
+				maker.centerY.equalToSuperview()
+			}
+			
+			addSubview(queryLabel)
+			queryLabel.snp.makeConstraints { (maker) in
+				maker.leading.equalToSuperview().inset(16)
+				maker.trailing.equalTo(deleteQueryButton.snp.leading).offset(-16)
+				maker.top.bottom.equalToSuperview().inset(12)
+			}
 		}
 		
 		func configure(configuration: UIContentConfiguration) {

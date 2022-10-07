@@ -48,14 +48,9 @@ extension WordScene {
 			getMeaningCancellable = networkManager
 				.getMeaning(of: originalWord)
 				.sink(receiveCompletion: { [weak self] (completion) in
-					guard let self = self else { return }
+					guard let self = self, case .failure(let error) = completion else { return }
 					
-					switch completion {
-					case .failure(let error):
-						self.getMeaningStatus = .failed(error)
-					case .finished:
-						break
-					}
+					self.getMeaningStatus = .failed(error)
 				}, receiveValue: { [weak self] (word) in
 					guard let self = self else { return }
 					

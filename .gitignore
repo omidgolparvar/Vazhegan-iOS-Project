@@ -2,4 +2,6 @@ Pods/
 *.keys
 Other/Apple/
 .DS_Store
+*.generated.swift
 
+Podfile.lock

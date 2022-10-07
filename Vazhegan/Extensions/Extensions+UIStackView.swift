@@ -5,10 +5,10 @@ import UIKit
 extension UIStackView {
 	
 	convenience init(
-		axis: NSLayoutConstraint.Axis,
-		alignment: Alignment,
-		distribution: Distribution,
-		spacing: CGFloat
+		_ axis: NSLayoutConstraint.Axis,
+		alignment: Alignment = .fill,
+		distribution: Distribution = .fill,
+		spacing: CGFloat = 8
 	) {
 		self.init(frame: .zero)
 		self.translatesAutoresizingMaskIntoConstraints = false
@@ -16,10 +16,6 @@ extension UIStackView {
 		self.alignment = alignment
 		self.distribution = distribution
 		self.spacing = spacing
-	}
-	
-	func addArrangedSubviews(_ views: UIView...) {
-		views.forEach(addArrangedSubview(_:))
 	}
 	
 }

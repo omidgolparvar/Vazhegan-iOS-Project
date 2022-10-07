@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -60,7 +60,6 @@
 		1A5EC7BD2742511500FE4151 /* Pinar-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A5EC7A72742510600FE4151 /* Pinar-Light.ttf */; };
 		1A5EC7BE2742511500FE4151 /* Pinar-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A5EC7A52742510600FE4151 /* Pinar-ExtraBold.ttf */; };
 		1A5EC7CD274253A000FE4151 /* MainScene+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5EC7CC274253A000FE4151 /* MainScene+Views.swift */; };
-		1A5EC7ED27426A9200FE4151 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5EC7EC27426A9200FE4151 /* Operator.swift */; };
 		1A6929DD226851C2001171B6 /* VazheganFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFED0852265ABAD009EE7E2 /* VazheganFramework.framework */; };
 		1A6929DF2268530B001171B6 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6929DE2268530B001171B6 /* MainController.swift */; };
 		1A6929E322685D98001171B6 /* Extensions+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6929E222685D98001171B6 /* Extensions+Sequence.swift */; };
@@ -82,7 +81,6 @@
 		1AA27CF927465D83005A6016 /* Extensions+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB1E3B12528908E00BD9B45 /* Extensions+UIFont.swift */; };
 		1AA27CFC27465D93005A6016 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF8652742E76000AE578C /* Reusable.swift */; };
 		1AA27D0027465E6A005A6016 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA27CFF27465E6A005A6016 /* ViewModel.swift */; };
-		1AA27D0327465EE5005A6016 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5EC7EC27426A9200FE4151 /* Operator.swift */; };
 		1AA27D06274661A6005A6016 /* SearchResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF85F2742E73900AE578C /* SearchResultRowView.swift */; };
 		1AA27D0C274661CF005A6016 /* Extensions+UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA27CE427464464005A6016 /* Extensions+UIStackView.swift */; };
 		1AA27D0F274661E3005A6016 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AF84E27428F2A00AE578C /* Extensions+UIView.swift */; };
@@ -105,9 +103,18 @@
 		1AD2714A27455E9600B16BEE /* DatabasesScene+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2714927455E9600B16BEE /* DatabasesScene+Router.swift */; };
 		1AD2714E27455EA200B16BEE /* DatabasesScene+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2714D27455EA200B16BEE /* DatabasesScene+Views.swift */; };
 		1AD2715827456DD600B16BEE /* AboutScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2715727456DD600B16BEE /* AboutScene.swift */; };
-		1AD2715F27456DE100B16BEE /* AboutScene+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2715C27456DE000B16BEE /* AboutScene+Views.swift */; };
 		1AD2716027456DE100B16BEE /* AboutScene+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2715E27456DE100B16BEE /* AboutScene+ViewModel.swift */; };
 		1AD2716127456DE100B16BEE /* AboutScene+Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2715D27456DE100B16BEE /* AboutScene+Controller.swift */; };
+		1AD315F728E62734002E53F9 /* Extensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD315F628E62734002E53F9 /* Extensions+String.swift */; };
+		1AD315FC28E9A23D002E53F9 /* AboutScene.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 1AD315FB28E9A23D002E53F9 /* AboutScene.stringsdict */; };
+		1AD3160128E9B5B1002E53F9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3160028E9B5B0002E53F9 /* R.generated.swift */; };
+		1AD3160328E9B834002E53F9 /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD3160228E9B834002E53F9 /* Extensions+UIColor.swift */; };
+		1AD3160528E9BDB9002E53F9 /* DatabasesScene.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 1AD3160428E9BDB9002E53F9 /* DatabasesScene.stringsdict */; };
+		1AD3160728E9BF49002E53F9 /* MyWordsScene.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 1AD3160628E9BF49002E53F9 /* MyWordsScene.stringsdict */; };
+		1AD3160928E9C256002E53F9 /* WordScene.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 1AD3160828E9C256002E53F9 /* WordScene.stringsdict */; };
+		1AD3160B28E9CA21002E53F9 /* HistoryScene.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 1AD3160A28E9CA21002E53F9 /* HistoryScene.stringsdict */; };
+		1AD3160D28E9CC2C002E53F9 /* MainScene.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 1AD3160C28E9CC2C002E53F9 /* MainScene.stringsdict */; };
+		1AE68A7228E453E9009B7718 /* Extensions+NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE68A7128E453E9009B7718 /* Extensions+NSAttributedString.swift */; };
 		1AE95F252752A81C00B69212 /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE95F242752A81C00B69212 /* SceneController.swift */; };
 		1AE95F2D2752ABAF00B69212 /* SceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE95F2C2752ABAF00B69212 /* SceneViewModel.swift */; };
 		1AE95F312752ABCC00B69212 /* SceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE95F302752ABCC00B69212 /* SceneRouter.swift */; };
@@ -203,7 +210,6 @@
 		1A5EC7A62742510600FE4151 /* Pinar-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pinar-Medium.ttf"; sourceTree = "<group>"; };
 		1A5EC7A72742510600FE4151 /* Pinar-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pinar-Light.ttf"; sourceTree = "<group>"; };
 		1A5EC7CC274253A000FE4151 /* MainScene+Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScene+Views.swift"; sourceTree = "<group>"; };
-		1A5EC7EC27426A9200FE4151 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 		1A6929DE2268530B001171B6 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		1A6929E022685A64001171B6 /* SPStorkController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SPStorkController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A6929E222685D98001171B6 /* Extensions+Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Sequence.swift"; sourceTree = "<group>"; };
@@ -242,9 +248,18 @@
 		1AD2714927455E9600B16BEE /* DatabasesScene+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabasesScene+Router.swift"; sourceTree = "<group>"; };
 		1AD2714D27455EA200B16BEE /* DatabasesScene+Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabasesScene+Views.swift"; sourceTree = "<group>"; };
 		1AD2715727456DD600B16BEE /* AboutScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScene.swift; sourceTree = "<group>"; };
-		1AD2715C27456DE000B16BEE /* AboutScene+Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AboutScene+Views.swift"; sourceTree = "<group>"; };
 		1AD2715D27456DE100B16BEE /* AboutScene+Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AboutScene+Controller.swift"; sourceTree = "<group>"; };
 		1AD2715E27456DE100B16BEE /* AboutScene+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AboutScene+ViewModel.swift"; sourceTree = "<group>"; };
+		1AD315F628E62734002E53F9 /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
+		1AD315FB28E9A23D002E53F9 /* AboutScene.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = AboutScene.stringsdict; sourceTree = "<group>"; };
+		1AD3160028E9B5B0002E53F9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		1AD3160228E9B834002E53F9 /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
+		1AD3160428E9BDB9002E53F9 /* DatabasesScene.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = DatabasesScene.stringsdict; sourceTree = "<group>"; };
+		1AD3160628E9BF49002E53F9 /* MyWordsScene.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = MyWordsScene.stringsdict; sourceTree = "<group>"; };
+		1AD3160828E9C256002E53F9 /* WordScene.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = WordScene.stringsdict; sourceTree = "<group>"; };
+		1AD3160A28E9CA21002E53F9 /* HistoryScene.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = HistoryScene.stringsdict; sourceTree = "<group>"; };
+		1AD3160C28E9CC2C002E53F9 /* MainScene.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = MainScene.stringsdict; sourceTree = "<group>"; };
+		1AE68A7128E453E9009B7718 /* Extensions+NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+NSAttributedString.swift"; sourceTree = "<group>"; };
 		1AE95F242752A81C00B69212 /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
 		1AE95F2C2752ABAF00B69212 /* SceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneViewModel.swift; sourceTree = "<group>"; };
 		1AE95F302752ABCC00B69212 /* SceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRouter.swift; sourceTree = "<group>"; };
@@ -325,6 +340,9 @@
 				1AB1E3B12528908E00BD9B45 /* Extensions+UIFont.swift */,
 				1A5AF84E27428F2A00AE578C /* Extensions+UIView.swift */,
 				1AA27CE427464464005A6016 /* Extensions+UIStackView.swift */,
+				1AE68A7128E453E9009B7718 /* Extensions+NSAttributedString.swift */,
+				1AD315F628E62734002E53F9 /* Extensions+String.swift */,
+				1AD3160228E9B834002E53F9 /* Extensions+UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -345,6 +363,7 @@
 				1A5EC7CC274253A000FE4151 /* MainScene+Views.swift */,
 				1A5AF8562742B49A00AE578C /* MainScene+ViewModel.swift */,
 				1A5AF8992743107500AE578C /* MainScene+Router.swift */,
+				1AD3160C28E9CC2C002E53F9 /* MainScene.stringsdict */,
 			);
 			path = MainScene;
 			sourceTree = "<group>";
@@ -357,6 +376,7 @@
 				1A5AF8AA27437CBE00AE578C /* HistoryScene+ViewModel.swift */,
 				1A5AF8AE27437CC700AE578C /* HistoryScene+Router.swift */,
 				1A5AF8B227437CDD00AE578C /* HistoryScene+Views.swift */,
+				1AD3160A28E9CA21002E53F9 /* HistoryScene.stringsdict */,
 			);
 			path = HistoryScene;
 			sourceTree = "<group>";
@@ -467,7 +487,6 @@
 			isa = PBXGroup;
 			children = (
 				1A70CADF1E2A4C2F008D768B /* LaunchScreen.storyboard */,
-				1A5EC7EC27426A9200FE4151 /* Operator.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -492,6 +511,7 @@
 				1AD27115274409DD00B16BEE /* WordScene+Views.swift */,
 				1AD27119274415FB00B16BEE /* WordScene+ViewModel.swift */,
 				1AD2711D2744185500B16BEE /* WordScene+Router.swift */,
+				1AD3160828E9C256002E53F9 /* WordScene.stringsdict */,
 			);
 			path = WordScene;
 			sourceTree = "<group>";
@@ -503,6 +523,7 @@
 				1AD2712A2744599400B16BEE /* MyWordsScene+Controller.swift */,
 				1AD2712E274459A600B16BEE /* MyWordsScene+ViewModel.swift */,
 				1AD27134274459B700B16BEE /* MyWordsScene+Router.swift */,
+				1AD3160628E9BF49002E53F9 /* MyWordsScene.stringsdict */,
 			);
 			path = MyWordScene;
 			sourceTree = "<group>";
@@ -515,6 +536,7 @@
 				1AD2714527455E8500B16BEE /* DatabasesScene+ViewModel.swift */,
 				1AD2714927455E9600B16BEE /* DatabasesScene+Router.swift */,
 				1AD2714D27455EA200B16BEE /* DatabasesScene+Views.swift */,
+				1AD3160428E9BDB9002E53F9 /* DatabasesScene.stringsdict */,
 			);
 			path = DatabasesScene;
 			sourceTree = "<group>";
@@ -525,16 +547,15 @@
 				1AD2715727456DD600B16BEE /* AboutScene.swift */,
 				1AD2715D27456DE100B16BEE /* AboutScene+Controller.swift */,
 				1AD2715E27456DE100B16BEE /* AboutScene+ViewModel.swift */,
-				1AD2715C27456DE000B16BEE /* AboutScene+Views.swift */,
 				1AA27CDE27456ED5005A6016 /* AboutScene+Router.swift */,
+				1AD315FB28E9A23D002E53F9 /* AboutScene.stringsdict */,
 			);
 			path = AboutScene;
 			sourceTree = "<group>";
 		};
-		1AEB41F81E2D652E00B379F3 /* Resources */ = {
+		1AD315F828E6DD77002E53F9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				1A70CADD1E2A4C2F008D768B /* Assets.xcassets */,
 				1A5EC7A32742510500FE4151 /* Pinar-Black.ttf */,
 				1A5EC7A12742510500FE4151 /* Pinar-Bold.ttf */,
 				1A5EC7A52742510600FE4151 /* Pinar-ExtraBold.ttf */,
@@ -542,6 +563,16 @@
 				1A5EC7A62742510600FE4151 /* Pinar-Medium.ttf */,
 				1A5EC7A22742510500FE4151 /* Pinar-Regular.ttf */,
 				1A5EC7A42742510600FE4151 /* Pinar-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1AEB41F81E2D652E00B379F3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1AD3160028E9B5B0002E53F9 /* R.generated.swift */,
+				1A70CADD1E2A4C2F008D768B /* Assets.xcassets */,
+				1AD315F828E6DD77002E53F9 /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -591,6 +622,7 @@
 			buildConfigurationList = 1A70CAE51E2A4C2F008D768B /* Build configuration list for PBXNativeTarget "Vazhegan" */;
 			buildPhases = (
 				653865E411C327EED661862D /* [CP] Check Pods Manifest.lock */,
+				1AD315FF28E9B430002E53F9 /* RSwift Script */,
 				1A70CACC1E2A4C2E008D768B /* Sources */,
 				1A70CACD1E2A4C2E008D768B /* Frameworks */,
 				1A70CACE1E2A4C2E008D768B /* Resources */,
@@ -723,9 +755,15 @@
 				1A5EC7AB2742510600FE4151 /* Pinar-SemiBold.ttf in Resources */,
 				1A5EC7AE2742510600FE4151 /* Pinar-Light.ttf in Resources */,
 				1A5EC7A92742510600FE4151 /* Pinar-Regular.ttf in Resources */,
+				1AD3160B28E9CA21002E53F9 /* HistoryScene.stringsdict in Resources */,
+				1AD3160528E9BDB9002E53F9 /* DatabasesScene.stringsdict in Resources */,
+				1AD3160728E9BF49002E53F9 /* MyWordsScene.stringsdict in Resources */,
 				1A5EC7AD2742510600FE4151 /* Pinar-Medium.ttf in Resources */,
+				1AD3160D28E9CC2C002E53F9 /* MainScene.stringsdict in Resources */,
+				1AD315FC28E9A23D002E53F9 /* AboutScene.stringsdict in Resources */,
 				1A70CADE1E2A4C2F008D768B /* Assets.xcassets in Resources */,
 				1A5EC7AC2742510600FE4151 /* Pinar-ExtraBold.ttf in Resources */,
+				1AD3160928E9C256002E53F9 /* WordScene.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,6 +799,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1AD315FF28E9B430002E53F9 /* RSwift Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "RSwift Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/Vazhegan/Resources/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Vazhegan/Resources/R.generated.swift\"\n";
+		};
 		3F7EA787355A929951E595B5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -843,7 +901,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD3160328E9B834002E53F9 /* Extensions+UIColor.swift in Sources */,
 				1A5A789D28811C1B006D57CB /* InputAccessorView.swift in Sources */,
+				1AE68A7228E453E9009B7718 /* Extensions+NSAttributedString.swift in Sources */,
 				1A5AF84F27428F2A00AE578C /* Extensions+UIView.swift in Sources */,
 				1A5AF8BC27437E2B00AE578C /* SceneTitleBar.swift in Sources */,
 				1AD27135274459B700B16BEE /* MyWordsScene+Router.swift in Sources */,
@@ -858,8 +918,8 @@
 				1AD2710B2744094300B16BEE /* WordScene.swift in Sources */,
 				1A5AF8A727437CB400AE578C /* HistoryScene+Controller.swift in Sources */,
 				1AD2716127456DE100B16BEE /* AboutScene+Controller.swift in Sources */,
-				1AD2715F27456DE100B16BEE /* AboutScene+Views.swift in Sources */,
 				1AD271122744096500B16BEE /* WordScene+Controller.swift in Sources */,
+				1AD3160128E9B5B1002E53F9 /* R.generated.swift in Sources */,
 				1AD2712B2744599400B16BEE /* MyWordsScene+Controller.swift in Sources */,
 				1AD2715827456DD600B16BEE /* AboutScene.swift in Sources */,
 				1AD271242744597200B16BEE /* MyWordsScene.swift in Sources */,
@@ -885,9 +945,9 @@
 				1AE95F2D2752ABAF00B69212 /* SceneViewModel.swift in Sources */,
 				1A5AF8842742F5E000AE578C /* SearchResultHeaderView.swift in Sources */,
 				1A5AF8882742F7B000AE578C /* Extensions+UITableViewHeaderFooterView.swift in Sources */,
+				1AD315F728E62734002E53F9 /* Extensions+String.swift in Sources */,
 				1AE95F312752ABCC00B69212 /* SceneRouter.swift in Sources */,
 				1A70CAD41E2A4C2E008D768B /* AppDelegate.swift in Sources */,
-				1A5EC7ED27426A9200FE4151 /* Operator.swift in Sources */,
 				1A5AF8572742B49A00AE578C /* MainScene+ViewModel.swift in Sources */,
 				1A5EC79827424F2D00FE4151 /* MainScene+Controller.swift in Sources */,
 			);
@@ -904,7 +964,6 @@
 				1AA27CF827465D7F005A6016 /* Extensions+UITableViewHeaderFooterView.swift in Sources */,
 				1AA27D0C274661CF005A6016 /* Extensions+UIStackView.swift in Sources */,
 				1AA27CF427465D78005A6016 /* Extensions+UITableView.swift in Sources */,
-				1AA27D0327465EE5005A6016 /* Operator.swift in Sources */,
 				1AA27CF927465D83005A6016 /* Extensions+UIFont.swift in Sources */,
 				1AA27D06274661A6005A6016 /* SearchResultRowView.swift in Sources */,
 				1AA27D0027465E6A005A6016 /* ViewModel.swift in Sources */,
@@ -1082,7 +1141,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vazhegan/Vazhegan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 3001;
+				CURRENT_PROJECT_VERSION = 3002;
 				INFOPLIST_FILE = Vazhegan/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1090,6 +1149,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = io.idco.ios.Vazhegan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -1106,7 +1166,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vazhegan/Vazhegan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 3001;
+				CURRENT_PROJECT_VERSION = 3002;
 				INFOPLIST_FILE = Vazhegan/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1114,6 +1174,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = io.idco.ios.Vazhegan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -1134,7 +1195,7 @@
 				CODE_SIGN_ENTITLEMENTS = VazheganActionExtension/VazheganActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3001;
+				CURRENT_PROJECT_VERSION = 3002;
 				DEVELOPMENT_TEAM = A5T376J6M4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VazheganActionExtension/Info.plist;
@@ -1166,7 +1227,7 @@
 				CODE_SIGN_ENTITLEMENTS = VazheganActionExtension/VazheganActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3001;
+				CURRENT_PROJECT_VERSION = 3002;
 				DEVELOPMENT_TEAM = A5T376J6M4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VazheganActionExtension/Info.plist;

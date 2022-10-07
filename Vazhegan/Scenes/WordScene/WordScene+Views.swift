@@ -8,30 +8,12 @@ extension WordScene {
 	
 	final class VerticalAlignedButton: UIButton {
 		
-		private let stackView = UIStackView(axis: .vertical, alignment: .center, distribution: .fill, spacing: 4)
-		private let symbolImageView = UIImageView() .. {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-			$0.contentMode = .scaleAspectFit
-		}
-		private let mainLabel = UILabel() .. {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-			$0.numberOfLines = 1
-			$0.textAlignment = .center
-			$0.font = .pinar(size: 13, weight: .medium)
-		}
+		private let stackView = UIStackView(.vertical, alignment: .center, spacing: 4)
+		private let symbolImageView = UIImageView()
+		private let mainLabel = UILabel()
 		
 		var buttonConfiguration: ButtonConfiguration {
 			didSet { setupViewsBasedOnConfiguration() }
-		}
-		
-		var title: String {
-			get { buttonConfiguration.title }
-			set { buttonConfiguration.title = newValue }
-		}
-		
-		var symbolName: String {
-			get { buttonConfiguration.symbolName }
-			set { buttonConfiguration.symbolName = newValue }
 		}
 		
 		init(configuration: ButtonConfiguration) {
@@ -59,31 +41,32 @@ extension WordScene {
 		
 		private func setupViews() {
 			translatesAutoresizingMaskIntoConstraints = false
-			setCornerRadius(12)
-			backgroundColor = UIColor { (traitCollection) -> UIColor in
-				switch traitCollection.userInterfaceStyle {
-				case .dark:
-					return .systemGray5
-				case .light,
-					 .unspecified:
-					return .systemGray6
-				@unknown default:
-					return .systemGray6
-				}
-			}
+			setCornerRadius(16)
+			backgroundColor = UIColor(lightMode: .systemGray6, darkMode: .systemGray5)
 			tintColor = .label
+			
 			symbolImageView.tintColor = tintColor
+			symbolImageView.translatesAutoresizingMaskIntoConstraints = false
+			symbolImageView.contentMode = .scaleAspectFit
 			symbolImageView.snp.makeConstraints { (maker) in
 				maker.height.equalTo(28)
 			}
+			
 			mainLabel.textColor = tintColor
+			mainLabel.translatesAutoresizingMaskIntoConstraints = false
+			mainLabel.numberOfLines = 1
+			mainLabel.textAlignment = .center
+			mainLabel.font = .appFont(size: 13, weight: .medium)
 			mainLabel.snp.makeConstraints { (maker) in
 				maker.height.equalTo(28)
 			}
 			
 			stackView.isUserInteractionEnabled = false
-			stackView.addArrangedSubviews(symbolImageView, mainLabel)
-			addSubview(stackView) { (maker) in
+			stackView.addArrangedSubview(symbolImageView)
+			stackView.addArrangedSubview(mainLabel)
+			
+			addSubview(stackView)
+			stackView.snp.makeConstraints { (maker) in
 				maker.leading.trailing.equalToSuperview().inset(8)
 				maker.centerY.equalToSuperview()
 			}

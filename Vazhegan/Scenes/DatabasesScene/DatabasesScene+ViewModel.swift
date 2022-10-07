@@ -18,9 +18,7 @@ extension DatabasesScene {
 		}
 		
 		func setEnabled(_ isEnabled: Bool, for database: Database) {
-			print(#function, "Before", isEnabled, database.identifier, database.isEnabled)
 			databaseManager.setEnabled(isEnabled, for: database)
-			print(#function, "After", isEnabled, database.identifier, database.isEnabled)
 		}
 		
 	}

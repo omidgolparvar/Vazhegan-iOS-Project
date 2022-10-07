@@ -82,7 +82,7 @@ extension RealmManager: DatabaseManager {
 
 extension RealmManager: QueryManager {
 	
-	public var numberOfQueriesToStore: Int { 50 }
+	public var numberOfQueriesToStore: Int { 100 }
 	
 	public func getAllQueries() -> [Query] {
 		realm

@@ -62,7 +62,7 @@ extension MainScene {
 			setCornerRadius(12)
 			backgroundColor = .systemGray6
 			returnKeyType = .search
-			font = UIFont.pinar(size: 16, weight: .medium)
+			font = .appFont(size: 16, weight: .medium)
 			autocorrectionType = .no
 			setupPlaceholder()
 			setupSearchIcon()
@@ -71,29 +71,30 @@ extension MainScene {
 		
 		private func setupPlaceholder() {
 			attributedPlaceholder = NSAttributedString(
-				string: "آن چیز که در جستن آنی، همونی",
-				attributes: [
-					.foregroundColor: UIColor.systemGray2,
-					.font: UIFont.pinar(size: 16)
-				]
+				R.string.mainScene.searchFieldPlaceholder(),
+				font: .appFont(size: 16),
+				textColor: .systemGray2
 			)
 		}
 		
 		private func setupSearchIcon() {
-			let holderView = UIView(frame: .init(x: 0, y: 0, width: 44, height: 44))
-			
 			let configuration = UIImage.SymbolConfiguration(scale: .large)
-			let image = UIImage(systemName: "magnifyingglass", withConfiguration: configuration)
-			let imageView = UIImageView(frame: .init(x: 10, y: 10, width: 24, height: 24)) .. {
-				$0.image = image
-				$0.contentMode = .scaleAspectFit
-				$0.tintColor = .label
-			}
+			let image = UIImage(systemName: .UIImageSystemName.search, withConfiguration: configuration)
+			let imageView = UIImageView(frame: .init(x: 10, y: 10, width: 24, height: 24))
+			imageView.image = image
+			imageView.contentMode = .scaleAspectFit
+			imageView.tintColor = .label
 			
+			let holderView = UIView(frame: .init(x: 0, y: 0, width: 44, height: 44))
 			holderView.addSubview(imageView)
 			
-			leftView = holderView
-			leftViewMode = .always
+			if #available(iOS 16, *) {
+				rightView = holderView
+				rightViewMode = .always
+			} else {
+				leftView = holderView
+				leftViewMode = .always
+			}
 		}
 		
 		private func setupClearButton() {
@@ -101,13 +102,18 @@ extension MainScene {
 			holderView.addSubview(clearButton)
 			
 			let configuration = UIImage.SymbolConfiguration(scale: .medium)
-			let image = UIImage(systemName: "xmark", withConfiguration: configuration)
+			let image = UIImage(systemName: .UIImageSystemName.close, withConfiguration: configuration)
 			
 			clearButton.tintColor = .label
 			clearButton.setImage(image, for: .normal)
 			
-			rightView = holderView
-			rightViewMode = .always
+			if #available(iOS 16, *) {
+				leftView = holderView
+				leftViewMode = .always
+			} else {
+				rightView = holderView
+				rightViewMode = .always
+			}
 		}
 		
 		private func setupBindings() {
@@ -122,7 +128,6 @@ extension MainScene {
 			
 			clearButton
 				.tapPublisher
-				.print()
 				.sink { [unowned self] in
 					self.setText("")
 					self.fieldDidClearSubject.send()

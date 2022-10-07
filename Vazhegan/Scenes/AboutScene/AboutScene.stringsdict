@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aboutAppSectionTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>درباره برنامه</string>
+	</dict>
+	<key>aboutAppSectionText</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>«واژگان» یه فرهنگ لغته. با استفاده از این نرم‌افزار می‌تونین خیلی راحت، معنی کلمات مورد نظرتون رو توی فرهنگ لغت‌های مختلف ببینین. البته باید این نکته رو هم بگیم که این نرم‌افزار تماما داره از پایگاه داده‌ها و واسط برنامه‌نویسی «واژه‌یاب» استفاده می‌کنه؛ دم‌شون گرم!! 😂
+همچنین برای راحتی بیشتر، می‌تونین توی نرم‌افزارهای دیگه، کلمه مورد نظرتون رو انتخاب کنین، گزینه Share رو بزنین و بعد «واژگان» رو انتخاب کنین، تا بدون اینکه از نرم‌افزار فعلی‌تون خارج بشین، معنی کلمه براتون نمایش داده بشه. 😉😎</string>
+	</dict>
+	<key>openSourceSectionTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>آی لاو اوپن‌سورس</string>
+	</dict>
+	<key>openSourceSectionText</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>این پروژه، پروژه خیلی کوچیکیه، ولی ممکنه برای بعضی از نظر یادگیری مفید باشه. (امیدوارم باشه! 😅)
+برای همین پروژه رو تماما بصورت متن‌باز روی گیت‌هاب منتشر کردم تا همه بتونن کدهاش رو ببینن، و اگه ایرادی داشت بهم بگن تا کدهاش رو بهبود بدم.</string>
+	</dict>
+	<key>githubTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>گیت‌هاب پروژه</string>
+	</dict>
+	<key>contactMe</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>ارتباط با من</string>
+	</dict>
+	<key>linkedinLinkTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string> لینکدین من</string>
+	</dict>
+	<key>shareAppTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>معرفی به دوستان</string>
+	</dict>
+</dict>
+</plist>

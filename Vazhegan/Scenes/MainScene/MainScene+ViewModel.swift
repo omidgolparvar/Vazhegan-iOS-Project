@@ -18,8 +18,8 @@ extension MainScene {
 		}
 		
 		func search(text: String) {
-			if case .success(let result) = searchStatus {
-				guard result.query != text else { return }
+			if case .success(let result) = searchStatus, result.query == text {
+				return
 			}
 			
 			searchCancellable?.cancel()
@@ -27,14 +27,9 @@ extension MainScene {
 			searchCancellable = searchManager
 				.search(text: text)
 				.sink(receiveCompletion: { [weak self] (completion) in
-					guard let self = self else { return }
+					guard let self = self, case .failure(let error) = completion else { return }
 					
-					switch completion {
-					case .failure(let error):
-						self.searchStatus = .failed(error)
-					case .finished:
-						break
-					}
+					self.searchStatus = .failed(error)
 				}, receiveValue: { [weak self] (result) in
 					guard let self = self else { return }
 					

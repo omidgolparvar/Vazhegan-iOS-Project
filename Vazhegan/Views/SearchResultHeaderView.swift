@@ -4,13 +4,7 @@ import UIKit
 
 class SearchResultHeaderView: UITableViewHeaderFooterView {
 	
-	let titleLabel = UILabel() .. {
-		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.numberOfLines = 4
-		$0.textColor = .label
-		$0.textAlignment = .right
-		$0.font = .pinar(size: 20, weight: .bold)
-	}
+	let titleLabel = UILabel()
 	
 	override init(reuseIdentifier: String?) {
 		super.init(reuseIdentifier: reuseIdentifier)
@@ -22,7 +16,14 @@ class SearchResultHeaderView: UITableViewHeaderFooterView {
 	}
 	
 	private func setupViews() {
-		contentView.addSubview(titleLabel) { (maker) in
+		titleLabel.translatesAutoresizingMaskIntoConstraints = false
+		titleLabel.numberOfLines = 4
+		titleLabel.textColor = .label
+		titleLabel.textAlignment = .right
+		titleLabel.font = .appFont(size: 20, weight: .bold)
+		
+		contentView.addSubview(titleLabel)
+		titleLabel.snp.makeConstraints { (maker) in
 			maker.centerY.equalToSuperview()
 			maker.leading.trailing.equalToSuperview().inset(16)
 		}

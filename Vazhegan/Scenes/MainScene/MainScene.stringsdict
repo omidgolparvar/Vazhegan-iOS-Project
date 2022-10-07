@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>v</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>و</string>
+	</dict>
+	<key>searchFieldPlaceholder</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>آن چیز که در جستن آنی، همونی</string>
+	</dict>
+	<key>loadingText</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>در حال جستجو...</string>
+	</dict>
+	<key>errorTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>بروز خطا</string>
+	</dict>
+	<key>tryAgainTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>مجدد تلاش کنین</string>
+	</dict>
+</dict>
+</plist>

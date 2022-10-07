@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>shareButtonTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>اشتراک‌گذاری</string>
+	</dict>
+	<key>saveButtonTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>ذخیره</string>
+	</dict>
+	<key>moreButtonTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>بیشتر</string>
+	</dict>
+	<key>removeButtonTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>حذف</string>
+	</dict>
+	<key>errorText</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>خطایی رخ داد. 😬</string>
+	</dict>
+	<key>loadingText</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>در حال دریافت...</string>
+	</dict>
+</dict>
+</plist>

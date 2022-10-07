@@ -4,28 +4,10 @@ import UIKit
 
 class SearchResultRowView: UIView, UIContentView {
 	
-	let stackView = UIStackView(axis: .vertical, alignment: .fill, distribution: .fill, spacing: 8)
-	let wordLabel = UILabel() .. {
-		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.numberOfLines = 4
-		$0.textColor = .label
-		$0.textAlignment = .right
-		$0.font = .pinar(size: 18, weight: .semibold)
-	}
-	let meaningLabel = UILabel() .. {
-		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.numberOfLines = 3
-		$0.textColor = .label
-		$0.textAlignment = .right
-		$0.font = .pinar(size: 15, weight: .regular)
-	}
-	let databaseLabel = UILabel() .. {
-		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.numberOfLines = 4
-		$0.textColor = .secondaryLabel
-		$0.textAlignment = .right
-		$0.font = .pinar(size: 14, weight: .medium)
-	}
+	private let stackView = UIStackView(.vertical)
+	let wordLabel = UILabel()
+	let meaningLabel = UILabel()
+	let databaseLabel = UILabel()
 	
 	var configuration: UIContentConfiguration {
 		didSet { configure(configuration: configuration) }
@@ -43,9 +25,30 @@ class SearchResultRowView: UIView, UIContentView {
 	}
 	
 	func setupViews() {
-		stackView.addArrangedSubviews(wordLabel, meaningLabel, databaseLabel)
+		wordLabel.translatesAutoresizingMaskIntoConstraints = false
+		wordLabel.numberOfLines = 4
+		wordLabel.textColor = .label
+		wordLabel.textAlignment = .right
+		wordLabel.font = .appFont(size: 18, weight: .semibold)
 		
-		addSubview(stackView) { (maker) in
+		meaningLabel.translatesAutoresizingMaskIntoConstraints = false
+		meaningLabel.numberOfLines = 3
+		meaningLabel.textColor = .label
+		meaningLabel.textAlignment = .right
+		meaningLabel.font = .appFont(size: 15, weight: .regular)
+		
+		databaseLabel.translatesAutoresizingMaskIntoConstraints = false
+		databaseLabel.numberOfLines = 4
+		databaseLabel.textColor = .secondaryLabel
+		databaseLabel.textAlignment = .right
+		databaseLabel.font = .appFont(size: 14, weight: .medium)
+		
+		stackView.addArrangedSubview(wordLabel)
+		stackView.addArrangedSubview(meaningLabel)
+		stackView.addArrangedSubview(databaseLabel)
+		
+		addSubview(stackView)
+		stackView.snp.makeConstraints { (maker) in
 			maker.edges.equalToSuperview().inset(16)
 		}
 	}

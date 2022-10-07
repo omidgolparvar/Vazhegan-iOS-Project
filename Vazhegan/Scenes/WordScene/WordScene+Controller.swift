@@ -11,30 +11,21 @@ extension WordScene {
 	final class Controller: SceneController {
 		
 		private let sceneBar = SceneTitleBar()
-		private let buttonsContainerView = UIView() .. {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-		}
+		private let buttonsContainerView = UIView()
 		private let shareButton = VerticalAlignedButton(configuration: .init(
-			symbolName: "square.and.arrow.up",
-			title: "اشتراک‌گذاری"
+			symbolName: .UIImageSystemName.share,
+			title: R.string.wordScene.shareButtonTitle()
 		))
 		private let favoriteButton = VerticalAlignedButton(configuration: .init(
-			symbolName: "star",
-			title: "ذخیره"
+			symbolName: .UIImageSystemName.favorite,
+			title: R.string.wordScene.saveButtonTitle()
 		))
 		private let moreButton = VerticalAlignedButton(configuration: .init(
-			symbolName: "list.bullet.rectangle",
-			title: "بیشتر"
+			symbolName: .UIImageSystemName.more,
+			title: R.string.wordScene.moreButtonTitle()
 		))
-		private let textView = UITextView() .. {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-			$0.font = .pinar(size: 18)
-			$0.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
-			$0.isEditable = false
-			$0.textColor = .label
-			$0.textAlignment = .right
-			$0.showsVerticalScrollIndicator = false
-		}
+		private let textView = UITextView()
+		private let topDividerView = UIView()
 		
 		private let viewModel: ViewModel
 		private var router: Router
@@ -63,45 +54,59 @@ extension WordScene {
 			title = viewModel.originalWord.nonEmptyTitle
 			view.backgroundColor = .systemBackground
 			sceneBar.added(to: self)
+			setupDividerView()
 			setupButtons()
 			setupTextView()
 		}
 		
-		private func setupButtons() {
-			let dividerView = UIView() .. {
-				$0.translatesAutoresizingMaskIntoConstraints = false
-				$0.backgroundColor = UIColor { (traitCollection) -> UIColor in
-					switch traitCollection.userInterfaceStyle {
-					case .dark:
-						return .systemGray5
-					case .light,
-						 .unspecified:
-						return .systemGray6
-					@unknown default:
-						return .systemGray6
-					}
-				}
+		private func setupDividerView() {
+			topDividerView.backgroundColor = UIColor(lightMode: .systemGray6, darkMode: .systemGray5)
+			
+			view.addSubview(topDividerView)
+			topDividerView.snp.makeConstraints { (maker) in
+				maker.top.equalTo(sceneBar.snp.bottom)
+				maker.leading.trailing.equalToSuperview()
+				maker.height.equalTo(1)
 			}
-			buttonsContainerView.addSubview(dividerView) { (maker) in
+		}
+		
+		private func setupButtons() {
+			let dividerView = UIView()
+			dividerView.backgroundColor = UIColor(lightMode: .systemGray6, darkMode: .systemGray5)
+			buttonsContainerView.addSubview(dividerView)
+			dividerView.snp.makeConstraints { (maker) in
 				maker.leading.trailing.top.equalToSuperview()
 				maker.height.equalTo(1)
 			}
 			
-			let stackView = UIStackView(axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: 8)
-			stackView.addArrangedSubviews(shareButton, favoriteButton, moreButton)
-			buttonsContainerView.addSubview(stackView) { (maker) in
+			let stackView = UIStackView(.horizontal, distribution: .fillEqually)
+			stackView.addArrangedSubview(shareButton)
+			stackView.addArrangedSubview(favoriteButton)
+			stackView.addArrangedSubview(moreButton)
+			
+			buttonsContainerView.addSubview(stackView)
+			stackView.snp.makeConstraints { (maker) in
 				maker.edges.equalToSuperview().inset(16)
 			}
 			
-			view.addSubview(buttonsContainerView) { (maker) in
+			view.addSubview(buttonsContainerView)
+			buttonsContainerView.snp.makeConstraints { (maker) in
 				maker.leading.trailing.equalToSuperview()
 				maker.bottom.equalTo(view.safeAreaLayoutGuide)
 			}
 		}
 		
 		private func setupTextView() {
-			view.addSubview(textView) { (maker) in
-				maker.top.equalTo(sceneBar.snp.bottom)
+			textView.font = .appFont(size: 18)
+			textView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
+			textView.isEditable = false
+			textView.textColor = .label
+			textView.textAlignment = .right
+			textView.showsVerticalScrollIndicator = false
+			
+			view.addSubview(textView)
+			textView.snp.makeConstraints { (maker) in
+				maker.top.equalTo(topDividerView.snp.bottom)
 				maker.leading.trailing.equalToSuperview().inset(12)
 				maker.bottom.equalTo(buttonsContainerView.snp.top)
 			}
@@ -111,7 +116,7 @@ extension WordScene {
 			let html = """
 				<html lang="fa" dir="rtl">
 				  <head>
-				    <style>body { font-family: 'Pinar-Regular'; font-size:18px; }</style>
+				    <style>body { font-family: '\(UIFont.appFont(size: 1).familyName)'; font-size:18px; }</style>
 				    <meta charset="utf-8"/>
 				  </head>
 				  <body>
@@ -173,12 +178,12 @@ extension WordScene {
 					case .notRequested:
 						break
 					case .loading:
-						self.textView.text = "در حال دریافت..."
+						self.textView.text = R.string.wordScene.loadingText()
 					case .success(let word):
 						self.setupTextViewContent(with: word.fullText)
 					case .failed(let error):
 						print(#function, error)
-						self.textView.text = "خطایی رخ داد. 😬"
+						self.textView.text = R.string.wordScene.errorText()
 					}
 				}
 				.store(in: &cancellables)
@@ -187,20 +192,15 @@ extension WordScene {
 				.$getMeaningStatus
 				.receive(on: DispatchQueue.main)
 				.map { (status) -> Bool in
-					switch status {
-					case .notRequested,
-						 .loading,
-						 .failed:
-						return false
-					case .success:
+					if case .success = status {
 						return true
 					}
+					return false
 				}
 				.sink { [weak self] (isEnabled) in
 					guard let self = self else { return }
-					let buttons = [self.shareButton, self.favoriteButton, self.moreButton]
-					buttons.forEach {
-						$0.isEnabled = isEnabled
+					for button in [self.shareButton, self.favoriteButton, self.moreButton] {
+						button.isEnabled = isEnabled
 					}
 				}
 				.store(in: &cancellables)
@@ -209,8 +209,8 @@ extension WordScene {
 				.$isWordFavorited
 				.map { isFavorite in
 					VerticalAlignedButton.ButtonConfiguration(
-						symbolName: isFavorite ? "star.fill" : "star",
-						title: isFavorite ? "حذف" : "ذخیره"
+						symbolName: isFavorite ? .UIImageSystemName.filledFavorite : .UIImageSystemName.favorite,
+						title: isFavorite ? R.string.wordScene.removeButtonTitle() : R.string.wordScene.saveButtonTitle()
 					)
 				}
 				.assign(to: \.buttonConfiguration, on: favoriteButton)

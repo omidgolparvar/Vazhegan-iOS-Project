@@ -17,9 +17,7 @@ extension HistoryScene {
 		private typealias TableViewDataSource = UITableViewDiffableDataSource<Section, Query>
 		
 		private let sceneBar = SceneTitleBar()
-		private let tableView = UITableView.default {
-			$0.contentInset.top -= 15
-		}
+		private let tableView = UITableView.default()
 		
 		private let viewModel: ViewModel
 		private var router: Router
@@ -48,14 +46,16 @@ extension HistoryScene {
 		// MARK: - Setup Views
 		
 		private func setupViews() {
-			title = "جستجوهای پیشین"
+			title = R.string.historyScene.pageTitle()
 			view.backgroundColor = .systemBackground
 			sceneBar.added(to: self)
 			setupTableView()
 		}
 		
 		private func setupTableView() {
-			view.addSubview(tableView) { (maker) in
+			tableView.contentInset.top -= 15
+			view.addSubview(tableView)
+			tableView.snp.makeConstraints { (maker) in
 				maker.top.equalTo(sceneBar.snp.bottom)
 				maker.leading.trailing.bottom.equalToSuperview()
 			}
@@ -77,12 +77,10 @@ extension HistoryScene {
 			if isInEmptyState {
 				let messageData = BackgroundMessageView.MessageData(
 					emoji: "👀",
-					title: "خالی می‌باشه",
-					text: "هیچ کلمه‌ای رو جستجو نکردی"
+					title: R.string.historyScene.emptyStateTitle(),
+					text: R.string.historyScene.emptyStateText()
 				)
-				UIView.transition(with: tableView, duration: 0.2, options: [.transitionCrossDissolve]) { [self] in
-					tableView.backgroundView = BackgroundMessageView(frame: tableView.bounds, data: messageData)
-				} completion: { (_) in }
+				tableView.backgroundView = BackgroundMessageView(frame: tableView.bounds, data: messageData)
 			} else {
 				tableView.backgroundView = nil
 			}
@@ -101,6 +99,7 @@ extension HistoryScene {
 					var snapshot = NSDiffableDataSourceSnapshot<Section, Query>()
 					snapshot.appendSections([.main])
 					snapshot.appendItems(queries, toSection: .main)
+					
 					self.dataSource.apply(snapshot)
 				}
 				.store(in: &cancellables)

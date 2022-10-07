@@ -12,15 +12,10 @@ extension MainScene {
 		
 		private typealias TableViewDataSource = UITableViewDiffableDataSource<Section, Word>
 		
-		private let topStackView = UIStackView(axis: .horizontal, alignment: .center, distribution: .fill, spacing: 20)
+		private let topStackView = UIStackView(.horizontal, alignment: .center, spacing: 20)
 		private let searchField = SearchField()
-		private let dividerView = UIView() .. {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-			$0.backgroundColor = .systemGray6
-		}
-		private let tableView = UITableView.default {
-			$0.register(headerFooterType: SearchResultHeaderView.self)
-		}
+		private let dividerView = UIView()
+		private let tableView = UITableView.default()
 		
 		private var dataSource: TableViewDataSource!
 		private let viewModel: ViewModel
@@ -60,24 +55,23 @@ extension MainScene {
 			let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentAboutScene))
 			appLogoView.addGestureRecognizer(tapGesture)
 			
-			let databasesButton = makeTopButton(symbolName: "externaldrive") { [unowned self] in
+			let databasesButton = makeTopButton(symbolName: .UIImageSystemName.database) { [unowned self] in
 				self.presentDatabasesScene()
 			}
-			let myWordsButton = makeTopButton(symbolName: "book") { [unowned self] in
+			let myWordsButton = makeTopButton(symbolName: .UIImageSystemName.bookmark) { [unowned self] in
 				self.presentMyWordsScene()
 			}
-			let historyButton = makeTopButton(symbolName: "clock") { [unowned self] in
+			let historyButton = makeTopButton(symbolName: .UIImageSystemName.history) { [unowned self] in
 				self.presentHistoryScene()
 			}
 			
-			topStackView.addArrangedSubviews(
-				appLogoView,
-				databasesButton,
-				myWordsButton,
-				historyButton
-			)
+			topStackView.addArrangedSubview(appLogoView)
+			topStackView.addArrangedSubview(databasesButton)
+			topStackView.addArrangedSubview(myWordsButton)
+			topStackView.addArrangedSubview(historyButton)
 			
-			view.addSubview(topStackView) {
+			view.addSubview(topStackView)
+			topStackView.snp.makeConstraints {
 				$0.top.equalTo(view.safeAreaLayoutGuide)
 				$0.leading.equalToSuperview().inset(16)
 				$0.height.equalTo(60)
@@ -86,7 +80,8 @@ extension MainScene {
 		
 		private func setupSearchField() {
 			searchField.inputAccessoryView = InputAccessorView(responder: searchField)
-			view.addSubview(searchField) {
+			view.addSubview(searchField)
+			searchField.snp.makeConstraints {
 				$0.top.equalTo(topStackView.snp.bottom)
 				$0.leading.trailing.equalToSuperview().inset(16)
 				$0.height.equalTo(44)
@@ -94,7 +89,10 @@ extension MainScene {
 		}
 		
 		private func setupDividerView() {
-			view.addSubview(dividerView) {
+			dividerView.backgroundColor = .systemGray6
+			
+			view.addSubview(dividerView)
+			dividerView.snp.makeConstraints {
 				$0.height.equalTo(1)
 				$0.leading.trailing.equalToSuperview()
 				$0.top.equalTo(searchField.snp.bottom).offset(16)
@@ -102,7 +100,10 @@ extension MainScene {
 		}
 		
 		private func setupTableView() {
-			view.addSubview(tableView) { (maker) in
+			tableView.register(headerFooterType: SearchResultHeaderView.self)
+			
+			view.addSubview(tableView)
+			tableView.snp.makeConstraints { (maker) in
 				maker.top.equalTo(dividerView.snp.bottom)
 				maker.leading.trailing.bottom.equalToSuperview()
 			}
@@ -144,16 +145,24 @@ extension MainScene {
 		// MARK: - Setup Bindings
 		
 		private func setupBindings() {
+			setupViewModelBindings()
+			setupViewsBindings()
+			setupOtherBindings()
+		}
+		
+		private func setupViewModelBindings() {
 			viewModel
 				.$searchStatus
 				.receive(on: DispatchQueue.main)
 				.dropFirst()
-				.sink(receiveValue: { [weak self] (status) in
+				.sink { [weak self] (status) in
 					guard let self = self else { return }
 					self.configureDataSource(for: status)
-				})
+				}
 				.store(in: &cancellables)
-			
+		}
+		
+		private func setupViewsBindings() {
 			searchField
 				.queryPublisher
 				.sink { [unowned self] (text) in
@@ -166,6 +175,34 @@ extension MainScene {
 				.fieldDidClearPubisher
 				.sink { [unowned self] in
 					self.viewModel.cancelSearch()
+				}
+				.store(in: &cancellables)
+		}
+		
+		private func setupOtherBindings() {
+			NotificationCenter
+				.default
+				.publisher(for: UIApplication.didEnterBackgroundNotification)
+				.sink { [weak self] _ in
+					guard let self = self else { return }
+					self.searchField.resignFirstResponder()
+				}
+				.store(in: &cancellables)
+			
+			NotificationCenter
+				.default
+				.publisher(for: UIApplication.willEnterForegroundNotification)
+				.delay(for: 0.6, scheduler: DispatchQueue.main)
+				.sink { [weak self] _ in
+					guard let self = self else { return }
+					
+					let isSearchFieldEmpty = (self.searchField.text ?? "").isEmpty
+					let isAnyScenePresented = self.presentedViewController != nil
+					let isAnyScenePushed = (self.navigationController?.viewControllers.count ?? 0) > 1
+					
+					if isSearchFieldEmpty, !isAnyScenePresented, !isAnyScenePushed {
+						self.searchField.becomeFirstResponder()
+					}
 				}
 				.store(in: &cancellables)
 		}
@@ -234,22 +271,20 @@ extension MainScene {
 		// MARK: - View Makers
 		
 		private func makeAppLogoView() -> UIView {
-			let containerView = UIView() .. {
-				$0.translatesAutoresizingMaskIntoConstraints = false
-				$0.setCornerRadius(8)
-				$0.backgroundColor = .label
-				$0.snp.makeConstraints({ maker in maker.size.equalTo(32) })
-			}
+			let containerView = UIView()
+			containerView.translatesAutoresizingMaskIntoConstraints = false
+			containerView.setCornerRadius(8)
+			containerView.backgroundColor = .label
+			containerView.snp.makeConstraints({ maker in maker.size.equalTo(32) })
 			
-			let vLabel = UILabel() .. {
-				$0.translatesAutoresizingMaskIntoConstraints = false
-				$0.text = "و"
-				$0.font = .pinar(size: 22, weight: .bold)
-				$0.textAlignment = .center
-				$0.textColor = .systemBackground
-			}
+			let vLabel = UILabel()
+			vLabel.text = R.string.mainScene.v()
+			vLabel.font = .appFont(size: 22, weight: .bold)
+			vLabel.textAlignment = .center
+			vLabel.textColor = .systemBackground
 			
-			containerView.addSubview(vLabel) {
+			containerView.addSubview(vLabel)
+			vLabel.snp.makeConstraints {
 				$0.leading.trailing.equalToSuperview()
 				$0.centerY.equalToSuperview().offset(-4)
 			}
@@ -260,13 +295,11 @@ extension MainScene {
 		private func makeTopButton(symbolName: String, handler: @escaping () -> Void) -> UIButton {
 			let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular)
 			let image = UIImage(systemName: symbolName, withConfiguration: symbolConfiguration)
-			let button = UIButton() .. {
-				$0.tintColor = .label
-				$0.translatesAutoresizingMaskIntoConstraints = false
-				$0.setImage(image, for: .normal)
-				$0.snp.makeConstraints { (maker) in
-					maker.size.equalTo(32)
-				}
+			let button = UIButton()
+			button.tintColor = .label
+			button.setImage(image, for: .normal)
+			button.snp.makeConstraints { (maker) in
+				maker.size.equalTo(32)
 			}
 			button
 				.tapPublisher
@@ -277,60 +310,55 @@ extension MainScene {
 		}
 		
 		private func makeLoadingView() -> UIView {
+			let activityIndicatorView = UIActivityIndicatorView(style: .medium)
+			activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+			activityIndicatorView.color = .label
+			activityIndicatorView.startAnimating()
+			
+			let label = UILabel()
+			label.translatesAutoresizingMaskIntoConstraints = false
+			label.text = R.string.mainScene.loadingText()
+			label.font = .appFont(size: 18, weight: .medium)
+			label.textAlignment = .right
+			label.textColor = .label
+			
+			let stackView = UIStackView(.horizontal, alignment: .center, spacing: 12)
+			stackView.addArrangedSubview(activityIndicatorView)
+			stackView.addArrangedSubview(label)
+			
 			let containerView = UIView()
-			
-			let activityIndicatorView = UIActivityIndicatorView(style: .medium) .. {
-				$0.translatesAutoresizingMaskIntoConstraints = false
-				$0.color = .label
-				$0.startAnimating()
-			}
-			let label = UILabel() .. {
-				$0.translatesAutoresizingMaskIntoConstraints = false
-				$0.text = "در حال جستجو..."
-				$0.font = .pinar(size: 18, weight: .medium)
-				$0.textAlignment = .right
-				$0.textColor = .label
-			}
-			
-			let stackView = UIStackView(axis: .horizontal, alignment: .center, distribution: .fill, spacing: 12) .. {
-				$0.addArrangedSubviews(activityIndicatorView, label)
-			}
-			
-			containerView.addSubview(stackView) { (maker) in
+			containerView.addSubview(stackView)
+			stackView.snp.makeConstraints { (maker) in
 				maker.leading.trailing.top.equalToSuperview().inset(16)
 			}
-			
 			
 			return containerView
 		}
 		
 		private func makeErrorView(for error: Error) -> UIView {
+			let titleLabel = UILabel()
+			titleLabel.translatesAutoresizingMaskIntoConstraints = false
+			titleLabel.text = R.string.mainScene.errorTitle()
+			titleLabel.font = .appFont(size: 18, weight: .semibold)
+			titleLabel.textAlignment = .right
+			titleLabel.textColor = .systemRed
+			
+			let messageLabel = UILabel()
+			messageLabel.translatesAutoresizingMaskIntoConstraints = false
+			messageLabel.text = R.string.mainScene.tryAgainTitle()
+			messageLabel.font = .appFont(size: 16, weight: .regular)
+			messageLabel.textAlignment = .right
+			messageLabel.textColor = .label
+			
+			let stackView = UIStackView(.vertical, spacing: 12)
+			stackView.addArrangedSubview(titleLabel)
+			stackView.addArrangedSubview(messageLabel)
+			
 			let containerView = UIView()
-			
-			let titleLabel = UILabel() .. {
-				$0.translatesAutoresizingMaskIntoConstraints = false
-				$0.text = "بروز خطا"
-				$0.font = .pinar(size: 18, weight: .semibold)
-				$0.textAlignment = .right
-				$0.textColor = .systemRed
-			}
-			let messageLabel = UILabel() .. {
-				$0.translatesAutoresizingMaskIntoConstraints = false
-				$0.text = "مجدد تلاش کنین"
-				$0.font = .pinar(size: 16, weight: .regular)
-				$0.textAlignment = .right
-				$0.textColor = .label
-			}
-			
-			
-			let stackView = UIStackView(axis: .vertical, alignment: .fill, distribution: .fill, spacing: 12) .. {
-				$0.addArrangedSubviews(titleLabel, messageLabel)
-			}
-			
-			containerView.addSubview(stackView) { (maker) in
+			containerView.addSubview(stackView)
+			stackView.snp.makeConstraints { (maker) in
 				maker.leading.trailing.top.equalToSuperview().inset(16)
 			}
-			
 			
 			return containerView
 		}
@@ -338,35 +366,34 @@ extension MainScene {
 		// MARK: - Launch Animation
 		
 		private func showLaunchView() {
-			let containerView = UIView() .. {
-				$0.translatesAutoresizingMaskIntoConstraints = false
-				$0.backgroundColor = .systemBackground
-			}
+			let containerView = UIView()
+			containerView.backgroundColor = .systemBackground
 			
-			let squareView = UIView() .. {
-				$0.translatesAutoresizingMaskIntoConstraints = false
-				$0.backgroundColor = .label
-				$0.setCornerRadius(40)
-				$0.alpha = 0
-			}
-			let vLabel = UILabel() .. {
-				$0.translatesAutoresizingMaskIntoConstraints = false
-				$0.textAlignment = .center
-				$0.font = .pinar(size: 100, weight: .bold)
-				$0.text = "و"
-				$0.textColor = .systemBackground
-				$0.alpha = 0
-			}
+			let squareView = UIView()
+			squareView.backgroundColor = .label
+			squareView.setCornerRadius(40)
+			squareView.alpha = 0
 			
-			containerView.addSubview(squareView) { (maker) in
+			let vLabel = UILabel()
+			vLabel.textAlignment = .center
+			vLabel.font = .appFont(size: 100, weight: .bold)
+			vLabel.text = R.string.mainScene.v()
+			vLabel.textColor = .systemBackground
+			vLabel.alpha = 0
+			
+			containerView.addSubview(squareView)
+			squareView.snp.makeConstraints { (maker) in
 				maker.size.equalTo(180)
 				maker.center.equalToSuperview()
 			}
-			containerView.addSubview(vLabel) { (maker) in
+			
+			containerView.addSubview(vLabel)
+			vLabel.snp.makeConstraints { (maker) in
 				maker.center.equalToSuperview()
 			}
 			
-			view.addSubview(containerView) { (maker) in
+			view.addSubview(containerView)
+			containerView.snp.makeConstraints { (maker) in
 				maker.edges.equalToSuperview()
 			}
 			
@@ -425,17 +452,22 @@ extension MainScene.Controller: UITableViewDelegate {
 			tableView.deselectRow(at: indexPath, animated: true)
 		}
 		
-		guard case .success(let result) = viewModel.searchStatus,
-			  let type = SearchQueryType(intValue: indexPath.section)
+		guard
+			case .success(let result) = viewModel.searchStatus,
+			let type = SearchQueryType(intValue: indexPath.section)
 		else { return }
 		
 		let index = indexPath.row
 		let word: Word
 		switch type {
-		case .exact	: word = result.exact.results[index]
-		case .ava	: word = result.ava.results[index]
-		case .like	: word = result.like.results[index]
-		case .text	: word = result.text.results[index]
+		case .exact:
+			word = result.exact.results[index]
+		case .ava:
+			word = result.ava.results[index]
+		case .like:
+			word = result.like.results[index]
+		case .text:
+			word = result.text.results[index]
 		}
 		
 		presentWordScene(for: word)

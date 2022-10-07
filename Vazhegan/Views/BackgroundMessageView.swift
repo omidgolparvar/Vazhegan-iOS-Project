@@ -18,36 +18,36 @@ final class BackgroundMessageView: UIView {
 	}
 	
 	private func setupViews(data: MessageData) {
-		let stackView = UIStackView(axis: .vertical, alignment: .fill, distribution: .fill, spacing: 12)
-		addSubview(stackView) { (maker) in
+		let stackView = UIStackView(.vertical, spacing: 12)
+		addSubview(stackView)
+		stackView.snp.makeConstraints { (maker) in
 			maker.leading.trailing.equalToSuperview().inset(20)
 			maker.centerY.equalToSuperview().offset(-64)
 		}
 		
-		let emojiLabel = UILabel() .. {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-			$0.font = .systemFont(ofSize: 36)
-			$0.textAlignment = .center
-			$0.text = data.emoji
-		}
+		let emojiLabel = UILabel()
+		emojiLabel.translatesAutoresizingMaskIntoConstraints = false
+		emojiLabel.font = .systemFont(ofSize: 36)
+		emojiLabel.textAlignment = .center
+		emojiLabel.text = data.emoji
 		
-		let titleLabel = UILabel() .. {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-			$0.font = .pinar(size: 20, weight: .bold)
-			$0.textAlignment = .center
-			$0.numberOfLines = 2
-			$0.text = data.title
-		}
+		let titleLabel = UILabel()
+		titleLabel.translatesAutoresizingMaskIntoConstraints = false
+		titleLabel.font = .appFont(size: 20, weight: .bold)
+		titleLabel.textAlignment = .center
+		titleLabel.numberOfLines = 2
+		titleLabel.text = data.title
 		
-		let subtitleLabel = UILabel() .. {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-			$0.font = .pinar(size: 16)
-			$0.textAlignment = .center
-			$0.numberOfLines = 0
-			$0.text = data.text
-		}
+		let subtitleLabel = UILabel()
+		subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+		subtitleLabel.font = .appFont(size: 16)
+		subtitleLabel.textAlignment = .center
+		subtitleLabel.numberOfLines = 0
+		subtitleLabel.text = data.text
 		
-		stackView.addArrangedSubviews(emojiLabel, titleLabel, subtitleLabel)
+		stackView.addArrangedSubview(emojiLabel)
+		stackView.addArrangedSubview(titleLabel)
+		stackView.addArrangedSubview(subtitleLabel)
 	}
 
 }

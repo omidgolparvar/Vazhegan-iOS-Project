@@ -14,21 +14,8 @@ final class MainController: UIViewController {
 		extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
 	}
 	
-	private let dismissButton = UIButton() .. {
-		let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular)
-		let image = UIImage(systemName: "xmark", withConfiguration: symbolConfiguration)
-		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.tintColor = .systemGray
-		$0.setImage(image, for: .normal)
-		$0.snp.makeConstraints { (maker) in
-			maker.size.equalTo(32)
-		}
-	}
-	private let tableView = UITableView.default {
-		$0.register(headerFooterType: SearchResultHeaderView.self)
-		$0.allowsSelection = false
-		$0.contentInset.top += 30
-	}
+	private let dismissButton = UIButton()
+	private let tableView = UITableView.default()
 	
 	private var viewModel: ViewModel!
 	private var cancellables = Set<AnyCancellable>()
@@ -53,11 +40,27 @@ final class MainController: UIViewController {
 	
 	private func setupViews() {
 		view.backgroundColor = .systemBackground
-		view.addSubview(tableView) { (maker) in
+		
+		tableView.register(headerFooterType: SearchResultHeaderView.self)
+		tableView.allowsSelection = false
+		tableView.contentInset.top += 30
+		view.addSubview(tableView)
+		tableView.snp.makeConstraints { (maker) in
 			maker.edges.equalToSuperview()
 		}
 		
-		view.addSubview(dismissButton) { maker in
+		let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 14, weight: .semibold)
+		let image = UIImage(systemName: "xmark", withConfiguration: symbolConfiguration)
+		dismissButton.translatesAutoresizingMaskIntoConstraints = false
+		dismissButton.tintColor = .label
+		dismissButton.backgroundColor = .systemGray5
+		dismissButton.setImage(image, for: .normal)
+		dismissButton.setCornerRadius(14, cornerCurve: .circular)
+		dismissButton.snp.makeConstraints { (maker) in
+			maker.size.equalTo(28)
+		}
+		view.addSubview(dismissButton)
+		dismissButton.snp.makeConstraints { maker in
 			maker.top.equalTo(view.safeAreaLayoutGuide).inset(20)
 			maker.trailing.equalToSuperview().inset(20)
 		}
@@ -114,9 +117,8 @@ final class MainController: UIViewController {
 				var snapshot = NSDiffableDataSourceSnapshot<Section, Word>()
 				
 				switch status {
-				case .notRequested:
-					break
-				case .searching:
+				case .notRequested,
+					 .searching:
 					break
 					
 				case .failed(let error):
@@ -184,7 +186,6 @@ extension MainController {
 				self?.handleContextProviderResult(item: item, error: error)
 			}
 		}
-		
 	}
 	
 	private func handleContextProviderResult(item: NSSecureCoding?, error: Error?) {
@@ -203,7 +204,7 @@ extension MainController {
 	
 	private func setupErrorLabel(with message: String) {
 		let label = UILabel(frame: tableView.bounds)
-		label.font = .pinar(size: 16)
+		label.font = .appFont(size: 16)
 		label.textColor = .systemRed
 		label.text = "بروز خطا" + "\n\n" + message
 		label.textAlignment = .center

@@ -2,6 +2,7 @@ platform :ios, '14.0'
 
 target 'Vazhegan' do
   use_frameworks!
+  pod 'R.swift'
 end
 
 target 'VazheganFramework' do

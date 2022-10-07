@@ -13,9 +13,8 @@ extension MyWordsScene {
 		private typealias TableViewDataSource = UITableViewDiffableDataSource<Section, Word>
 		
 		private let sceneBar = SceneTitleBar()
-		private let tableView = UITableView.default {
-			$0.contentInset.top -= 15
-		}
+		private let tableView = UITableView.default()
+		private let sortButton = UIButton()
 		
 		private var isFirstAppear = true
 		private let viewModel: ViewModel
@@ -48,14 +47,18 @@ extension MyWordsScene {
 		// MARK: - Setup Views
 		
 		private func setupViews() {
-			title = "کلمات من"
+			title = R.string.myWordsScene.pageTitle()
 			view.backgroundColor = .systemBackground
 			sceneBar.added(to: self)
 			setupTableView()
+			setupSortButton()
 		}
 		
 		private func setupTableView() {
-			view.addSubview(tableView) { (maker) in
+			tableView.contentInset.top -= 15
+			
+			view.addSubview(tableView)
+			tableView.snp.makeConstraints { (maker) in
 				maker.top.equalTo(sceneBar.snp.bottom)
 				maker.leading.trailing.bottom.equalToSuperview()
 			}
@@ -76,16 +79,45 @@ extension MyWordsScene {
 			if isInEmptyState {
 				let messageData = BackgroundMessageView.MessageData(
 					emoji: "👀",
-					title: "خالی می‌باشه",
-					text: "هیچ کلمه‌ای رو ذخیره نکردی"
+					title: R.string.myWordsScene.emptyStateTitle(),
+					text: R.string.myWordsScene.emptyStateText()
 				)
-				UIView.transition(with: tableView, duration: 0.2, options: [.transitionCrossDissolve]) { [self] in
-					tableView.backgroundView = BackgroundMessageView(frame: tableView.bounds, data: messageData)
-				} completion: { (_) in }
+				tableView.backgroundView = BackgroundMessageView(frame: tableView.bounds, data: messageData)
 			} else {
 				tableView.backgroundView = nil
 			}
 		}
+		
+		private func setupSortButton() {
+			let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular)
+			let image = UIImage(systemName: .UIImageSystemName.sort, withConfiguration: symbolConfiguration)
+			sortButton.translatesAutoresizingMaskIntoConstraints = false
+			sortButton.showsMenuAsPrimaryAction = true
+			sortButton.tintColor = .label
+			sortButton.setImage(image, for: .normal)
+			sortButton.snp.makeConstraints { (maker) in
+				maker.size.equalTo(32)
+			}
+			
+			sceneBar.addButton(sortButton)
+		}
+		
+		private func configureSortButtonMenu() {
+			let option = viewModel.sortOption
+			
+			let sortByTitleAction = UIAction(title: ViewModel.SortOption.title.name, image: UIImage()) { [unowned self] _ in
+				self.viewModel.sortOption = .title
+			}
+			sortByTitleAction.state = option == .title ? .on : .off
+			
+			let sortByDateAction = UIAction(title: ViewModel.SortOption.date.name, image: UIImage()) { [unowned self] _ in
+				self.viewModel.sortOption = .date
+			}
+			sortByDateAction.state = option == .date ? .on : .off
+			
+			sortButton.menu = UIMenu(title: R.string.myWordsScene.sortOptionMenuTitle(), children: [sortByDateAction, sortByTitleAction])
+		}
+
 		
 		// MARK: - Setup Bindings
 		
@@ -95,13 +127,34 @@ extension MyWordsScene {
 				.sink { [weak self] words in
 					guard let self = self else { return }
 					
-					self.setupBackgroundView(isInEmptyState: words.isEmpty)
-					
 					var snapshot = NSDiffableDataSourceSnapshot<Section, Word>()
 					snapshot.appendSections([.main])
 					snapshot.appendItems(words, toSection: .main)
-					self.dataSource.apply(snapshot, animatingDifferences: !self.isFirstAppear, completion: nil)
+					
+					self.dataSource.apply(snapshot, animatingDifferences: false) {
+						self.configureSortButtonMenu()
+					}
+					
+					if !self.isFirstAppear, !words.isEmpty {
+						let indexPath = IndexPath(row: 0, section: 0)
+						self.tableView.scrollToRow(at: indexPath, at: .middle, animated: false)
+					}
 				}
+				.store(in: &cancellables)
+			
+			viewModel
+				.$myWords
+				.map(\.isEmpty)
+				.sink { [unowned self] in
+					self.setupBackgroundView(isInEmptyState: $0)
+				}
+				.store(in: &cancellables)
+			
+			viewModel
+				.$myWords
+				.map(\.count)
+				.map { $0 > 1 }
+				.assign(to: \.isEnabled, on: sortButton)
 				.store(in: &cancellables)
 		}
 		

@@ -26,13 +26,11 @@ class InputAccessorView: UIView {
 	
 	private func setupDismissButton() {
 		let configuration = UIImage.SymbolConfiguration(scale: .medium)
-		let image = UIImage(systemName: "keyboard.chevron.compact.down", withConfiguration: configuration)
-		
+		let image = UIImage(systemName: .UIImageSystemName.dismissKeyboard, withConfiguration: configuration)
 		dismissButton.tintColor = .label
 		dismissButton.backgroundColor = .systemGray5
 		dismissButton.setImage(image, for: .normal)
 		dismissButton.layer.cornerRadius = 22
-		
 		dismissButton
 			.tapPublisher
 			.sink { [unowned self] in

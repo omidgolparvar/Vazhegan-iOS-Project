@@ -6,6 +6,9 @@ import RealmSwift
 public enum V {
 	
 	public enum Constants {
+		public static let myLinkedInProfileURL = URL(string: "https://www.linkedin.com/in/omidgolparvar")!
+		public static let myGithubProfileURL = URL(string: "https://github.com/omidgolparvar")!
+		
 		public static let appDownloadLink	= "https://github.com/omidgolparvar/Vazhegan-iOS-Project/blob/master/Download.md"
 		
 		internal static let appGroupIdentifier	= "group.io.idco.ios.Vazhegan"

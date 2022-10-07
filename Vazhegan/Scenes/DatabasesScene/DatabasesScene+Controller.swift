@@ -13,9 +13,7 @@ extension DatabasesScene {
 		private typealias TableViewDataSource = UITableViewDiffableDataSource<Section, Database>
 		
 		private let sceneBar = SceneTitleBar()
-		private let tableView = UITableView.default {
-			$0.contentInset.top -= 15
-		}
+		private let tableView = UITableView.default()
 		
 		private let viewModel: ViewModel
 		private var router: Router
@@ -42,14 +40,17 @@ extension DatabasesScene {
 		// MARK: - Setup Views
 		
 		private func setupViews() {
-			title = "پایگاه‌های مورد استفاده"
+			title = R.string.databasesScene.pageTitle()
 			view.backgroundColor = .systemBackground
 			sceneBar.added(to: self)
 			setupTableView()
 		}
 		
 		private func setupTableView() {
-			view.addSubview(tableView) { (maker) in
+			tableView.contentInset.top -= 15
+			
+			view.addSubview(tableView)
+			tableView.snp.makeConstraints { (maker) in
 				maker.top.equalTo(sceneBar.snp.bottom)
 				maker.leading.trailing.bottom.equalToSuperview()
 			}
@@ -76,6 +77,7 @@ extension DatabasesScene {
 					var snapshot = NSDiffableDataSourceSnapshot<Section, Database>()
 					snapshot.appendSections([.main])
 					snapshot.appendItems(databases, toSection: .main)
+					
 					self.dataSource.apply(snapshot)
 				}
 				.store(in: &cancellables)
@@ -98,9 +100,13 @@ extension DatabasesScene.Controller {
 extension DatabasesScene.Controller: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		defer {
+			tableView.deselectRow(at: indexPath, animated: true)
+		}
+		
 		guard let database = dataSource.itemIdentifier(for: indexPath) else { return }
+		
 		viewModel.setEnabled(!database.isEnabled, for: database)
-		tableView.deselectRow(at: indexPath, animated: true)
 		var snapshot = dataSource.snapshot()
 		snapshot.reloadItems([viewModel.databases[indexPath.row]])
 		dataSource.apply(snapshot)

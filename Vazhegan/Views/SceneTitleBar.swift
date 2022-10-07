@@ -5,23 +5,9 @@ import Combine
 
 class SceneTitleBar: UIView {
 	
-	let titleLabel = UILabel() .. {
-		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.numberOfLines = 4
-		$0.textColor = .label
-		$0.textAlignment = .right
-		$0.font = .pinar(size: 22, weight: .bold)
-	}
-	let dismissButton = UIButton() .. {
-		let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular)
-		let image = UIImage(systemName: "xmark", withConfiguration: symbolConfiguration)
-		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.tintColor = .systemGray
-		$0.setImage(image, for: .normal)
-		$0.snp.makeConstraints { (maker) in
-			maker.size.equalTo(32)
-		}
-	}
+	private let buttonsStackView = UIStackView(.horizontal, alignment: .center, spacing: 20)
+	let titleLabel = UILabel()
+	let dismissButton = UIButton()
 	
 	private var cancellable: AnyCancellable?
 	
@@ -38,23 +24,45 @@ class SceneTitleBar: UIView {
 		translatesAutoresizingMaskIntoConstraints = false
 		backgroundColor = .systemBackground
 		
-		let dividerView = UIView() .. {
-			$0.translatesAutoresizingMaskIntoConstraints = false
-			$0.backgroundColor = .systemGray6
-		}
+		let dividerView = UIView()
+		dividerView.translatesAutoresizingMaskIntoConstraints = false
+		dividerView.backgroundColor = .systemGray6
 		
-		addSubview(titleLabel) { (maker) in
+		titleLabel.translatesAutoresizingMaskIntoConstraints = false
+		titleLabel.numberOfLines = 4
+		titleLabel.textColor = .label
+		titleLabel.textAlignment = .right
+		titleLabel.font = .appFont(size: 22, weight: .bold)
+		addSubview(titleLabel)
+		titleLabel.snp.makeConstraints { (maker) in
 			maker.centerY.equalToSuperview()
 			maker.leading.trailing.equalToSuperview().inset(16)
 		}
-		addSubview(dismissButton) { (maker) in
+		
+		buttonsStackView.semanticContentAttribute = .forceLeftToRight
+		addSubview(buttonsStackView)
+		buttonsStackView.snp.makeConstraints { (maker) in
 			maker.centerY.equalToSuperview()
 			maker.trailing.equalToSuperview().inset(20)
 		}
-		addSubview(dividerView) { (maker) in
+		addSubview(dividerView)
+		dividerView.snp.makeConstraints { (maker) in
 			maker.leading.trailing.bottom.equalToSuperview()
 			maker.height.equalTo(1)
 		}
+		
+		let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 14, weight: .bold)
+		let image = UIImage(systemName: .UIImageSystemName.close, withConfiguration: symbolConfiguration)
+		dismissButton.translatesAutoresizingMaskIntoConstraints = false
+		dismissButton.tintColor = .label
+		dismissButton.backgroundColor = .systemGray5
+		dismissButton.setImage(image, for: .normal)
+		dismissButton.setCornerRadius(14, cornerCurve: .circular)
+		dismissButton.snp.makeConstraints { (maker) in
+			maker.size.equalTo(28)
+		}
+		
+		buttonsStackView.addArrangedSubview(dismissButton)
 	}
 	
 	func added(to viewController: UIViewController) {
@@ -66,10 +74,16 @@ class SceneTitleBar: UIView {
 				viewController.dismiss(animated: true, completion: nil)
 			}
 		
-		viewController.view.addSubview(self) { (maker) in
+		viewController.view.addSubview(self)
+		self.snp.makeConstraints { (maker) in
 			maker.top.equalTo(viewController.view.safeAreaLayoutGuide)
 			maker.leading.trailing.equalTo(viewController.view)
 			maker.height.equalTo(80)
 		}
 	}
+	
+	func addButton(_ button: UIButton) {
+		buttonsStackView.addArrangedSubview(button)
+	}
+	
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pageTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>کلمات من</string>
+	</dict>
+	<key>sortOptionTitleText</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>عنوان</string>
+	</dict>
+	<key>sortOptionDateText</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>تاریخ ذخیره</string>
+	</dict>
+	<key>sortOptionMenuTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>ترتیب بر اساس...</string>
+	</dict>
+	<key>emptyStateTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>خالی می‌باشه</string>
+	</dict>
+	<key>emptyStateText</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>هیچ کلمه‌ای رو ذخیره نکردی</string>
+	</dict>
+</dict>
+</plist>
