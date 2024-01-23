@@ -1141,7 +1141,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vazhegan/Vazhegan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 3006;
+				CURRENT_PROJECT_VERSION = 3007;
 				INFOPLIST_FILE = Vazhegan/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1166,7 +1166,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vazhegan/Vazhegan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 3006;
+				CURRENT_PROJECT_VERSION = 3007;
 				INFOPLIST_FILE = Vazhegan/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1195,7 +1195,7 @@
 				CODE_SIGN_ENTITLEMENTS = VazheganActionExtension/VazheganActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3006;
+				CURRENT_PROJECT_VERSION = 3007;
 				DEVELOPMENT_TEAM = A5T376J6M4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VazheganActionExtension/Info.plist;
@@ -1227,7 +1227,7 @@
 				CODE_SIGN_ENTITLEMENTS = VazheganActionExtension/VazheganActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3006;
+				CURRENT_PROJECT_VERSION = 3007;
 				DEVELOPMENT_TEAM = A5T376J6M4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = VazheganActionExtension/Info.plist;
